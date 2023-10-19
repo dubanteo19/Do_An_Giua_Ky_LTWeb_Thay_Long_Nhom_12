@@ -2,18 +2,29 @@
     background-color: var(--primary-green);
 }
 header{
-    height: 170px;
     width: 100%;
     background-color:var(--primary-white);
 }
+#topbar {
+    height: 40px;
+    font-size: 14px;
+    transition: all 0.5s;
+}
+
 .menubar{
-    width:250px;
+    width:200px;
+}
+.navbar-nav{
+    justify-content: space-between;
+    text-align: center;
+    border-radius: 5px;
 }
 .search-smart{
-
+    position: relative;
 }
 .search-smart input{
-    height: 60px;
+    margin-top: 2px;
+    height: 40px;
     width: 500px;
     border: 3px solid var(--primary-green);
     outline: none;
@@ -24,13 +35,13 @@ header{
     position: absolute;
     border-radius: 5px;
     z-index: 1;
-    top: 10px;
-    right: 10px;
-    font-size: 25px;
+    top:7px;
+    right: 5px;
+    font-size: 17px;
     color: white;
     cursor: pointer;
 }
-#navbarNavDropdown ul{
+#navbarNav ul{
     border-radius: 10px;
 
 }

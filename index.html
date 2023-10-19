@@ -10,186 +10,171 @@
 	<link rel="stylesheet" href="styles/nav.css">
 </head>
 <body>
-<header class="header" >
-	<nav class="navbar">
-		<div class="container">
-			<div class="menubar d-sm-flex">
-				<a class="navbar-brand m-lg-0" href="#">
-					<img src="images/logo/logo.png" alt="" width="100" height="100" class="d-inline-block align-text-top" title="Logo">
-				</a>
-				<a href="#" id="logo" class="fs-3 text-decoration-none text-dark fw-bold justify-content-md-start my-lg-2">Lương Thực Việt<span>.</span></a>
+<header class="header" style="min-height: 124px">
+	<!-- ======= Top Bar ======= -->
+	<nav class="nav navbar-light bg-light" style="height: 40px">
+		<div id="topbar" class="d-flex align-items-center fixed-top bg-light">
+			<div class="container d-flex justify-content-center justify-content-md-between">
+				<div class="contact-info d-flex align-items-center">
+					<i class="fas fa-mobile d-flex align-items-center " style="margin-right: 5px;"></i><span class=""> +1 5589 55488 55</span>
+					<i class="fa-regular fa-clock d-flex align-items-center ms-4 " style="margin-right: 5px"></i><span class=""> Mon-Sat: 6AM - 23PM</span>
+				</div>
+				<div class="search-smart d-none d-md-flex">
+					<form class="">
+						<input class="form-control justify-content-md-start" type="search" placeholder="Bạn tìm gì..." aria-label="Search" width="300" height="200">
+						<i class="fas fa-search bg-primary-green"></i>
+					</form>
+				</div>
+				<div class="header-control d-none d-md-flex" style="padding-top: 2px">
+					<button type="button" class="btn btn-success bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="right" title="">
+						<i class="fa-solid fa-circle-user"></i>
+					</button>
+					<button type="button" class="btn btn-success ms-md-2 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Hệ thống cửa hàng">
+						<i class="fa-solid fa-location-dot"></i>
+					</button>
+					<button type="button" class="btn btn-success ms-md-2 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="left" title="Sản phẩm yêu thích">
+						<i class="fa-regular fa-heart"></i>
+					</button>
+					<button type="button" class="btn btn-success ms-md-2 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="left" title="Giỏ hàng">
+						<i class="fas fa-cart-shopping"></i>
+					</button>
+				</div>
+				<div class="languages d-none d-md-flex align-items-center">
+					<a class="nav-link text-dark" href="#">EN</a>
+					<a class="text-dark">/</a>
+					<a class="nav-link text-dark" href="#">VN</a>
+				</div>
 			</div>
+		</div>
+	</nav>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light p-xl-0">
+			<div class="container">
+				<div class="menubar d-sm-flex">
+					<a class="navbar-brand m-lg-0" href="#">
+						<img src="images/logo/logo.png" alt="" width="200" height="" class="d-inline-block align-text-top" title="Logo">
+					</a>
+				</div>
 
-			<div class="search-smart form-floating me-5">
-				<form class="d-flex">
-					<input class="form-control justify-content-md-start" type="search" placeholder="Bạn tìm gì..." aria-label="Search" width="300" height="200">
-					<i class="fas fa-search bg-primary-green"></i>
-				</form>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarScroll">
+					<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll bg-primary-green w-100" style="--bs-scroll-height: 100px;">
+						<li class="nav-item">
+							<a class="nav-link active text-light" aria-current="page" href="#">Trang chủ</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Sản phẩm
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+								<li><a class="dropdown-item " href="#">Nước</a></li>
+								<li><a class="dropdown-item" href="#">Đồ khô</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="#">Sản phẩm khác</a></li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-light" href="#">Sản phẩm khuyến mãi</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-light" href="#">Tin tức</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-light" href="#">Giới thiệu</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-light" href="#">Liên hệ</a>
+						</li>
+						<li class="nav-item" style="background-color: #b02a37; border-radius: 5px">
+							<a class="nav-link text-light" href="#">Đặt hàng nhanh</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-light" href="#">Chính sách thành viên</a>
+						</li>
+					</ul>
+				</div>
 			</div>
-			<div class="header-control">
-				<button type="button" class="btn btn-secondary bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="top" title="0343531523">
-					<i class="fa-solid fa-phone-volume pe-sm-1"></i><span>Hotline: 0343531523</span>
-				</button>
-				<button type="button" class="btn btn-secondary ms-md-1 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="right" title="">
-					<i class="fa-solid fa-circle-user"></i>
-				</button>
-				<button type="button" class="btn btn-secondary ms-md-1 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Hệ thống cửa hàng">
-					<i class="fa-solid fa-location-dot"></i>
-				</button>
-				<button type="button" class="btn btn-secondary ms-md-1 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="left" title="Sản phẩm yêu thích">
-					<i class="fa-regular fa-heart"></i>
-				</button>
-				<button type="button" class="btn btn-secondary ms-md-1 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="left" title="">
-					<i class="fas fa-cart-shopping"></i>
-				</button>
-			</div>
-		</div>
-	</nav>
-	<nav class="navbar navbar-expand-lg">
-		<div class="container">
-			<button class="navbar-toggler" style="background-color: #3dd5f3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNavDropdown">
-				<ul class="navbar-nav w-100 bg-primary-green ">
-					<li class="nav-item">
-						<a class="nav-link active text-white fw-bold" aria-current="page" href="#home" title="Trang chủ">Trang chủ</a>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle text-white fw-bold" href="#products" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="Sản phẩm">
-							Sản phẩm
-						</a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<li><a class="dropdown-item" href="#">Đồ khô</a></li>
-							<li><a class="dropdown-item" href="#">Nước</a></li>
-							<li><a class="dropdown-item" href="#">Rau củ</a></li>
-						</ul>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link text-white fw-bold" href="#promotional_products" title="Sản phẩm khuyến mãi">Sản phẩm khuyến mãi</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link text-white fw-bold" href="#news" title="Tin thức">Tin tức</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link text-white fw-bold" href="#introduce" title="Giới thiệu">Giới thiệu</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link text-white fw-bold" href="#contact" title="Liên hệ">Liên hệ</a>
-					</li>
-					<li class="nav-item" style="background-color: #b02a37; border-radius: 5px">
-					<a class="nav-link text-white fw-bold navbar-text" href="#order_quickly" title="Đặt hàng nhanh">Đặt hàng nhanh</a>
-					</li>
-					<li class="nav-item ">
-					<a class="nav-link text-white fw-bold" href="#policy" title="Chính sách thành viên">Chính sách thành viên</a>
-					</li>
-					<span class="nav-indicator"></span>
-				</ul>
-			</div>
-		</div>
-	</nav>
-<!--		<div class="header-menu">-->
-<!--			<div class="header-menu-des">-->
-<!--				<div class="menu-bar">-->
-<!--					<nav class="navbar">-->
-<!--						<a href="#" class="nav- item">Trang chủ</a>-->
-<!--						<a href="#" class="nav-item">Sản phẩm</a>-->
-<!--						<a href="#" class="nav-item">Sản phẩm khuyến mãi</a>-->
-<!--						<a href="#" class="nav-item">Tin tức</a>-->
-<!--						<a href="#" class="nav-item">Giới thiệu</a>-->
-<!--						<a href="#" class="nav-item">Liên hệ</a>-->
-<!--						<a href="#" class="nav-item item-red">Đặt hàng nhanh</a>-->
-<!--						<a href="#" class="nav-item" >Chính sách thành viên</a>-->
-<!--						-->
-<!--					</nav>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--		</div>-->
-<!--	</div>-->
+		</nav>
+
 </header>
-<!--<div class="section_slider">-->
-<!--	<div class="pixfort_pix_slider pix_builder_bg" id="section_slider">-->
-<!--		<div class="container">-->
-<!--			<div class="sixteen columns">-->
-<!--				<div class="content">-->
-<!--					<a href="/"btitle="Logo">-->
-<!--						<img src="Image/logo.png" alt="">-->
-<!--					</a>-->
-<!--					<a href="#" >Lương Thực Việt<span>.</span></a>-->
+<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+		<div class="carousel-indicators">
+			<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+			<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+			<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+		</div>
+		<div class="carousel-inner">
+			<div class="carousel-item active" data-bs-interval="10000">
+				<img src="images/slider/anh1.jpg" class="d-block w-100"  height="550px" alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h5>First slide label</h5>
+					<p>Some representative placeholder content for the first slide.</p>
+				</div>
+			</div>
+			<div class="carousel-item" data-bs-interval="2000">
+				<img src="images/slider/anh2.jpg" class="d-block w-100" height="550px" alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h5>Second slide label</h5>
+					<p>Some representative placeholder content for the second slide.</p>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="images/slider/anh3.jpg" class="d-block w-100" height="550px" alt="...">
+				<div class="carousel-caption d-none d-md-block">
+					<h5>Third slide label</h5>
+					<p>Some representative placeholder content for the third slide.</p>
+				</div>
+			</div>
+		</div>
+		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Previous</span>
+		</button>
+		<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Next</span>
+		</button>
+</div>
 
-<!--				</div>-->
-<!--				<div id="myCarousel" class="carousel slide" data-interval="false">-->
-<!--					&lt;!&ndash; Indicators &ndash;&gt;-->
-<!--					<ol class="carousel-indicators">-->
-<!--						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>-->
-<!--						<li data-target="#myCarousel" data-slide-to="1"></li>-->
-<!--						<li data-target="#myCarousel" data-slide-to="2"></li>-->
-<!--						<li data-target="#myCarousel" data-slide-to="3"></li>-->
-<!--					</ol>-->
-<!--					&lt;!&ndash; Wrapper for slides &ndash;&gt;-->
-<!--					<div class="carousel-inner">-->
-<!--						<div class="item active">-->
-<!--							<img  src="Image/anh1.jpg" alt="" class="col-lg-12">-->
-<!--						</div>-->
-<!--						<div class="item">-->
-<!--							<img src="Image/anh2.jpg" alt="" class="col-xxl-12 ">-->
-<!--						</div>-->
-<!--						<div class="item">-->
-<!--							<img src="Image/anh3.jpg" alt="" class="col-md-12">-->
-<!--						</div>-->
-<!--						<div class="item">-->
-<!--							<img src="Image/anh4.jpg" alt="" class="col-md-12">-->
-<!--						</div>-->
-<!--					</div>-->
-<!--					&lt;!&ndash; Controls &ndash;&gt;-->
-<!--					<a class="left carousel-control fui-arrow-left" href="#myCarousel" data-slide="prev"></a>-->
-<!--					<a class="right carousel-control fui-arrow-right" href="#myCarousel" data-slide="next"></a>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--			<button class="btn btn-sucess">click me</button>-->
-<!--		</div>&lt;!&ndash; /.container &ndash;&gt;-->
-<!--	</div>-->
-<!--</div>-->
+<div class="container" id="catalogs">
+	<div class="catalog-header">
+		<h3 class="font-weight-bold text-primary-green float-start">Danh mục nổi bật</h3>
+		<div class="arrow-btns-group float-end">
+			<button class="arrow-btn"><</button>
+			<button class="arrow-btn">></button>
+		</div>
+	</div>
 
-</head>
-<!--<div class="container" id="catalogs">-->
-<!--	<div class="catalog-header">-->
-<!--		<h3 class="font-weight-bold text-primary-green float-start">Danh mục nổi bật</h3>-->
-<!--		<div class="arrow-btns-group float-end">-->
-<!--			<button class="arrow-btn"><</button>-->
-<!--			<button class="arrow-btn">></button>-->
-<!--		</div>-->
-<!--	</div>-->
-
-<!--	<div class="container product-catalog overflow-auto">-->
-<!--		<div class="d-flex">-->
-<!--			<div class="catalog-item">-->
-<!--				<img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image ">-->
-<!--				<p class="catalog-name text-primary-green"> sản phẩm 1</p>-->
-<!--			</div>-->
-<!--			<div class="catalog-item">-->
-<!--				<img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image ">-->
-<!--				<p class="catalog-name text-primary-green"> sản phẩm 2</p>-->
-<!--			</div>-->
-<!--			<div class="catalog-item">-->
-<!--				<img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image">-->
-<!--				<p class="catalog-name text-primary-green"> sản phẩm 3</p>-->
-<!--			</div>-->
-<!--			<div class="catalog-item">-->
-<!--				<img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image">-->
-<!--				<p class="catalog-name text-primary-green"> sản phẩm 4</p>-->
-<!--			</div>-->
-<!--			<div class="catalog-item">-->
-<!--				<img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image">-->
-<!--				<p class="catalog-name text-primary-green"> sản phẩm 5</p>-->
-<!--			</div>-->
-<!--			<div class="catalog-item">-->
-<!--				<img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image">-->
-<!--				<p class="catalog-name text-primary-green">sản phẩm khác</p>-->
-<!--			</div>-->
-<!--		</div>-->
-<!--	</div>-->
-<!--</div>-->
+	<div class="container product-catalog overflow-auto">
+		<div class="d-flex">
+			<div class="catalog-item">
+				<img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image ">
+				<p class="catalog-name text-primary-green"> sản phẩm 1</p>
+			</div>
+			<div class="catalog-item">
+				<img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image ">
+				<p class="catalog-name text-primary-green"> sản phẩm 2</p>
+			</div>
+			<div class="catalog-item">
+				<img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image">
+				<p class="catalog-name text-primary-green"> sản phẩm 3</p>
+			</div>
+			<div class="catalog-item">
+				<img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image">
+				<p class="catalog-name text-primary-green"> sản phẩm 4</p>
+			</div>
+			<div class="catalog-item">
+				<img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image">
+				<p class="catalog-name text-primary-green"> sản phẩm 5</p>
+			</div>
+			<div class="catalog-item">
+				<img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image">
+				<p class="catalog-name text-primary-green">sản phẩm khác</p>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
 <link rel="stylesheet" type="text/css" href="styles/base.css">
 <link rel="stylesheet" type="text/css" href="styles/main.css">

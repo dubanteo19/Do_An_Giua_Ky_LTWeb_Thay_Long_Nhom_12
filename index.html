@@ -7,52 +7,105 @@
 	<link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
+	<link rel="stylesheet" href="styles/nav.css">
 </head>
 <body>
-<header class="header">
-	<div class="container" style="background-color: red">
-		<div class="row row-header">
-			<div class="menu-bar">
-				<div class="logo">
-					<a href="/"btitle="Logo">
-						<img src="Image/logo.png" alt="" class="" style=" height: 70px;">
-					</a>
-					<a href="#" id="logo" class="dt">Lương Thực Việt<span>.</span></a>
+<header class="header" >
+	<nav class="navbar">
+		<div class="container">
+			<div class="menubar d-sm-flex">
+				<a class="navbar-brand m-lg-0" href="#">
+					<img src="images/logo/logo.png" alt="" width="100" height="100" class="d-inline-block align-text-top" title="Logo">
+				</a>
+				<a href="#" id="logo" class="fs-3 text-decoration-none text-dark fw-bold justify-content-md-start my-lg-2">Lương Thực Việt<span>.</span></a>
+			</div>
 
-				</div>
-				<div class="search-smart">
-					<input type="text" placeholder="Bạn tìm gì...">
-					<i class="fas fa-search"></i>
-				</div>
-				<div class="header-control">
-					<ul class="ul-control">
-						<li><i class="fa-solid fa-phone-volume"></i><span>Hotline: 0343531523</span></li>
-						<li><i class="fa-solid fa-circle-user"></i></li>
-						<li><i class="fa-solid fa-location-dot"></i></li>
-						<li><i class="fa-regular fa-heart"></i></li>
-						<li><i class="fas fa-cart-shopping"></i></li>
-					</ul>
-				</div>
+			<div class="search-smart form-floating me-5">
+				<form class="d-flex">
+					<input class="form-control justify-content-md-start" type="search" placeholder="Bạn tìm gì..." aria-label="Search" width="300" height="200">
+					<i class="fas fa-search bg-primary-green"></i>
+				</form>
+			</div>
+			<div class="header-control">
+				<button type="button" class="btn btn-secondary bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="top" title="0343531523">
+					<i class="fa-solid fa-phone-volume pe-sm-1"></i><span>Hotline: 0343531523</span>
+				</button>
+				<button type="button" class="btn btn-secondary ms-md-1 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="right" title="">
+					<i class="fa-solid fa-circle-user"></i>
+				</button>
+				<button type="button" class="btn btn-secondary ms-md-1 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Hệ thống cửa hàng">
+					<i class="fa-solid fa-location-dot"></i>
+				</button>
+				<button type="button" class="btn btn-secondary ms-md-1 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="left" title="Sản phẩm yêu thích">
+					<i class="fa-regular fa-heart"></i>
+				</button>
+				<button type="button" class="btn btn-secondary ms-md-1 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="left" title="">
+					<i class="fas fa-cart-shopping"></i>
+				</button>
 			</div>
 		</div>
+	</nav>
+	<nav class="navbar navbar-expand-lg">
+		<div class="container">
+			<button class="navbar-toggler" style="background-color: #3dd5f3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav w-100 bg-primary-green ">
+					<li class="nav-item">
+						<a class="nav-link active text-white fw-bold" aria-current="page" href="#home" title="Trang chủ">Trang chủ</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle text-white fw-bold" href="#products" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="Sản phẩm">
+							Sản phẩm
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li><a class="dropdown-item" href="#">Đồ khô</a></li>
+							<li><a class="dropdown-item" href="#">Nước</a></li>
+							<li><a class="dropdown-item" href="#">Rau củ</a></li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-white fw-bold" href="#promotional_products" title="Sản phẩm khuyến mãi">Sản phẩm khuyến mãi</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-white fw-bold" href="#news" title="Tin thức">Tin tức</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-white fw-bold" href="#introduce" title="Giới thiệu">Giới thiệu</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-white fw-bold" href="#contact" title="Liên hệ">Liên hệ</a>
+					</li>
+					<li class="nav-item" style="background-color: #b02a37; border-radius: 5px">
+					<a class="nav-link text-white fw-bold navbar-text" href="#order_quickly" title="Đặt hàng nhanh">Đặt hàng nhanh</a>
+					</li>
+					<li class="nav-item ">
+					<a class="nav-link text-white fw-bold" href="#policy" title="Chính sách thành viên">Chính sách thành viên</a>
+					</li>
+					<span class="nav-indicator"></span>
+				</ul>
+			</div>
+		</div>
+	</nav>
 <!--		<div class="header-menu">-->
 <!--			<div class="header-menu-des">-->
 <!--				<div class="menu-bar">-->
 <!--					<nav class="navbar">-->
-<!--						<a href="#home" class="nav- item">Trang chủ</a>-->
-<!--						<a href="#products" class="nav-item">Sản phẩm</a>-->
-<!--						<a href="#promotional_products" class="nav-item">Sản phẩm khuyến mãi</a>-->
-<!--						<a href="#news" class="nav-item">Tin tức</a>-->
-<!--						<a href="#introduce" class="nav-item">Giới thiệu</a>-->
-<!--						<a href="#contact" class="nav-item">Liên hệ</a>-->
-<!--						<a href="#order_quickly" class="nav-item item-red">Đặt hàng nhanh</a>-->
-<!--						<a href="#policy" class="nav-item" >Chính sách thành viên</a>-->
-<!--						<span class="nav-indicator"></span>-->
+<!--						<a href="#" class="nav- item">Trang chủ</a>-->
+<!--						<a href="#" class="nav-item">Sản phẩm</a>-->
+<!--						<a href="#" class="nav-item">Sản phẩm khuyến mãi</a>-->
+<!--						<a href="#" class="nav-item">Tin tức</a>-->
+<!--						<a href="#" class="nav-item">Giới thiệu</a>-->
+<!--						<a href="#" class="nav-item">Liên hệ</a>-->
+<!--						<a href="#" class="nav-item item-red">Đặt hàng nhanh</a>-->
+<!--						<a href="#" class="nav-item" >Chính sách thành viên</a>-->
+<!--						-->
 <!--					</nav>-->
 <!--				</div>-->
 <!--			</div>-->
 <!--		</div>-->
-	</div>
+<!--	</div>-->
 </header>
 <!--<div class="section_slider">-->
 <!--	<div class="pixfort_pix_slider pix_builder_bg" id="section_slider">-->
@@ -97,6 +150,49 @@
 <!--		</div>&lt;!&ndash; /.container &ndash;&gt;-->
 <!--	</div>-->
 <!--</div>-->
+
+</head>
+<!--<div class="container" id="catalogs">-->
+<!--	<div class="catalog-header">-->
+<!--		<h3 class="font-weight-bold text-primary-green float-start">Danh mục nổi bật</h3>-->
+<!--		<div class="arrow-btns-group float-end">-->
+<!--			<button class="arrow-btn"><</button>-->
+<!--			<button class="arrow-btn">></button>-->
+<!--		</div>-->
+<!--	</div>-->
+
+<!--	<div class="container product-catalog overflow-auto">-->
+<!--		<div class="d-flex">-->
+<!--			<div class="catalog-item">-->
+<!--				<img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image ">-->
+<!--				<p class="catalog-name text-primary-green"> sản phẩm 1</p>-->
+<!--			</div>-->
+<!--			<div class="catalog-item">-->
+<!--				<img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image ">-->
+<!--				<p class="catalog-name text-primary-green"> sản phẩm 2</p>-->
+<!--			</div>-->
+<!--			<div class="catalog-item">-->
+<!--				<img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image">-->
+<!--				<p class="catalog-name text-primary-green"> sản phẩm 3</p>-->
+<!--			</div>-->
+<!--			<div class="catalog-item">-->
+<!--				<img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image">-->
+<!--				<p class="catalog-name text-primary-green"> sản phẩm 4</p>-->
+<!--			</div>-->
+<!--			<div class="catalog-item">-->
+<!--				<img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image">-->
+<!--				<p class="catalog-name text-primary-green"> sản phẩm 5</p>-->
+<!--			</div>-->
+<!--			<div class="catalog-item">-->
+<!--				<img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image">-->
+<!--				<p class="catalog-name text-primary-green">sản phẩm khác</p>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
+<!--</div>-->
 </body>
+<link rel="stylesheet" type="text/css" href="styles/base.css">
+<link rel="stylesheet" type="text/css" href="styles/main.css">
+<script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
 <script type="text/javascript" src="javascripts/bootstrap.bundle.js"></script>
-	</html> 
+</html>

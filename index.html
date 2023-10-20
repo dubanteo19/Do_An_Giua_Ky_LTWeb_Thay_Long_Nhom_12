@@ -5,20 +5,139 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Luong Thuc Viet</title>
 	<link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="styles/base.css">
 	<link rel="stylesheet" type="text/css" href="styles/main.css">
 	<script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
+	<link rel="stylesheet" href="styles/nav.css">
 </head>
 <body>
-<div class="container" id="catalogs">
-	<div class="catalog-header">
-		<h3 class="font-weight-bold text-primary-green float-start">Danh mục nổi bật</h3>
-		<div class="arrow-btns-group float-end">
-			<button class="arrow-btn"><</button>
-			<button class="arrow-btn">></button>
+<header class="header" style="min-height: 124px">
+	<nav class="nav navbar-light bg-light" style="height: 60px">
+		<div id="topbar" class="d-flex align-items-center fixed-top bg-light pt-1" >
+			<div class="container d-flex justify-content-center justify-content-md-between">
+				<div class="contact-info d-flex align-items-center">
+					<i class="fas fa-mobile d-flex align-items-center " style="margin-right: 5px;"></i><span class=""> +1 5589 55488 55</span>
+					<i class="fa-regular fa-clock d-flex align-items-center ms-4 " style="margin-right: 5px"></i><span class=""> Mon-Sat: 6AM - 23PM</span>
+				</div>
+				<div class="search-smart d-none d-md-flex">
+					<form class="">
+						<input class="form-control justify-content-md-start" type="search" placeholder="Bạn tìm gì..." aria-label="Search" width="300" height="200">
+						<i class="fas fa-search bg-primary-green"></i>
+					</form>
+				</div>
+				<div class="header-control d-none d-md-flex" style="padding-top: 2px">
+					<button type="button" class="btn btn-hover bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="right" title="">
+						<i class="fa-solid fa-circle-user"></i>
+					</button>
+					<button type="button" class="btn btn-hover ms-md-2 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Hệ thống cửa hàng">
+						<i class="fa-solid fa-location-dot"></i>
+					</button>
+					<button type="button" class="btn btn-hover ms-md-2 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="left" title="Sản phẩm yêu thích">
+						<i class="fa-regular fa-heart"></i>
+					</button>
+					<button type="button" class="btn btn-hover ms-md-2 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="left" title="Giỏ hàng">
+						<i class="fas fa-cart-shopping"></i>
+					</button>
+				</div>
+				<div class="languages d-none d-md-flex align-items-center">
+					<a class="nav-link text-primary-green fw-bolder" href="#">EN</a>
+					<a class="text-dark">/</a>
+					<a class="nav-link text-primary-green fw-bolder" href="#">VN</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+<!--	Logo and Thanh điều hướng -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light p-xl-0">
+		<div class="container">
+			<div class="menubar d-sm-flex">
+				<a class="navbar-brand m-lg-0" href="#">
+					<img src="images/logo/logo.png" alt="" width="200" height="" class="d-inline-block align-text-top" title="Logo">
+				</a>
+			</div>
+
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarScroll">
+				<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll bg-primary-green w-100" style="--bs-scroll-height: 100px;">
+					<li class="nav-item">
+						<a class="nav-link active text-light" aria-current="page" href="#">Trang chủ</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Sản phẩm
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+							<li><a class="dropdown-item " href="#">Nước</a></li>
+							<li><a class="dropdown-item" href="#">Đồ khô</a></li>
+							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="#">Sản phẩm khác</a></li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light" href="#">Sản phẩm khuyến mãi</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light" href="#">Tin tức</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light" href="#">Giới thiệu</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light" href="#">Liên hệ</a>
+					</li>
+					<li class="nav-item" style="background-color: var(--primary-red); border-radius: 5px">
+						<a class="nav-link text-light" href="#">Đặt hàng nhanh</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light" href="#">Chính sách thành viên</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</header>
+<!--Slider-->
+<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+	<div class="carousel-indicators">
+		<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+		<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+		<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+	</div>
+	<div class="carousel-inner">
+		<div class="carousel-item active" data-bs-interval="10000">
+			<img src="images/slider/anh1.jpg" class="d-block w-100"  height="550px" alt="...">
+			<div class="carousel-caption d-none d-md-block">
+				<h5>First slide label</h5>
+				<p>Some representative placeholder content for the first slide.</p>
+			</div>
+		</div>
+		<div class="carousel-item" data-bs-interval="2000">
+			<img src="images/slider/anh2.jpg" class="d-block w-100" height="550px" alt="...">
+			<div class="carousel-caption d-none d-md-block">
+				<h5>Second slide label</h5>
+				<p>Some representative placeholder content for the second slide.</p>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<img src="images/slider/anh3.jpg" class="d-block w-100" height="550px" alt="...">
+			<div class="carousel-caption d-none d-md-block">
+				<h5>Third slide label</h5>
+				<p>Some representative placeholder content for the third slide.</p>
+			</div>
 		</div>
 	</div>
-
+	<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Previous</span>
+	</button>
+	<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next" >
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Next</span>
+	</button>
+</div>
 	<div class="container product-catalog overflow-auto">
 		<div class="d-flex">
 			<div class="catalog-item">
@@ -48,6 +167,10 @@
 		</div>
 	</div>
 </div>
+
 </body>
+<link rel="stylesheet" type="text/css" href="styles/base.css">
+<link rel="stylesheet" type="text/css" href="styles/main.css">
+<script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
 <script type="text/javascript" src="javascripts/bootstrap.bundle.js"></script>
-	</html> 
+</html>

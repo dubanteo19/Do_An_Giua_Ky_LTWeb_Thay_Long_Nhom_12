@@ -6,11 +6,13 @@ header{
     background-color:var(--primary-white);
 }
 #topbar {
-    height: 40px;
+    height: 60px;
     font-size: 14px;
     transition: all 0.5s;
 }
-
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
 .menubar{
     width:200px;
 }
@@ -85,4 +87,17 @@ header{
     height: 5px;
     z-index: -1;
     border-radius: 8px 8px 0 0;
+}
+.carousel-control-next:hover,
+.carousel-control-prev:hover {
+    background-color: #fefefe;
+    opacity: 0.3;
+}
+.carousel-caption h5{
+    font-size: 30px;
+    color: var(--primary-white);
+}
+.carousel-caption p{
+    font-size: 20px;
+    color: var(--primary-white);
 }

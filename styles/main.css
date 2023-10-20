@@ -53,3 +53,39 @@
 	border-radius: 5px;
 	color: var(--primary-white);
 }
+
+/**-------------->Css for our services**/
+.services-container{
+	padding: 20px;
+	border-top: 1px solid var(--primary-green);
+}
+.service-item:hover{
+	border: 3px solid  var(--primary-green);
+}
+.service-item:hover .underline{
+	width: 40px;
+}
+.service-item{
+	height: 400px;
+	border-radius: 5px;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	transition: 0.1s ease;
+}
+.underline{
+	background-color: var(--primary-green);
+	width: 10px;
+	height: 4px;
+	transition: 0.3s ease;
+}
+.btn-white-border-green:hover{
+	color: white;
+	background-color: var(--primary-green);
+}
+
+.btn-white-border-green{
+	border: 2px solid var(--primary-green);
+	border-radius: 5px;
+	color: var(--primary-green);
+	background-color: white;
+	transition: 0.3s ease;
+}

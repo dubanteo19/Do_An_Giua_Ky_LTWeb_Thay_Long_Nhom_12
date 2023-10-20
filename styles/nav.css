@@ -101,3 +101,13 @@ header{
     font-size: 20px;
     color: var(--primary-white);
 }
+.btn-hover {
+    color: #fff;
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
+}
+.btn-hover:hover {
+    color: #fff;
+    background-color: var(--hover-green);
+    border-color: var(--hover-green);
+}

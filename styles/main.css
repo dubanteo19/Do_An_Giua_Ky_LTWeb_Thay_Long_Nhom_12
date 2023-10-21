@@ -1,3 +1,7 @@
+section {
+	margin-bottom: 40px;
+}
+
 .text-primary-green{
 	color: var(--primary-green);
 }
@@ -88,4 +92,106 @@
 	color: var(--primary-green);
 	background-color: white;
 	transition: 0.3s ease;
+}
+
+.group_title {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid var(--primary-green);
+}
+
+.group_title .title {
+	color: var(--primary-green);
+}
+
+.btn-green {
+	color: #fff;
+	background-color: var(--primary-green);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.btn-small {
+	width: 30px;
+	height: 30px;
+	border-radius: 5px;
+}
+
+.disabled {
+	opacity: 0.6;
+}
+
+.item {
+	width: 100%;
+	border-radius: 8px;
+	margin-top: 20px;
+	padding: 6px;
+}
+
+.radius-green {
+	border: 1px solid #ddd;
+	transition: 0.1s ease;
+}
+
+.radius-green:hover {
+	border: 3px solid var(--primary-green);
+}
+
+.item-inline {
+	display: inline-flex;
+	align-items: center;
+}
+
+.img_thumb {
+	width: 99px;
+	height: auto;
+}
+
+.product-info {
+	padding: 0 10px;
+	width: 100%;
+}
+
+.product-info > * {
+	margin-bottom: 10px;
+}
+
+.product-info .product-name {
+	font-size: 16px;
+	font-weight: normal;
+	width: 100%;
+	height: calc(1em * 1.4 * 2);
+}
+
+.product-info .product-name a {
+	color: #000;
+	text-decoration: none;
+}
+
+.product-info .product-name a:hover {
+	color: var(--primary-green);
+}
+
+.price {
+	color: var(--primary-green);
+	font-weight: 700;
+}
+
+.product-info .button-control {
+	margin-bottom: 2px;
+}
+
+.see-more {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.see-more a {
+	border: 2px solid var(--primary-green);
+	border-radius: 4px;
+	padding: 5px 15px;
+	text-decoration: none;
+	color: var(--primary-green);
 }

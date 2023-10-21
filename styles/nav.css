@@ -1,3 +1,4 @@
+
 .bg-primary-green{
     background-color: var(--primary-green);
 }
@@ -110,4 +111,12 @@ header{
     color: #fff;
     background-color: var(--hover-green);
     border-color: var(--hover-green);
+}
+.btn-green{
+    color: var(--hover-green);
+    border-color: var(--primary-green);
+}
+.btn-green:hover {
+    color: #FFFFFF;
+    background-color: var(--hover-green);
 }

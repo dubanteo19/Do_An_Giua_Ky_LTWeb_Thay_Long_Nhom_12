@@ -5,7 +5,9 @@
 .card{
     cursor: pointer;
     padding: 0;
-    height: 400px;
+    height: 350px;
+    width: 15rem;
+    margin-right: 24px;
 }
 .btn-news{
     border-radius: 10px;

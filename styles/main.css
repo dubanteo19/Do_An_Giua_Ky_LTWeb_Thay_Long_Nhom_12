@@ -1,6 +1,9 @@
 .text-primary-green{
 	color: var(--primary-green);
 }
+.text-primary-white{
+	color: var(--primary-white);
+}
 .product-catalog{
 	border-top: 1px solid var(--primary-green);
 	height: 200px;

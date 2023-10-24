@@ -34,9 +34,9 @@
     position: absolute;
     bottom: 0;
     z-index: 1;
-    background-image: linear-gradient(to bottom, rgba(103,146,16,0.3) 0%, var(--primary-green) 100%);
+    background-image: linear-gradient(to bottom, rgba(103,146,16,0.3) 0%, rgba(103, 147, 14, 0.4) 100%);
     background-size: cover;
-    opacity: 0.8;
+    opacity: 1;
 }
 .card-img-top {
     position: relative;

@@ -5,12 +5,18 @@ section {
 .text-primary-green{
 	color: var(--primary-green);
 }
+.text-primary-light-green{
+	color: var(--primary-light-green);
+}
 .text-primary-white{
 	color: var(--primary-white);
 }
 .product-catalog{
 	border-top: 1px solid var(--primary-green);
 	height: 200px;
+}
+.bg-primary-green{
+    background-color: var(--primary-green);
 }
 #catalogs{
 	padding: 10px;
@@ -188,4 +194,8 @@ section {
 	padding: 5px 15px;
 	text-decoration: none;
 	color: var(--primary-green);
+}
+.border-s-r-5{
+	border: 1px solid rgba(0, 0, 0, 0.4);
+	border-radius: 5px;
 }

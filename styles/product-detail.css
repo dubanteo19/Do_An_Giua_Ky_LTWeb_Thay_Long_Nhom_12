@@ -1,0 +1,105 @@
+.left-side {
+    height: 2000px;
+    /*	background-color: red;*/
+}
+
+.right-side {
+    height: 2000px;
+    background-color: gray;
+}
+
+.box {
+    padding: 15px;
+    background-color: var(--primary-light-green);
+}
+
+.text-group {
+    margin-left: 10px;
+}
+
+.description {
+    font-size: 17px;
+}
+
+.text-light-color {
+    color: #679210;
+}
+
+.price-box {
+    background-color: var(--primary-light-green);
+    padding: 10px 5px;
+    position: relative;
+    border-radius: 5px;
+}
+
+.origin-price {
+    text-decoration: line-through;
+    position: absolute;
+    top: 22px;
+}
+
+.text-red {
+    color: red;
+}
+
+.weight-btn {
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 5px;
+    margin-right: 5px;
+    background-color: white;
+    margin-top: 5px;
+}
+
+.active {
+    background-color: var(--primary-green);
+    color: white;
+}
+.minus-btn,.plus-btn{
+		border: none;
+		width: 35px;
+		height: 35px;
+		border-radius: 5px;
+}
+	.input-quanlity:focus{
+		outline: none;
+
+}
+	.quantity-form{
+		border: 1px solid rgba(0, 0, 0, 0.4);
+		width: 135px;
+		padding: 2px;
+		border-radius: 5px;
+}
+.input-quanlity{
+		width: 50px;
+		border: none;
+		text-align: center;
+}
+	.add-to-cart-btn:hover{
+		background-color: var(--hover-green);
+
+}
+.add-to-cart-btn{
+	width: 400px;
+	border: none;
+	padding: 5px;
+	border-radius: 10px;
+}
+.cart-icon{
+		font-size: 35px;
+
+}
+.my-progress-bar{
+	background-color: var(--primary-green);
+
+}
+.sale-title{
+	padding: 10px 20px;
+	width: 250px;
+	color:white;
+	border-radius: 5px;
+}
+.sale-detail{
+	padding: 5px 10px;
+}

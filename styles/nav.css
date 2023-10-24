@@ -1,4 +1,6 @@
-
+.color-icon{
+    color: #cda45e;
+}
 .bg-primary-green{
     background-color: var(--primary-green);
 }

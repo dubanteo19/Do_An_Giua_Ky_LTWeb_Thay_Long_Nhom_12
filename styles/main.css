@@ -189,3 +189,7 @@ section {
 	text-decoration: none;
 	color: var(--primary-green);
 }
+/*************/
+.bg-footer{
+	background-color: #efffcf;
+}

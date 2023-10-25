@@ -5,7 +5,6 @@
 
 .right-side {
     height: 2000px;
-    background-color: gray;
 }
 
 .box {
@@ -102,4 +101,27 @@
 }
 .sale-detail{
 	padding: 5px 10px;
+}
+.discount-item{
+	border-radius: 5px;
+	border: 3px solid var(--primary-green);
+	padding: 10px 10px 20px 10px; 
+	position: relative;
+}
+.copy-btn{
+	position: absolute;
+	border: none;
+	border-radius: 5px;
+	padding: 5px 15px;
+	left: 120px;
+}
+	.fa-info{
+		border-radius: 100%;
+		border: 1px solid var(--primary-green);
+		padding: 4px 10px;
+		color: var(--primary-green);
+		cursor: pointer;
+		left: 180px;
+		top: 10px;
+		position: absolute;
 }

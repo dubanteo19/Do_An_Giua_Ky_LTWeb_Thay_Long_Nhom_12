@@ -1,3 +1,15 @@
+.container {
+    flex-direction: column;
+}
+
+.left-column{
+    width: 76%;
+    height: 100%;
+}
+.right-column {
+    width: 24%;
+    height: 100%;
+}
 .viewmore {
     font-weight: 500;
     border: 1px solid #fff;
@@ -54,4 +66,37 @@
 .box-content .card-text {
     height: 0;
     visibility: hidden;
+}
+.list-inline{
+    cursor: pointer;
+}
+.list-inline:hover{
+    color: var(--primary-green);
+}
+.content-menu{
+    position: relative;
+    z-index: 0;
+}
+.content-menu .title-head .leaf-news{
+    position: absolute;
+    z-index: 1;
+    height: 25px;
+    right: 90px;
+    top: 10px;
+
+}
+.content-menu .title-head .leaf-category{
+    position: absolute;
+    z-index: 1;
+    height: 25px;
+    right: 30px;
+    top: 10px;
+
+}
+.content-right a{
+    color: black;
+    font-weight: 500;
+}
+.content-right:hover a{
+    color: var(--primary-green);
 }

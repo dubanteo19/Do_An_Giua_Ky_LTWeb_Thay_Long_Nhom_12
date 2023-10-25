@@ -6,7 +6,7 @@
     cursor: pointer;
     padding: 0;
     height: 350px;
-    width: 15rem;
+    width: 270px;
     margin-right: 24px;
 }
 .btn-news{
@@ -55,4 +55,11 @@
 }
 .card-title:hover{
     color: black;
+}
+.item-news{
+    color: black;
+}
+.item-news:hover{
+    cursor: pointer;
+    color: var(--primary-green);
 }

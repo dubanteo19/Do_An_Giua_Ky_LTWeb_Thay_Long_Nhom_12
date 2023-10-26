@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="styles/base.css">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <link rel="stylesheet" type="text/css" href="styles/product-detail.css">
+    <link rel="stylesheet" type="text/css" href="styles/lightslider.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title></title>
 </head>
@@ -19,7 +20,28 @@
             <div class="col-9">
                 <div class="left-side row">
                     <div class="col-6">
-                        <div class="product-images"></div>
+                        <div class="product-images">
+                            <ul id="imageGallery">
+                                <li data-thumb="images/thumbs/thumb-kim-chi1.png" data-src="images/thumbs/thumb-kim-chi1.png">
+                                    <img width="400px" src="images/product-images/kim-chi1.png" />
+                                </li>
+                                <li data-thumb="images/product-images/kim-chi2.png" data-src="images/product-images/kim-chi2.png">
+                                    <img width="400px" src="images/product-images/kim-chi2.png" />
+                                </li>
+                                <li data-thumb="images/product-images/kim-chi3.png" data-src="images/product-images/kim-chi3.png">
+                                    <img width="400px" src="images/product-images/kim-chi3.png" />
+                                </li>
+                                <li data-thumb="images/product-images/kim-chi4.png" data-src="images/product-images/kim-chi4.png">
+                                    <img width="400px" src="images/product-images/kim-chi4.png" />
+                                </li>
+                                  <li data-thumb="images/product-images/kim-chi5.png" data-src="images/product-images/kim-chi5.png">
+                                    <img width="400px" src="images/product-images/kim-chi5.png" />
+                                </li>
+                                <li data-thumb="images/product-images/kim-chi6.png" data-src="images/product-images/kim-chi6.png">
+                                    <img width="400px" src="images/product-images/kim-chi6.png" />
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="col-6">
                         <div class="product-details">
@@ -86,6 +108,16 @@
                                     <span>Tặng 100.000₫ mua hàng tại website thành viên Dola Organic, áp dụng khi mua Online tại Hồ Chí Minh và 1 số khu vực khác.</span>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="product-des mt-4">
+                        <button id="show-des-btn" class="px-4 py-2 btn-white-border-green active">MÔ TẢ SẢN PHẨM</button>
+                        <button id="show-guide-btn" class="px-4 py-2 btn-white-border-green">HƯỚNG DẪN MUA HÀNG</button>
+                        <div class="description-box">
+                            <small> Kim chi Bibigo được chế biến từ cải thảo tươi cùng với các nguyên liệu tự nhiên qua quá trình lên men, mang đến hương vị đúng chuẩn kim chi truyền thống Hàn Quốc. Kim chi cải thảo cắt lát Bibigo Ông Kim's gói 100g có thể dùng kim chi để nấu canh hoặc ăn kèm với cơm, mì, các món nướng BBQ.</small>
+                        </div>
+                        <div class="buy-guide-box">
+                            <iframe src="buy-guide.html" onload="resizeIframe(this)" scrolling="no"></iframe>
                         </div>
                     </div>
                 </div>
@@ -159,5 +191,46 @@
         </div>
     </div>
 </body>
+<script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
+<script type="text/javascript" src="javascripts/lightslider.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#imageGallery').lightSlider({
+        gallery: true,
+        item: 1,
+        loop: true,
+        auto: true,
+        thumbItem: 6,
+        slideMargin: 0,
+        enableDrag: true,
+        currentPagerPosition: 'left',
+        onSliderLoad: function(el) {
+            el.lightGallery({
+                selector: '#imageGallery .lslide'
+            });
+        }
+    });
+    var showDesBtn = $("#show-des-btn");
+    var showGuideBtn = $("#show-guide-btn");
+    $(".buy-guide-box").hide();
+    showDesBtn.click(function(event) {
+        $(".description-box").show();
+        $(".buy-guide-box").hide();
+        showDesBtn.addClass('active');
+        showGuideBtn.removeClass('active');
+    });
+    showGuideBtn.click(function(event) {
+        $(".description-box").hide();
+        $(".buy-guide-box").show();
+        showGuideBtn.addClass('active');
+        showDesBtn.removeClass('active');
+    });
+});
+
+function resizeIframe(obj) {
+    obj.style.height = "400px";
+    obj.style.width = "100%";
+}
+</script>
 
 </html>

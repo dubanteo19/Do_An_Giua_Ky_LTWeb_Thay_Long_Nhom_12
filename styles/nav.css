@@ -8,6 +8,7 @@ header{
     width: 100%;
     background-color:var(--primary-white);
 }
+
 #topbar {
     height: 60px;
     font-size: 14px;

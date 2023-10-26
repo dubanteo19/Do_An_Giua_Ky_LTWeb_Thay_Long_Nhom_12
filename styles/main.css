@@ -9,6 +9,7 @@ img {
 	border-style: none;
 	max-width: 100%;
 	height: auto;
+	max-height: 550px;
 }
 
 section {
@@ -115,13 +116,13 @@ section {
 	text-decoration: none;
 	display: block;
 	font-size: 26px;
+	font-weight: 500;
 }
 
 .group_title .title .title-content {
 	display: block;
 	font-size: 16px;
 	font-weight: 400;
-	margin-top: 8px;
 }
 
 .btn-green {
@@ -144,12 +145,38 @@ section {
 }
 
 .radius-green {
-	box-shadow: 0 0 0 .5px #ddd;
-	transition: box-shadow 0.1s ease;
+	border-radius: 8px;
 }
 
-.radius-green:hover {
-	box-shadow: 0 0 0 2px var(--primary-green);
+.radius-green:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 8px;
+	border: 1px solid rgba(0, 0, 0, .03);
+	transition: 0.3s cubic-bezier(0.24, 0.74, 0.58, 1);
+}
+
+.radius-green:hover:before {
+	border-width: 3px;
+	border-color: var(--primary-green);
+}
+
+.span-sale {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: auto;
+	height: auto;
+	background-color: var(--primary-red);
+	border-top-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	color: #Fff;
+	padding: 3px 20px;
+	font-size: 14px;
 }
 
 .card-title{
@@ -168,9 +195,58 @@ section {
 	color: var(--primary-green);
 }
 
-.price {
+.product-state .product-sold {
+	color: #000;
+	font-weight: 500;
+	font-size: 14px;
+	display: block;
+}
+
+.price-box {
 	color: var(--primary-green);
 	font-weight: 700;
+}
+
+.price-compare {
+	color: rgba(0, 0, 0, .4);
+	text-decoration: line-through;
+	font-size: 14px;
+	font-weight: 500;
+	margin-left: 10px;
+}
+
+.product-state > * {
+	margin-top: 6px;
+}
+
+.progress-bar {
+	width: 100%;
+	background-color: #dfdfdf;
+}
+
+.small-progress-bar {
+	height: 8px;
+	border-radius: 5px;
+}
+
+.small-progress-bar .fill {
+	background-image: linear-gradient(45deg, rgba(255,255,255,0.15) 25%,
+	transparent 25%, transparent 50%,
+	rgba(255,255,255,0.15) 50%,
+	rgba(255,255,255,0.15) 75%,
+	transparent 75%, transparent);
+	background-size: 40px 40px;
+	border-radius: 5px;
+	animation: progress 2s linear infinite;
+
+	width: 75%;
+	height: 100%;
+}
+
+@keyframes progress {
+	100% {
+		background-position: 40px 0px;
+	}
 }
 
 .see-more {
@@ -210,7 +286,6 @@ section {
 
 .card {
 	cursor: grab;
-	overflow: hidden;
 }
 
 .br-5 {

@@ -1,5 +1,11 @@
 
 
+.color-icon{
+    color: #cda45e;
+}
+.bg-primary-green{
+    background-color: var(--primary-green);
+}
 header{
     width: 100%;
     background-color:var(--primary-white);

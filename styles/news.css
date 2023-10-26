@@ -1,25 +1,20 @@
-.news-container{
-    padding: 20px;
-    border-top: 1px solid var(--primary-green);
-}
-.card{
-    cursor: pointer;
-    padding: 0;
-    height: 350px;
-    width: 15rem;
-    margin-right: 24px;
-}
-.btn-news{
+.viewmore {
+    font-weight: 500;
+    border: 1px solid #fff;
+    padding: 5px 20px;
     border-radius: 10px;
-    border: 1px solid var(--primary-white);
+    color: #fff;
 }
-.btn-news:hover{
-    color: #FFFFFF;
+
+.viewmore:hover {
     background-color: var(--hover-green);
+    color: #fff;
+    border: 1px solid var(--hover-green);
 }
-.time-post{
+
+.time-post {
     cursor: grab;
-    border-radius: 0 5px 0 5px ;
+    border-radius: 0 5px 0 5px;
     height: 50px;
     width: 100px;
     position: absolute;
@@ -27,32 +22,40 @@
     top: 0;
     right: 0;
 }
-.card-img-top {
-    z-index: 0;
-}
-.card-body {
+
+.box-content {
     position: absolute;
     bottom: 0;
     z-index: 1;
-    background-image: linear-gradient(to bottom, rgba(103,146,16,0.3) 0%, rgba(103, 147, 14, 0.4) 100%);
+    background-image: linear-gradient(to bottom, rgba(103, 146, 16, 0.3) 0%, rgba(103, 147, 14, 0.4) 100%);
     background-size: cover;
     opacity: 1;
+    background: linear-gradient(180deg, rgba(103, 146, 16, 0.3) 0%, #679210 100%);
+    color: #fff;
 }
-.card-img-top {
-    position: relative;
-    width: 100%;
-    height: 100%;
+
+.box-content .card-title {
+    margin-bottom: 20px;
 }
-.card-text {
-    cursor: grab;
-    visibility: hidden;
-    height: 0;
-    opacity: 1;
+
+.box-content .card-title a {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
 }
-.card:hover .card-text {
-    visibility: visible;
+
+.box-content .card-title a:hover {
+    color: #000;
+}
+
+.card:hover .box-content .card-text {
     height: auto;
+    visibility: visible;
+    transition: margin 1s ease;
+    margin-bottom: 30px;
 }
-.card-title:hover{
-    color: black;
+
+.box-content .card-text {
+    height: 0;
+    visibility: hidden;
 }

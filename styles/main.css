@@ -47,7 +47,6 @@ section {
 /*	border: 3px solid var(--primary-green);*/
 }
 .catalog-item:not(:last-child){
-	
 	margin-right: 20px;
 }
 .catalog-item{

@@ -1,10 +1,9 @@
 .left-side {
     height: auto;
-    /*	background-color: red;*/
+    padding-bottom: 50px;
 }
 
 .right-side {
-    height: 2000px;
 }
 
 .box {
@@ -24,7 +23,7 @@
     color: #679210;
 }
 
-.price-box {
+.product-price-box {
     background-color: var(--primary-light-green);
     padding: 10px 5px;
     position: relative;

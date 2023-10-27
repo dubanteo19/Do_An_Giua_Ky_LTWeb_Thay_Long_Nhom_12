@@ -4792,12 +4792,6 @@ textarea.form-control-lg {
   -webkit-animation: 1s linear infinite progress-bar-stripes;
   animation: 1s linear infinite progress-bar-stripes;
 }
-@media (prefers-reduced-motion: reduce) {
-  .progress-bar-animated {
-    -webkit-animation: none;
-    animation: none;
-  }
-}
 
 .list-group {
   display: flex;

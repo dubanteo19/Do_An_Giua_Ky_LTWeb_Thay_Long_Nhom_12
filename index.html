@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="styles/news.css">
     <link rel="stylesheet" type="text/css" href="styles/footer.css">
+    <link rel="stylesheet" type="text/css" href="styles/nav.css">
     <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
-    <link rel="stylesheet" href="styles/nav.css">
 </head>
 
 <body>
@@ -21,8 +21,8 @@
             <div id="topbar" class="d-flex align-items-center fixed-top bg-light pt-1">
                 <div class="container d-flex justify-content-center justify-content-md-between">
                     <div class="contact-info d-flex align-items-center">
-                        <i class="fas fa-mobile d-flex align-items-center color-icon" style="margin-right: 5px;"></i><span class=""> +1 5589 55488 55</span>
-                        <i class="fa-regular fa-clock d-flex align-items-center ms-4 color-icon" style="margin-right: 5px"></i><span class=""> Mon-Sat: 6AM - 23PM</span>
+                        <i class="fas fa-mobile d-flex align-items-center " style="margin-right: 5px;"></i><span class=""> +1 5589 55488 55</span>
+                        <i class="fa-regular fa-clock d-flex align-items-center ms-4 " style="margin-right: 5px"></i><span class=""> Mon-Sat: 6AM - 23PM</span>
                     </div>
                     <div class="search-smart d-none d-md-flex">
                         <form class="">
@@ -52,7 +52,7 @@
                 </div>
             </div>
         </nav>
-        <!--	Logo and Thanh điều hướng -->
+        <!--    Logo and Thanh điều hướng -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light p-xl-0">
             <div class="container">
                 <div class="menubar d-sm-flex">
@@ -66,7 +66,7 @@
                 <div class="collapse navbar-collapse" id="navbarScroll">
                     <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll bg-primary-green w-100" style="--bs-scroll-height: 100px;">
                         <li class="nav-item">
-                            <a class="nav-link active text-light" aria-current="page" href="#">Trang chủ</a>
+                            <a class="nav-link active text-light" aria-current="page" href="index.html">Trang chủ</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -85,10 +85,10 @@
                             <a class="nav-link text-light" href="#">Sản phẩm khuyến mãi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Tin tức</a>
+                            <a class="nav-link text-light" href="tin-tuc.html">Tin tức</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Giới thiệu</a>
+                            <a class="nav-link text-light" href="gioi-thieu.html">Giới thiệu</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="#">Liên hệ</a>
@@ -143,18 +143,23 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
     <!--Danh mục sản phẩm-->
     <div class="container" id="catalogs">
-        <div class="catalog-header">
-            <h3 class="font-weight-bold text-primary-green float-start">Danh mục nổi bật</h3>
-            <div class="arrow-btns-group float-end">
-                <button class="arrow-btn"><</button>
-                <button class="arrow-btn">>
-                </button>
+        <div class="group_title">
+            <div class="title">
+                <a class="title-name" href="">
+                    Danh mục nổi bật
+                </a>
+            </div>
+            <div class="button-control">
+                <div class="btn-green btn-small disabled">
+                    <i class="fa-solid fa-chevron-left fa-chevron"></i>
+                </div>
+                <div class="btn-green btn-small">
+                    <i class="fa-solid fa-chevron-right fa-chevron"></i>
+                </div>
             </div>
         </div>
-
         <div class="container product-catalog overflow-auto ">
             <div class="d-flex justify-content-between">
                 <div class="catalog-item">
@@ -182,9 +187,7 @@
                     <p class="catalog-name text-primary-green">sản phẩm khác</p>
                 </div>
             </div>
-
         </div>
-
         <!-- khuyến mãi-->
         <section>
             <div class="container">
@@ -196,21 +199,20 @@
                                     Khuyến mãi hấp dẫn
                                 </a>
                                 <span class="title-content">
-						            Chương trình khuyến mãi hấp dẫn đang chờ đợi bạn
+                                    Chương trình khuyến mãi hấp dẫn đang chờ đợi bạn
                                 </span>
                             </div>
                             <div class="button-control">
                                 <div class="btn-green btn-small disabled">
                                     <i class="fa-solid fa-chevron-left fa-chevron"></i>
                                 </div>
-
                                 <div class="btn-green btn-small">
                                     <i class="fa-solid fa-chevron-right fa-chevron"></i>
                                 </div>
                             </div>
                         </div>
                         <div class="card-deck d-flex mr-child-20">
-                            <div class="card radius-green">
+                            <div class="card radius-green" onclick="location.href='show-san-pham.html'">
                                 <span class="span-sale">Giảm 11%</span>
                                 <img class="card-img-top" src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="">
                                 <div class="card-body">
@@ -227,12 +229,10 @@
                                             </span>
                                         </div>
                                     </div>
-
                                     <div class="product-state">
                                         <div class="progress-bar small-progress-bar">
                                             <div class="fill bg-primary-green"></div>
                                         </div>
-
                                         <span class="product-sold">
                                             Đã bán 148
                                         </span>
@@ -256,12 +256,10 @@
                                             </span>
                                         </div>
                                     </div>
-
                                     <div class="product-state">
                                         <div class="progress-bar small-progress-bar">
                                             <div class="fill bg-primary-green"></div>
                                         </div>
-
                                         <span class="product-sold">
                                             Đã bán 148
                                         </span>
@@ -285,12 +283,10 @@
                                             </span>
                                         </div>
                                     </div>
-
                                     <div class="product-state">
                                         <div class="progress-bar small-progress-bar">
                                             <div class="fill bg-primary-green"></div>
                                         </div>
-
                                         <span class="product-sold">
                                             Đã bán 148
                                         </span>
@@ -314,12 +310,10 @@
                                             </span>
                                         </div>
                                     </div>
-
                                     <div class="product-state">
                                         <div class="progress-bar small-progress-bar">
                                             <div class="fill bg-primary-green"></div>
                                         </div>
-
                                         <span class="product-sold">
                                             Đã bán 148
                                         </span>
@@ -343,12 +337,10 @@
                                             </span>
                                         </div>
                                     </div>
-
                                     <div class="product-state">
                                         <div class="progress-bar small-progress-bar">
                                             <div class="fill bg-primary-green"></div>
                                         </div>
-
                                         <span class="product-sold">
                                             Đã bán 148
                                         </span>
@@ -363,7 +355,6 @@
                 </div>
             </div>
         </section>
-
         <!--Dịch vụ của chúng tôi-->
         <div class="container" id="our-services">
             <div class="our-services-header">
@@ -400,9 +391,7 @@
                 </div>
             </div>
         </div>
-
         <!-- review sp -->
-
         <section>
             <div class="container">
                 <div class="row">
@@ -411,7 +400,6 @@
                             <img class="br-5" src="images/product_test/image_product1.webp" alt="">
                         </a>
                     </div>
-
                     <div class="col-md-9">
                         <div class="group_title">
                             <div class="title">
@@ -423,13 +411,11 @@
                                 <div class="btn-green btn-small disabled">
                                     <i class="fa-solid fa-chevron-left fa-chevron"></i>
                                 </div>
-
                                 <div class="btn-green btn-small">
                                     <i class="fa-solid fa-chevron-right fa-chevron"></i>
                                 </div>
                             </div>
                         </div>
-
                         <div class="card-deck d-flex mr-child-20">
                             <div class="card radius-green">
                                 <img class="card-img-top" src="images/product_test/rau-den-4kfarm-goi-500g-202205181556012255.webp" alt="">
@@ -484,7 +470,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="see-more">
                             <a href="" class="">Xem tất cả</a>
                         </div>
@@ -492,7 +477,6 @@
                 </div>
             </div>
         </section>
-
         <section>
             <div class="container">
                 <div class="row">
@@ -514,7 +498,6 @@
                 </div>
             </div>
         </section>
-
         <section>
             <div class="container">
                 <div class="row">
@@ -523,7 +506,6 @@
                             <img class="br-5" src="images/product_test/image_product2.webp" alt="">
                         </a>
                     </div>
-
                     <div class="col-md-9">
                         <div class="group_title">
                             <div class="title">
@@ -535,13 +517,11 @@
                                 <div class="btn-green btn-small disabled">
                                     <i class="fa-solid fa-chevron-left fa-chevron"></i>
                                 </div>
-
                                 <div class="btn-green btn-small">
                                     <i class="fa-solid fa-chevron-right fa-chevron"></i>
                                 </div>
                             </div>
                         </div>
-
                         <div class="card-deck d-flex mr-child-20">
                             <div class="card radius-green">
                                 <img class="card-img-top" src="images/product_test/buoi-da-xanh-trai-tu-17kg-tro-len-202205111921599930.webp" alt="">
@@ -591,12 +571,11 @@
                                         </a>
                                     </h3>
                                     <div class="card-text">
-                                       <div class="price-box">80.100đ</div>
+                                        <div class="price-box">80.100đ</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                         <div class="see-more">
                             <a href="" class="">Xem tất cả</a>
                         </div>
@@ -604,19 +583,17 @@
                 </div>
             </div>
         </section>
-
         <section>
-           <div class="container">
-               <div class="row">
-                   <div class="col-md-12">
-                       <a href="" class="image-effect">
-                           <img class="br-5" src="images/product_test/banner.webp" alt="">
-                       </a>
-                   </div>
-               </div>
-           </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="" class="image-effect">
+                            <img class="br-5" src="images/product_test/banner.webp" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
         </section>
-
         <section>
             <div class="container">
                 <div class="row">
@@ -625,7 +602,6 @@
                             <img class="br-5" src="images/product_test/image_product3.webp" alt="">
                         </a>
                     </div>
-
                     <div class="col-md-9">
                         <div class="group_title">
                             <div class="title">
@@ -637,13 +613,11 @@
                                 <div class="btn-green btn-small disabled">
                                     <i class="fa-solid fa-chevron-left fa-chevron"></i>
                                 </div>
-
                                 <div class="btn-green btn-small">
                                     <i class="fa-solid fa-chevron-right fa-chevron"></i>
                                 </div>
                             </div>
                         </div>
-
                         <div class="card-deck d-flex mr-child-20">
                             <div class="card radius-green">
                                 <img class="card-img-top" src="images/product_test/lac-cuc-do-ly-tuong-goi-400g-202208170859346002.webp" alt="">
@@ -680,7 +654,7 @@
                                         </a>
                                     </h3>
                                     <div class="card-text">
-                                       <div class="price-box">52.000đ</div>
+                                        <div class="price-box">52.000đ</div>
                                     </div>
                                 </div>
                             </div>
@@ -698,7 +672,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="see-more">
                             <a href="" class="">Xem tất cả</a>
                         </div>
@@ -706,7 +679,6 @@
                 </div>
             </div>
         </section>
-
         <section>
             <div class="container">
                 <div class="row">
@@ -718,7 +690,6 @@
                 </div>
             </div>
         </section>
-
         <section>
             <div class="container">
                 <div class="row">
@@ -733,7 +704,6 @@
                                 <div class="btn-green btn-small disabled">
                                     <i class="fa-solid fa-chevron-left fa-chevron"></i>
                                 </div>
-
                                 <div class="btn-green btn-small">
                                     <i class="fa-solid fa-chevron-right fa-chevron"></i>
                                 </div>
@@ -743,10 +713,8 @@
                             <div class="card radius-green">
                                 <div class="row g-0">
                                     <div class="col-md-4 d-flex align-items-center p-2">
-                                        <img src="images/product_test/6-hop-nuoc-dua-xiem-xanh-cocoxim-1-lit-202104081023172228.webp"
-                                             alt="" class="card-img mx-auto">
+                                        <img src="images/product_test/6-hop-nuoc-dua-xiem-xanh-cocoxim-1-lit-202104081023172228.webp" alt="" class="card-img mx-auto">
                                     </div>
-
                                     <div class="col-md-8">
                                         <div class="card-body d-flex flex-column">
                                             <h3 class="card-title">
@@ -759,11 +727,9 @@
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-basket-shopping"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-magnifying-glass"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-heart"></i>
                                                 </div>
@@ -775,10 +741,8 @@
                             <div class="card radius-green">
                                 <div class="row g-0">
                                     <div class="col-md-4 d-flex align-items-center p-2">
-                                        <img src="images/product_test/6-hop-nuoc-dua-xiem-xanh-cocoxim-1-lit-202104081023172228.webp"
-                                             alt="" class="card-img mx-auto">
+                                        <img src="images/product_test/6-hop-nuoc-dua-xiem-xanh-cocoxim-1-lit-202104081023172228.webp" alt="" class="card-img mx-auto">
                                     </div>
-
                                     <div class="col-md-8">
                                         <div class="card-body d-flex flex-column">
                                             <h3 class="card-title">
@@ -791,11 +755,9 @@
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-basket-shopping"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-magnifying-glass"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-heart"></i>
                                                 </div>
@@ -807,10 +769,8 @@
                             <div class="card radius-green">
                                 <div class="row g-0">
                                     <div class="col-md-4 d-flex align-items-center p-2">
-                                        <img src="images/product_test/6-hop-nuoc-dua-xiem-xanh-cocoxim-1-lit-202104081023172228.webp"
-                                             alt="" class="card-img mx-auto">
+                                        <img src="images/product_test/6-hop-nuoc-dua-xiem-xanh-cocoxim-1-lit-202104081023172228.webp" alt="" class="card-img mx-auto">
                                     </div>
-
                                     <div class="col-md-8">
                                         <div class="card-body d-flex flex-column">
                                             <h3 class="card-title">
@@ -823,11 +783,9 @@
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-basket-shopping"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-magnifying-glass"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-heart"></i>
                                                 </div>
@@ -839,10 +797,8 @@
                             <div class="card radius-green">
                                 <div class="row g-0">
                                     <div class="col-md-4 d-flex align-items-center p-2">
-                                        <img src="images/product_test/6-hop-nuoc-dua-xiem-xanh-cocoxim-1-lit-202104081023172228.webp"
-                                             alt="" class="card-img mx-auto">
+                                        <img src="images/product_test/6-hop-nuoc-dua-xiem-xanh-cocoxim-1-lit-202104081023172228.webp" alt="" class="card-img mx-auto">
                                     </div>
-
                                     <div class="col-md-8">
                                         <div class="card-body d-flex flex-column">
                                             <h3 class="card-title">
@@ -855,11 +811,9 @@
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-basket-shopping"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-magnifying-glass"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-heart"></i>
                                                 </div>
@@ -884,7 +838,6 @@
                                 <div class="btn-green btn-small disabled">
                                     <i class="fa-solid fa-chevron-left fa-chevron"></i>
                                 </div>
-
                                 <div class="btn-green btn-small">
                                     <i class="fa-solid fa-chevron-right fa-chevron"></i>
                                 </div>
@@ -894,10 +847,8 @@
                             <div class="card radius-green">
                                 <div class="row g-0">
                                     <div class="col-md-4 d-flex align-items-center p-2">
-                                        <img src="images/product_test/xa-lach-bup-mo-thuy-canh-tui-300g-202010051645203830.webp"
-                                             alt="" class="card-img mx-auto">
+                                        <img src="images/product_test/xa-lach-bup-mo-thuy-canh-tui-300g-202010051645203830.webp" alt="" class="card-img mx-auto">
                                     </div>
-
                                     <div class="col-md-8">
                                         <div class="card-body d-flex flex-column">
                                             <h3 class="card-title">
@@ -910,11 +861,9 @@
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-basket-shopping"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-magnifying-glass"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-heart"></i>
                                                 </div>
@@ -926,10 +875,8 @@
                             <div class="card radius-green">
                                 <div class="row g-0">
                                     <div class="col-md-4 d-flex align-items-center p-2">
-                                        <img src="images/product_test/xa-lach-bup-mo-thuy-canh-tui-300g-202010051645203830.webp"
-                                             alt="" class="card-img mx-auto">
+                                        <img src="images/product_test/xa-lach-bup-mo-thuy-canh-tui-300g-202010051645203830.webp" alt="" class="card-img mx-auto">
                                     </div>
-
                                     <div class="col-md-8">
                                         <div class="card-body d-flex flex-column">
                                             <h3 class="card-title">
@@ -942,11 +889,9 @@
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-basket-shopping"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-magnifying-glass"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-heart"></i>
                                                 </div>
@@ -958,10 +903,8 @@
                             <div class="card radius-green">
                                 <div class="row g-0">
                                     <div class="col-md-4 d-flex align-items-center p-2">
-                                        <img src="images/product_test/xa-lach-bup-mo-thuy-canh-tui-300g-202010051645203830.webp"
-                                             alt="" class="card-img mx-auto">
+                                        <img src="images/product_test/xa-lach-bup-mo-thuy-canh-tui-300g-202010051645203830.webp" alt="" class="card-img mx-auto">
                                     </div>
-
                                     <div class="col-md-8">
                                         <div class="card-body d-flex flex-column">
                                             <h3 class="card-title">
@@ -974,11 +917,9 @@
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-basket-shopping"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-magnifying-glass"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-heart"></i>
                                                 </div>
@@ -990,10 +931,8 @@
                             <div class="card radius-green">
                                 <div class="row g-0">
                                     <div class="col-md-4 d-flex align-items-center p-2">
-                                        <img src="images/product_test/xa-lach-bup-mo-thuy-canh-tui-300g-202010051645203830.webp"
-                                             alt="" class="card-img mx-auto">
+                                        <img src="images/product_test/xa-lach-bup-mo-thuy-canh-tui-300g-202010051645203830.webp" alt="" class="card-img mx-auto">
                                     </div>
-
                                     <div class="col-md-8">
                                         <div class="card-body d-flex flex-column">
                                             <h3 class="card-title">
@@ -1006,11 +945,9 @@
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-basket-shopping"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-magnifying-glass"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-heart"></i>
                                                 </div>
@@ -1035,7 +972,6 @@
                                 <div class="btn-green btn-small disabled">
                                     <i class="fa-solid fa-chevron-left fa-chevron"></i>
                                 </div>
-
                                 <div class="btn-green btn-small">
                                     <i class="fa-solid fa-chevron-right fa-chevron"></i>
                                 </div>
@@ -1045,10 +981,8 @@
                             <div class="card radius-green">
                                 <div class="row g-0">
                                     <div class="col-md-4 d-flex align-items-center p-2">
-                                        <img src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp"
-                                             alt="" class="card-img mx-auto">
+                                        <img src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="" class="card-img mx-auto">
                                     </div>
-
                                     <div class="col-md-8">
                                         <div class="card-body d-flex flex-column">
                                             <h3 class="card-title">
@@ -1061,11 +995,9 @@
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-basket-shopping"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-magnifying-glass"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-heart"></i>
                                                 </div>
@@ -1077,10 +1009,8 @@
                             <div class="card radius-green">
                                 <div class="row g-0">
                                     <div class="col-md-4 d-flex align-items-center p-2">
-                                        <img src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp"
-                                             alt="" class="card-img mx-auto">
+                                        <img src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="" class="card-img mx-auto">
                                     </div>
-
                                     <div class="col-md-8">
                                         <div class="card-body d-flex flex-column">
                                             <h3 class="card-title">
@@ -1093,11 +1023,9 @@
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-basket-shopping"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-magnifying-glass"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-heart"></i>
                                                 </div>
@@ -1109,10 +1037,8 @@
                             <div class="card radius-green">
                                 <div class="row g-0">
                                     <div class="col-md-4 d-flex align-items-center p-2">
-                                        <img src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp"
-                                             alt="" class="card-img mx-auto">
+                                        <img src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="" class="card-img mx-auto">
                                     </div>
-
                                     <div class="col-md-8">
                                         <div class="card-body d-flex flex-column">
                                             <h3 class="card-title">
@@ -1125,11 +1051,9 @@
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-basket-shopping"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-magnifying-glass"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-heart"></i>
                                                 </div>
@@ -1141,10 +1065,8 @@
                             <div class="card radius-green">
                                 <div class="row g-0">
                                     <div class="col-md-4 d-flex align-items-center p-2">
-                                        <img src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp"
-                                             alt="" class="card-img mx-auto">
+                                        <img src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="" class="card-img mx-auto">
                                     </div>
-
                                     <div class="col-md-8">
                                         <div class="card-body d-flex flex-column">
                                             <h3 class="card-title">
@@ -1157,11 +1079,9 @@
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-basket-shopping"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-magnifying-glass"></i>
                                                 </div>
-
                                                 <div class="btn-green btn-small">
                                                     <i class="fa-solid fa-heart"></i>
                                                 </div>
@@ -1178,7 +1098,6 @@
                 </div>
             </div>
         </section>
-
     </div>
     </div>
     <!-- Tin tức mới nhất           -->
@@ -1194,7 +1113,6 @@
                         <div class="btn-green btn-small disabled">
                             <i class="fa-solid fa-chevron-left fa-chevron"></i>
                         </div>
-
                         <div class="btn-green btn-small">
                             <i class="fa-solid fa-chevron-right fa-chevron"></i>
                         </div>
@@ -1216,7 +1134,6 @@
                             <a href="" class="viewmore">Đọc tiếp</a>
                         </div>
                     </div>
-
                     <div class="card">
                         <div class="time-post text-primary-white fw-bold text-center bg-primary-green">
                             <span>24 <br> Tháng 5</span>
@@ -1262,23 +1179,18 @@
                             <a href="" class="viewmore">Đọc tiếp</a>
                         </div>
                     </div>
-                    <div class="d-grid gap-2 col-2 mx-auto py-3">
-                        <button class="btn btn-green" type="button">Xem tất cả</button>
-                    </div>
-                    </div>
+                </div>
                 <div class="d-grid gap-2 col-2 mx-auto py-3">
                     <button class="btn btn-green" type="button">Xem tất cả</button>
                 </div>
             </div>
         </div>
     </div>
-
     </div>
     <!--    footer-->
     <footer id="footer">
         <iframe onload="resizeIframe(this,339)" src="footer.html"></iframe>
-       </footer>
-       
+    </footer>
 </body>
 <link rel="stylesheet" type="text/css" href="styles/base.css">
 <link rel="stylesheet" type="text/css" href="styles/main.css">

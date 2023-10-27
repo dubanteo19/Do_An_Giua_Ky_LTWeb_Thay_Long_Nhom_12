@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <iframe width="100%" height="320" src="top-title.html?title=Kim chi cải thảo cắt lát Bibigo Ông Kim's"></iframe>
+    <iframe onload="resizeIframe(this,320)" src="top-title.html?title=Kim chi cải thảo cắt lát Bibigo Ông Kim's"></iframe>
     <div class="container mt-3">
         <div class="row gx-4">
             <div class="col-9">
@@ -117,7 +117,7 @@
                             <small> Kim chi Bibigo được chế biến từ cải thảo tươi cùng với các nguyên liệu tự nhiên qua quá trình lên men, mang đến hương vị đúng chuẩn kim chi truyền thống Hàn Quốc. Kim chi cải thảo cắt lát Bibigo Ông Kim's gói 100g có thể dùng kim chi để nấu canh hoặc ăn kèm với cơm, mì, các món nướng BBQ.</small>
                         </div>
                         <div class="buy-guide-box">
-                            <iframe src="buy-guide.html" onload="resizeIframe(this)" scrolling="no"></iframe>
+                            <iframe src="buy-guide.html" onload="resizeIframe(this,400)" scrolling="no"></iframe>
                         </div>
                     </div>
                 </div>
@@ -190,9 +190,13 @@
             </div>
         </div>
     </div>
+    <footer>
+        <iframe src="footer.html" onload="resizeIframe(this,339)"></iframe>
+    </footer>
 </body>
 <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
 <script type="text/javascript" src="javascripts/lightslider.js"></script>
+<script type="text/javascript" src="javascripts/main.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
     $('#imageGallery').lightSlider({
@@ -227,10 +231,7 @@ $(document).ready(function() {
     });
 });
 
-function resizeIframe(obj) {
-    obj.style.height = "400px";
-    obj.style.width = "100%";
-}
+
 </script>
 
 </html>

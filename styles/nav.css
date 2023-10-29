@@ -1,33 +1,42 @@
+
 .color-icon{
     color: #cda45e;
 }
-.bg-primary-green{
+
+.bg-primary-green {
     background-color: var(--primary-green);
 }
-header{
+
+header {
     width: 100%;
-    background-color:var(--primary-white);
+    background-color: var(--primary-white);
 }
+
 #topbar {
     height: 60px;
     font-size: 14px;
     transition: all 0.5s;
 }
+
 .nav-item:hover .dropdown-menu {
     display: block;
 }
-.menubar{
-    width:200px;
+
+.menubar {
+    width: 200px;
 }
-.navbar-nav{
+
+.navbar-nav {
     justify-content: space-between;
     text-align: center;
     border-radius: 5px;
 }
-.search-smart{
+
+.search-smart {
     position: relative;
 }
-.search-smart input{
+
+.search-smart input {
     margin-top: 2px;
     height: 40px;
     width: 500px;
@@ -35,26 +44,30 @@ header{
     outline: none;
     border-radius: 10px;
 }
-.search-smart i{
+
+.search-smart i {
     padding: 6px;
     position: absolute;
     border-radius: 5px;
     z-index: 1;
-    top:7px;
+    top: 7px;
     right: 5px;
     font-size: 17px;
     color: white;
     cursor: pointer;
 }
-#navbarNav ul{
+
+#navbarNav ul {
     border-radius: 10px;
 
 }
+
 .navbar-nav li {
     padding: 10px 0;
     margin: 0 auto;
 }
-.nav-item{
+
+.nav-item {
     cursor: pointer;
     color: #fbfcf9;
     padding: 20px;
@@ -65,7 +78,7 @@ header{
     font-weight: 500;
     position: relative;
 
-    &:before{
+    &:before {
         content: "";
         position: absolute;
         bottom: -6px;
@@ -78,11 +91,13 @@ header{
         transition: 0.3s;
     }
 }
-.nav-item:not(.is-active):hover:before{
+
+.nav-item:not(.is-active):hover:before {
     opacity: 1;
     bottom: 0;
 }
-.nav-indicator{
+
+.nav-indicator {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -91,33 +106,40 @@ header{
     z-index: -1;
     border-radius: 8px 8px 0 0;
 }
+
 .carousel-control-next:hover,
 .carousel-control-prev:hover {
     background-color: #fefefe;
     opacity: 0.3;
 }
-.carousel-caption h5{
+
+.carousel-caption h5 {
     font-size: 30px;
     color: var(--primary-white);
 }
-.carousel-caption p{
+
+.carousel-caption p {
     font-size: 20px;
     color: var(--primary-white);
 }
+
 .btn-hover {
     color: #fff;
     background-color: var(--primary-green);
     border-color: var(--primary-green);
 }
+
 .btn-hover:hover {
     color: #fff;
     background-color: var(--hover-green);
     border-color: var(--hover-green);
 }
-.btn-green{
+
+.btn-green {
     color: var(--hover-green);
     border-color: var(--primary-green);
 }
+
 .btn-green:hover {
     color: #FFFFFF;
     background-color: var(--hover-green);

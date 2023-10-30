@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="all" href='../styles/bootstrap.css'>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css">
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/admin.css">
+    <title></title>
+</head>
+
+<body>
+
+    <body>
+        <div class="container-fluid p-0 ">
+            <div class="row gx-0 mx-0 ">
+                <div class="col-2 position-fixed">
+                    <div class="left-side ">
+                        <div class="profile-box d-flex flex-column align-items-center pt-2">
+                            <img width="100px" src="Images/avatar.png" alt="">
+                            <h3 class="text-white">Ban Teo</h3>
+                            <span class="text-white">Chào mừng bạn trở lại</span>
+                            <div class="line"></div>
+                        </div>
+                        <div class="nav flex-column bg-primary-green py-3" id="navigation">
+                            <a class="nav-link active" id="dashboard-nav-link" data-link="dashboard.html">
+                                <i class="fa-solid fa-gauge mr-2"></i>
+                                Bảng điều khiển
+                            </a>
+                            <a class="nav-link" id="customers-nav-link" data-link="customers-data-table.html">
+                                <i class="fa-solid fa-people-roof"></i>
+                                Quản lý khách hàng
+                            </a>
+                            <a class="nav-link pointer-event" id="products-nav-link" data-link="products-data-table.html">
+                                <i class="fa-solid fa-box"></i>
+                                Quản lý sản phẩm
+                            </a>
+                            <a class="nav-link" id="orders-nav-link" data-link="orders-data-table.html">
+                                <i class="fa-solid fa-file-invoice-dollar"></i>
+                                Quản lý đơn hàng
+                            </a>
+                            <a class="nav-link" id="catalogs-nav-link" data-link="catalogs-data-table.html">
+                                <i class="fa-solid fa-list"></i>
+                                Quản lý danh mục
+                            </a>
+                            <a class="nav-link" id="staffs-nav-link" data-link="staffs-data-table.html">
+                                <i class="fa-solid fa-users"></i>
+                                Quản lý nhân viên
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-10 offset-2">
+                    <div class="container-fluid header position-fixed">
+                        <i class="fa-solid fa-right-from-bracket sign-out-icon"></i>
+                    </div>
+                    <iframe src="dashboard.html" id="frame" style="margin-top: 70px;" width="100%" height="1150px" frameborder="0">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        </div>
+        <script type="text/javascript" src="../javascripts/jquery-3.7.1.js"></script>
+        <script type="text/javascript">
+        function removeActive() {
+            var productsLink = $(".nav-link");
+            productsLink.each(function() {
+                $(this).removeClass('active');
+            })
+        };
+
+        var frame = $("#frame");
+        var productsLink = $(".nav-link");
+        productsLink.each(function() {
+
+            $(this).click("click", function() {
+                removeActive();
+                $(this).addClass("active");
+                frame.attr("src", $(this).data("link"));
+                $("html,boy").animate({scrollTop:0}, 800);
+            })
+        });
+        </script>
+    </body>
+
+</html>

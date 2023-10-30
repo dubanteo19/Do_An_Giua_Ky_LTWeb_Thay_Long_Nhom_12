@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" type="text/css" media="all" href='../styles/bootstrap.css'>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css">
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/admin.css">
+    <script src="javascripts/chart.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid p-8 bg-grey">
+        <div class="container title d-flex justify-content-between bg-white rounded">
+            <h5>Bảng điều khiển</h5>
+            <span class="date">Thứ 2, ngày 30/10/2023 - 11 giờ 25 phút</span>
+        </div>
+        <div class="container-fluid">
+            <div class="row w-100">
+                <div class="col-7">
+                    <div class="widget-container d-flex flex-wrap w-100">
+                        <div class="widget">
+                            <i class="fa-solid fa-user icon-green"></i>
+                            <p class="fw-bold text-danger text-center mt-2 fs-6">TỔNG KHÁCH HÀNG</p>
+                            <h5 class="text-center">56 khách hàng</h5>
+                            <small>
+                                Tổng số khách hàng được quản lý.
+                            </small>
+                        </div>
+                        <div class="widget">
+                            <i class="fa-solid fa-box icon-blue"></i>
+                            <p class="fw-bold text-danger text-center mt-2 fs-6">TỔNG SẢN PHẨM</p>
+                            <h5 class="text-center">200 sản phẩm</h5>
+                            <small>
+                                Tổng số sản phẩm được quản lý.
+                            </small>
+                        </div>
+                        <div class="widget">
+                            <i class="fa-solid fa-file-invoice-dollar icon-orange"></i>
+                            <p class="fw-bold text-danger text-center mt-2 fs-6">TỔNG ĐƠN HÀNG</p>
+                            <h5 class="text-center">134 đơn hàng</h5>
+                            <small>
+                                Tổng số hóa đơn bán hàng trong tháng.
+                            </small>
+                        </div>
+                        <div class="widget">
+                            <i class="fa-solid fa-triangle-exclamation icon-red"></i>
+                            <p class="fw-bold text-danger text-center mt-2 fs-6">SẮP HẾT HÀNG</p>
+                            <h5 class="text-center">10 sản phẩm</h5>
+                            <span>
+                                Số sản phẩm cảnh báo hết cần nhập thêm.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="list-orders mt-3 bg-white">
+                        <div class="sub-title">
+                            <h4>Tình trạng đơn hàng</h4>
+                        </div>
+                        <table class="table" id="orders">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID khách hàng</th>
+                                    <th scope="col">Tên khách hàng</th>
+                                    <th scope="col">Tổng tiền</th>
+                                    <th scope="col">Trạng thái</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>DH3331</td>
+                                    <td>Dư Ban Teo</td>
+                                    <td>100.000đ</td>
+                                    <td><button class="btn btn-info btn-sm">Chờ xử lý</button></td>
+                                </tr>
+                                <tr>
+                                    <td>DH2312</td>
+                                    <td>Lê Hoàng Long</td>
+                                    <td>210.000đ</td>
+                                    <td><button class="btn btn-warning btn-sm">Đang vận chuyển</button></td>
+                                </tr>
+                                <tr>
+                                    <td>DH8321</td>
+                                    <td>Ngô Cẩm Ly</td>
+                                    <td>400.000đ</td>
+                                    <td><button class="btn btn-success btn-sm">Đã hoàn thành</button></td>
+                                </tr>
+                                <tr>
+                                    <td>DH1121</td>
+                                    <td>Hà Hạnh Chi</td>
+                                    <td>190.000đ</td>
+                                    <td><button class="btn btn-danger btn-sm">Đã hủy</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="list-new-customers mt-3 bg-white">
+                        <div class="sub-title">
+                            <h4>Khách hàng mới</h4>
+                        </div>
+                        <table class="table table-bordered table-hover" id="list-new-customers">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID khách hàng</th>
+                                    <th scope="col">Tên khách hàng</th>
+                                    <th scope="col">Ngày sinh</th>
+                                    <th scope="col">Số điện thoại</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>DH3331</td>
+                                    <td>Dư Ban Teo</td>
+                                    <td>19/06/2003</td>
+                                    <td>092352583</td>
+                                </tr>
+                                <tr>
+                                    <td>DH2312</td>
+                                    <td>Lê Hoàng Long</td>
+                                    <td>22/04/1992</td>
+                                    <td>095352354</td>
+                                </tr>
+                                <tr>
+                                    <td>DH8321</td>
+                                    <td>Ngô Cẩm Ly</td>
+                                    <td>02/03/1999</td>
+                                    <td>0962864245</td>
+                                </tr>
+                                <tr>
+                                    <td>DH1121</td>
+                                    <td>Hà Hạnh Chi</td>
+                                    <td>14/04/2002</td>
+                                    <td>0935245833</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="sub-title">
+                        <h4>Thống kế doanh thu</h4>
+                    </div>
+                    <div class="chart" >
+                        <canvas style="width: 400px;height: 300px;" id="doanhThuChart"></canvas>
+                    </div>
+                </div>
+            </div>
+</body>
+<script type="text/javascript" src="javascripts/chartDraw.js"></script>
+<script type="text/javascript" src="javascripts/Utils.js"></script>
+</html>

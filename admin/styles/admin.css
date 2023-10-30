@@ -1,0 +1,120 @@
+.header {
+    background-color: var(--primary-green);
+    height: 50px;
+    position: relative;
+}
+
+.sign-out-icon {
+    position: absolute;
+    right: 250px;
+    width: 60px;
+    height: 100%;
+    font-size: 25px;
+    padding: 10px 20px;
+    background-color: var(--bs-yellow);
+    cursor: pointer;
+}
+
+.profile-box {
+    background-color: var(--primary-green);
+    width: 100%;
+}
+
+#navigation {
+    /*	border-top: 1px solid rgba(0, 0, 0, 0.4	);*/
+}
+
+.line:after {
+    content: "";
+    width: 200px;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 1px;
+    margin-top: 5px;
+}
+
+.active {
+    background-color: white;
+    color: var(--primary-green) !important;
+}
+
+#navigation .nav-link:hover {
+    background-color: white;
+    color: var(--primary-green);
+}
+
+#navigation .nav-link {
+	cursor: pointer;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    border: 2px solid white;
+    border-radius: 5px;
+    width: 95%;
+    padding-top: 10px;
+    margin: 8px auto;
+    height: 50px;
+}
+
+.bg-grey {
+    background-color: #F5F5F5;
+}
+
+/*dashboard css" */
+.title {
+    border-left: 8px solid var(--bs-yellow);
+}
+.left-side{
+/*	width: 250px;*/
+}
+.widget {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin: 10px 15px;
+    width: 240px;
+    box-shadow: 5px 5px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.widget i {
+    justify-content: center;
+    font-size: 50px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.icon-green {
+    background-color: var(--primary-light-green);
+    color: var(--primary-green);
+}
+
+.icon-blue {
+    background-color: #ADCBF3;
+    color: #1D5AAB;
+}
+
+.icon-orange {
+    background-color: #FDE1C3;
+    color: #FF8B07;
+}
+
+.list-orders,.list-new-customers {
+    width: 95%;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.icon-red {
+    background-color: #F9BABA;
+    color: #DE2222;
+}
+
+.sub-title {
+    width: 95%;
+    border-bottom: 3px solid var(--bs-yellow);
+}
+

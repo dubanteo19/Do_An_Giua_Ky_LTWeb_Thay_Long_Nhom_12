@@ -6199,6 +6199,7 @@ textarea.form-control-lg {
   position: sticky;
   top: 0;
   z-index: 1020;
+    align-self: flex-start;
 }
 
 @media (min-width: 576px) {

@@ -1,0 +1,54 @@
+#card .copyz-btn{
+    position: absolute;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    right: 10px;
+    color: #FFFFFF;
+}
+#card .discount i{
+    border-radius: 100%;
+    border: 1px solid var(--primary-green);
+    padding: 4px 10px;
+    color: var(--primary-green);
+    cursor: pointer;
+    left: 280px;
+    top: 10px;
+    position: absolute;
+}
+.cart-header-info {
+    padding: 0 20px;
+    border: 1px solid var(--primary-green);
+}
+.cart_body .cart_product{
+    border: 1px solid var(--primary-green);
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
+#btn-proceed-checkout {
+    width: 100%;
+    background-color: #679210;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid #679210;
+    border-radius: 5px;
+}
+#btn-proceed-checkout:hover{
+    background-color: var(--hover-green);
+}
+
+#card textarea {
+    overflow: auto;
+    resize: vertical;
+}
+.bill-field {
+    transition: max-height 0.1s ease;
+}
+
+.bill-field.active {
+    max-height: 500px; /* Điều chỉnh độ cao tùy ý */
+}

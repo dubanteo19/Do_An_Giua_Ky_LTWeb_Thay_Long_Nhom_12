@@ -266,7 +266,6 @@ h6 span {
 }
 .btn:active,
 .btn:focus {
-    background-color: #FF0000;
     color: #2c3034;
     box-shadow: 0 8px 24px 0 #679210;
 }

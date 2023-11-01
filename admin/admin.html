@@ -77,10 +77,11 @@
         productsLink.each(function() {
 
             $(this).click("click", function() {
+                var link =$(this).data("link");
                 removeActive();
                 $(this).addClass("active");
-                frame.attr("src", $(this).data("link"));
-                $("html,boy").animate({scrollTop:0}, 800);
+                frame.attr("src", link);
+                $("html,boy").animate({ scrollTop: 0 }, 500);
             })
         });
         </script>

@@ -81,7 +81,7 @@
             password : password,
         }
         var json = JSON.stringify(user);
-        localStorage.setItem(username, json);
+        localStorage.setItem(signemail, json);
         alert("Đăng ký thành công")
     }
 
@@ -93,7 +93,6 @@
         event.preventDefault();
         var username = document.getElementById("username").value;
         var logpass = document.getElementById("logpass").value;
-
         var user = localStorage.getItem(username);
         if (user == null) {
             alert("Vui lòng đăng ký trước khi đăng nhập!");
@@ -101,7 +100,8 @@
             var data = JSON.parse(user);
             if (username == data.email && logpass == data.password) {
                 alert("Đăng nhập thành công!");
-                window.location.href = "tai-khoan.html";
+                window.location.href = "tai-khoan.html?email="+data.email;
+                return;
             }
             else if (username == data.email && !(logpass == data.password)) {
                 alert("Sai mật khẩu");
@@ -115,6 +115,15 @@
 
     // Gọi hàm login() khi người dùng nhấn nút Đăng nhập
     document.querySelector("a.btn-log").addEventListener("click", login);
+
+    var keys = Object.keys(localStorage);
+    for (var i = 0; i < keys.length; i++) {
+        console.log(keys[i]);
+            console.log(localStorage.getItem(keys[i]));
+        }    
+
+
+
 </script>
 </body>
 </html>

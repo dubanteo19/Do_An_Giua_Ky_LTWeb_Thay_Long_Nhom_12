@@ -19,7 +19,7 @@
             <div class="col-lg-3">
                 <div class="block-account" id="page_account">
                     <h5 class="title-acccount">TRANG TÀI KHOẢN</h5>
-                    <p class="title-acccount">Xin chào! <span class="text-primary-green" id="block-span"></span></p>
+                    <p class="title-acccount">Xin chào! <strong class="text-primary-green" id="full-name"></strong></p>
                 </div>
                 <ul class=" toc-list m-0 p-0">
                     <li class="info_account">Thông tin tài khoản</li>
@@ -31,8 +31,8 @@
             <div class="col-lg-9">
                 <div class="block-account" id="ACCOUNT_INFORMATION">
                     <h5 class="title-acccount">THÔNG TIN TÀI KHOẢN</h5>
-                    <p class="fw-bold">Họ tên: <strong> "" </strong></p>
-                    <p class="fw-bold">Email: <strong> "" </strong></p>
+                    <p class="fw-bold">Họ tên: <strong id="name"> "" </strong></p>
+                    <p class="fw-bold">Email: <strong id="email"> "" </strong></p>
                 </div>
                 <div class="dashboard" id="YOUR_ORDER">
                     <div class="recent-orders">
@@ -108,8 +108,19 @@
 <footer>
     <iframe src="footer.html" onload="resizeIframe(this,339)"></iframe>
 </footer>
-
+    <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
 <script>
+    const urlParas = new URLSearchParams(window.location.search);
+    const json = localStorage.getItem(urlParas.get("email"));
+
+    const user = JSON.parse(json);
+    console.log(user);
+
+    $("#full-name").html(user.username);
+    $("#email").html(user.email);
+
+
+
     const account = document.querySelector('.info_account');
     const order = document.querySelector('.order');
     const changepass = document.querySelector('.change-pass');

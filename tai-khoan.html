@@ -19,20 +19,20 @@
             <div class="col-lg-3">
                 <div class="block-account" id="page_account">
                     <h5 class="title-acccount">TRANG TÀI KHOẢN</h5>
-                    <p class="title-acccount">Xin chào! <span class="text-primary-green" id="block-span"></span></p>
+                    <p class="title-acccount">Xin chào! <span class="text-primary-green" id="block-span" style="color: #b02a37"></span></p>
                 </div>
                 <ul class=" toc-list m-0 p-0">
-                    <li class="info_account">Thông tin tài khoản</li>
-                    <li class="order">Đơn hàng của bạn</li>
-                    <li class="change-pass">Đổi mật khẩu</li>
-                    <li class="address-number">Sổ địa chỉ (0)</li>
+                    <li class="info_account" style="cursor: pointer">Thông tin tài khoản</li>
+                    <li class="order" style="cursor: pointer">Đơn hàng của bạn</li>
+                    <li class="change-pass" style="cursor: pointer">Đổi mật khẩu</li>
+                    <li class="address-number" style="cursor: pointer">Sổ địa chỉ (0)</li>
                 </ul>
             </div>
             <div class="col-lg-9">
                 <div class="block-account" id="ACCOUNT_INFORMATION">
                     <h5 class="title-acccount">THÔNG TIN TÀI KHOẢN</h5>
-                    <p class="fw-bold">Họ tên: <strong> "" </strong></p>
-                    <p class="fw-bold">Email: <strong> "" </strong></p>
+                    <p class="">Họ tên: <strong id="user_fullname"></strong></p>
+                    <p class="">Email: <strong id="user_email"></strong></p>
                 </div>
                 <div class="dashboard" id="YOUR_ORDER">
                     <div class="recent-orders">
@@ -97,8 +97,48 @@
                 <div class="block-account" id="address_your">
                     <h5 class="title-acccount">ĐỊA CHỈ CỦA BẠN</h5>
                     <p class="btn-row">
-                        <button class="btn-edit-addr btn btn-more btn-hover" type="button">Thêm địa chỉ</button>
+                        <button class="btn-edit-addr btn btn-more btn-hover" id="add-adress" type="button">Thêm địa chỉ</button>
                     </p>
+                    <div class="row adress-form">
+                        <div class="col-md-8 mb-4">
+                            <div class="card mb-4">
+                                <div class="adress-form">
+                                    <div class="adress-form-content">
+                                        <h2>
+                                            Thêm địa chỉ mới
+                                            <span id="adress-close" style="background: red">X Đóng</i></span></h2>
+                                        <form action="">
+                                            <p>Chọn đầy đủ địa chỉ nhận hàng để biết chính xác thời gian giao</p>
+                                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                                <fieldset class="form-group">
+                                                    <input type="text" class="form-input" value="" name="lastName" id="lastName" placeholder="Họ tên" required="">
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                                <fieldset class="form-group">
+                                                    <input placeholder="Số điện thoại" type="text" pattern="\d+" class="form-input form-control-comment" name="PhoneNumber" required="" id="PhoneNumber">
+                                                </fieldset>
+                                            </div>
+                                            <div class="group-country">
+                                                <fieldset class="form-group select-field not-vn">
+                                                    <select name="Province" value="" class="form-control add has-content" id="mySelect2" data-address-type="province" data-address-zone="billing" data-select2-id="select2-data-billingProvince"><option value="" hidden="">--Chọn tỉnh thành</option><option value="Hà Nội">Hà Nội</option><option value="TP Hồ Chí Minh">TP Hồ Chí Minh</option><option value="An Giang">An Giang</option><option value="Bà Rịa-Vũng Tàu">Bà Rịa-Vũng Tàu</option><option value="Bắc Giang">Bắc Giang</option><option value="Bắc Kạn">Bắc Kạn</option><option value="Bạc Liêu">Bạc Liêu</option><option value="Bắc Ninh">Bắc Ninh</option><option value="Bến Tre">Bến Tre</option><option value="Bình Dương">Bình Dương</option><option value="Bình Định">Bình Định</option><option value="Bình Phước">Bình Phước</option><option value="Bình Thuận">Bình Thuận</option><option value="Cà Mau">Cà Mau</option><option value="Cao Bằng">Cao Bằng</option><option value="Cần Thơ">Cần Thơ</option><option value="Đà Nẵng">Đà Nẵng</option><option value="Đắk Lắk">Đắk Lắk</option><option value="Đắk Nông">Đắk Nông</option><option value="Điện Biên">Điện Biên</option><option value="Đồng Nai">Đồng Nai</option><option value="Đồng Tháp">Đồng Tháp</option><option value="Gia Lai">Gia Lai</option><option value="Hà Giang">Hà Giang</option><option value="Hà Nam">Hà Nam</option><option value="Hà Tĩnh">Hà Tĩnh</option><option value="Hải Dương">Hải Dương</option><option value="Hải Phòng">Hải Phòng</option><option value="Hậu Giang">Hậu Giang</option><option value="Hòa Bình">Hòa Bình</option><option value="Hưng Yên">Hưng Yên</option><option value="Khánh Hòa">Khánh Hòa</option><option value="Kiên Giang">Kiên Giang</option><option value="Kon Tum">Kon Tum</option><option value="Lai Châu">Lai Châu</option><option value="Lâm Đồng">Lâm Đồng</option><option value="Lạng Sơn">Lạng Sơn</option><option value="Lào Cai">Lào Cai</option><option value="Long An">Long An</option><option value="Nam Định">Nam Định</option><option value="Nghệ An">Nghệ An</option><option value="Ninh Bình">Ninh Bình</option><option value="Ninh Thuận">Ninh Thuận</option><option value="Phú Thọ">Phú Thọ</option><option value="Phú Yên">Phú Yên</option><option value="Quảng Bình">Quảng Bình</option><option value="Quảng Nam">Quảng Nam</option><option value="Quảng Ngãi">Quảng Ngãi</option><option value="Quảng Ninh">Quảng Ninh</option><option value="Quảng Trị">Quảng Trị</option><option value="Sóc Trăng">Sóc Trăng</option><option value="Sơn La">Sơn La</option><option value="Tây Ninh">Tây Ninh</option><option value="Thái Bình">Thái Bình</option><option value="Thái Nguyên">Thái Nguyên</option><option value="Thanh Hóa">Thanh Hóa</option><option value="Thừa Thiên Huế">Thừa Thiên Huế</option><option value="Tiền Giang">Tiền Giang</option><option value="Trà Vinh">Trà Vinh</option><option value="Tuyên Quang">Tuyên Quang</option><option value="Vĩnh Long">Vĩnh Long</option><option value="Vĩnh Phúc">Vĩnh Phúc</option><option value="Yên Bái">Yên Bái</option></select>
+                                                </fieldset>
+                                                <fieldset class="form-group select-field not-vn">
+                                                    <select name="District" class="form-control add" value="" id="mySelect3" data-address-type="district" data-address-zone="billing" data-select2-id="select2-data-billingDistrict"><option value="#">--Chọn quận/huyện</option><option value="Quận 1">Quận 1</option><option value="Quận 2">Quận 2</option><option value="Quận 3">Quận 3</option><option value="Quận 4">Quận 4</option><option value="Quận 5">Quận 5</option><option value="Quận 6">Quận 6</option><option value="Quận 7">Quận 7</option><option value="Quận 8">Quận 8</option><option value="Quận 9">Quận 9</option><option value="Quận 10">Quận 10</option><option value="Quận 11">Quận 11</option><option value="Quận 12">Quận 12</option><option value="Quận Gò Vấp">Quận Gò Vấp</option><option value="Quận Tân Bình">Quận Tân Bình</option><option value="Quận Tân Phú">Quận Tân Phú</option><option value="Quận Bình Thạnh">Quận Bình Thạnh</option><option value="Quận Phú Nhuận">Quận Phú Nhuận</option><option value="Quận Thủ Đức">Quận Thủ Đức</option><option value="Quận Bình Tân">Quận Bình Tân</option><option value="Huyện Củ Chi">Huyện Củ Chi</option><option value="Huyện Hóc Môn">Huyện Hóc Môn</option><option value="Huyện Bình Chánh">Huyện Bình Chánh</option><option value="Huyện Nhà Bè">Huyện Nhà Bè</option><option value="Huyện Cần Giờ">Huyện Cần Giờ</option><option value="Thành phố Thủ Đức">Thành phố Thủ Đức</option></select>
+                                                </fieldset>
+                                                <fieldset class="form-group select-field not-vn">
+                                                    <select name="Ward" class="form-control add has-content" value="" id="mySelect4" data-address-type="ward" data-address-zone="billing" data-select2-id="select2-data-billingWard" disabled="disabled"><option value="#"> --Chọn phường xã</option></select>
+                                                </fieldset>
+                                            </div>
+                                            <input type="text" placeholder="Số nhà tên đường (không bắt buộc)">
+                                            <button class="btn-hover">Xác nhận</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -110,6 +150,7 @@
 </footer>
 
 <script>
+
     const account = document.querySelector('.info_account');
     const order = document.querySelector('.order');
     const changepass = document.querySelector('.change-pass');
@@ -119,34 +160,34 @@
     const YOURORDER = document.querySelector('#YOUR_ORDER');
     const ChangePassword = document.querySelector('#Change_Password');
     const addressyour = document.querySelector('#address_your');
+    function showElement(element) {
+        const elements = [ACCOUNTINFORMATION, YOURORDER, ChangePassword, addressyour];
 
+        elements.forEach(el => {
+            if (el === element) {
+                el.style.display = 'block';
+            } else {
+                el.style.display = 'none';
+            }
+        });
+    }
 
     account.addEventListener('click', function() {
-        ACCOUNTINFORMATION.style.display = 'block';
-        YOURORDER.style.display = 'none';
-        ChangePassword.style.display = 'none';
-        addressyour.style.display = 'none';
+        showElement(ACCOUNTINFORMATION);
     });
 
     order.addEventListener('click', function() {
-        ACCOUNTINFORMATION.style.display = 'none';
-        YOURORDER.style.display = 'block';
-        ChangePassword.style.display = 'none';
-        addressyour.style.display = 'none';
+        showElement(YOURORDER);
     });
 
     changepass.addEventListener('click', function() {
-        ChangePassword.style.display = 'block';
-        ACCOUNTINFORMATION.style.display = 'none';
-        YOURORDER.style.display = 'none';
-        addressyour.style.display = 'none';
+        showElement(ChangePassword);
     });
+
     closeX.addEventListener('click', function() {
-        addressyour.style.display = 'block';
-        ACCOUNTINFORMATION.style.display = 'none';
-        YOURORDER.style.display = 'none';
-        ChangePassword.style.display = 'none';
+        showElement(addressyour);
     });
+
     const tocList = document.querySelector('.toc-list');
 
     tocList.addEventListener('click', function(event) {
@@ -160,6 +201,32 @@
         }
 
         li.classList.add('active');
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Lấy dữ liệu từ Local Storage
+        var lastName = localStorage.getItem('lastName');
+        var firstName = localStorage.getItem('firstName');
+        var email = localStorage.getItem('email');
+
+        // Hiển thị thông tin người dùng trên trang
+        var userFullnameElement = document.getElementById('user_fullname');
+        var userEmailElement = document.getElementById('user_email');
+        var curtomer = document.getElementById('block-span');
+
+        userFullnameElement.textContent = firstName + ' ' + lastName;
+        userEmailElement.textContent = email;
+        curtomer.textContent =firstName + ' ' + lastName;
+    });
+
+
+    const adressopen = document.querySelector('#add-adress')
+    const adressclose = document.querySelector('#adress-close')
+    adressopen.addEventListener("click",function(){
+        document.querySelector('.adress-form').style.display ="flex";
+    })
+    adressclose.addEventListener("click",function(){
+        document.querySelector('.adress-form').style.display ="none";
     });
 </script>
 </body>

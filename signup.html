@@ -4,8 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">-->
-    <link rel="stylesheet" href="styles/login.css">
     <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="styles/base.css">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
@@ -13,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="styles/news.css">
     <link rel="stylesheet" type="text/css" href="styles/footer.css">
     <link rel="stylesheet" type="text/css" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/login.css">
     <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
     <title></title>
 </head>
@@ -28,6 +27,9 @@
                             <div class="page-login clearfix no-padding">
                                 <div class="wpx">
                                     <h1 class="title_heads text-center pt-3"><span>Đăng ký</span></h1>
+                                    <div id="overlay">
+                                        <div class="loader"></div>
+                                    </div>
                                     <div id="login" class="section">
                                         <form method="post" action="login" id="customer_register" accept-charset="UTF-8">
                                             <div class="form-signup clearfix">
@@ -51,7 +53,7 @@
                                                     </div>
                                                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                                         <fieldset class="form-group">
-                                                            <input placeholder="Số điện thoại" type="text" pattern="\d+" class="form-input form-control-comment" name="PhoneNumber" required="">
+                                                            <input placeholder="Số điện thoại" type="text" pattern="\d+" class="form-input form-control-comment" name="PhoneNumber" required="" id="PhoneNumber">
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
@@ -62,6 +64,7 @@
                                                             </div>
                                                         </fieldset>
                                                     </div>
+                                                    <div id="error-message" style="color: red;"></div>
                                                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                                         <fieldset class="form-group">
                                                             <input type="password" class="form-input" value="" name="password" id="password-again" placeholder="Nhập lại mật khẩu" required="">
@@ -80,31 +83,6 @@
                                             <p class="a-center">
                                                 Hoặc đăng nhập bằng
                                             </p>
-                                            <script>function loginFacebook(){
-                                                var a={
-                                                    client_id:"947410958642584",redirect_uri:"https://store.mysapo.net/account/facebook_account_callback",
-                                                    state:JSON.stringify(
-                                                        {
-                                                            redirect_url:window.location.href}),scope:"email",response_type:"code"},
-                                                    b="https://www.facebook.com/v3.2/dialog/oauth"+encodeURIParams(a,!0);window.location.href=b
-                                            }
-                                            function loginGoogle()
-                                            {
-                                                var a={client_id:"997675985899-pu3vhvc2rngfcuqgh5ddgt7mpibgrasr.apps.googleusercontent.com",
-                                                    redirect_uri:"https://store.mysapo.net/account/google_account_callback",
-                                                    scope:"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile",
-                                                    access_type:"online",state:JSON.stringify({redirect_url:window.location.href}),response_type:"code"},
-                                                    b="https://accounts.google.com/o/oauth2/v2/auth"+encodeURIParams(a,!0);window.location.href=b
-                                            }
-                                            function encodeURIParams(a,b){
-                                                var c=[];
-                                                for(var d in a)
-                                                    if(a.hasOwnProperty(d)){
-                                                        var e=a[d];
-                                                        null!=e&&c.push(encodeURIComponent(d)+"="+encodeURIComponent(e))
-                                                    }return 0==c.length?"":(b?"?":"")+c.join("&")
-                                            }
-                                            </script>
                                             <a href="javascript:void(0)" class="social-login--facebook" onclick="loginFacebook()"><img width="129px" height="37px" alt="facebook-login-button" src="images/logo/fb-btn.svg"></a>
                                             <a href="javascript:void(0)" class="social-login--google" onclick="loginGoogle()"><img width="129px" height="37px" alt="google-login-button" src="images/logo/gp-btn.svg"></a>
                                         </div>
@@ -125,7 +103,47 @@
 </body>
 
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('customer_register').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('password-again').value;
+            var errorMessageElement = document.getElementById('error-message');
+            if (password !== confirmPassword) {
+                errorMessageElement.textContent = 'Mật khẩu không trùng khớp. Vui lòng thử lại.';
+                event.preventDefault();
+            }
+            else{
+                document.getElementById('customer_register').addEventListener('submit', function(event) {
+                    event.preventDefault(); // Ngăn chặn gửi form mặc định
 
+                    // Lấy dữ liệu từ các trường nhập liệu
+                    var lastName = document.getElementById('lastName').value;
+                    var firstName = document.getElementById('firstName').value;
+                    var email = document.getElementById('email').value;
+                    var phoneNumber = document.getElementById('PhoneNumber');
+                    var password = document.getElementById('password').value;
+
+                    // Lưu dữ liệu vào localStorage
+                    localStorage.setItem('lastName', lastName);
+                    localStorage.setItem('firstName', firstName);
+                    localStorage.setItem('email', email);
+                    localStorage.setItem('PhoneNumber', phoneNumber);
+                    localStorage.setItem('password', password);
+
+                    var overlay = document.getElementById('overlay');
+                    overlay.style.display = 'block';
+
+                    // Tạo hiệu ứng loading trong 2 giây (có thể thay đổi thời gian tùy ý)
+                    setTimeout(function() {
+                        // Nếu thông tin đúng, chuyển hướng đến trang khác
+                        window.location.href = 'index.html';
+                    }, 2000);
+                });
+            }
+        });
+
+    });
     $(document).ready(function(){
         $('#eye').click(function(){
             $(this).toggleClass('open');

@@ -27,6 +27,10 @@
                         <div class="page-login clearfix">
                             <div class="wpx">
                                 <h1 class="title_heads text-center"><span>Đăng nhập</span></h1>
+                                <div id="overlay">
+                                    <div class="loader"></div>
+                                </div>
+                                <div id="error-message" style="color: red;"></div>
                                 <div id="login" class="section">
                                     <form method="post" action="signup" id="customer_login" accept-charset="UTF-8"><input name="FormType" type="hidden" value="customer_login">
 									</span>
@@ -45,11 +49,11 @@
                                     </form>
                                 </div>
 
-                                <div class="block social-login--facebooks "style="justify-items: center; text-align: center">
+                                <div class="block social-login--facebooks pt-3"style="justify-items: center; text-align: center">
+                                    <p>Không có tài khoản? <a href="#register" id="register-link">Đăng ký</a></p>
                                     <p class="text-center">
                                         Hoặc đăng nhập bằng
                                     </p>
-                                    <script>function loginFacebook(){var a={client_id:"947410958642584",redirect_uri:"https://store.mysapo.net/account/facebook_account_callback",state:JSON.stringify({redirect_url:window.location.href}),scope:"email",response_type:"code"},b="https://www.facebook.com/v3.2/dialog/oauth"+encodeURIParams(a,!0);window.location.href=b}function loginGoogle(){var a={client_id:"997675985899-pu3vhvc2rngfcuqgh5ddgt7mpibgrasr.apps.googleusercontent.com",redirect_uri:"https://store.mysapo.net/account/google_account_callback",scope:"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile",access_type:"online",state:JSON.stringify({redirect_url:window.location.href}),response_type:"code"},b="https://accounts.google.com/o/oauth2/v2/auth"+encodeURIParams(a,!0);window.location.href=b}function encodeURIParams(a,b){var c=[];for(var d in a)if(a.hasOwnProperty(d)){var e=a[d];null!=e&&c.push(encodeURIComponent(d)+"="+encodeURIComponent(e))}return 0==c.length?"":(b?"?":"")+c.join("&")}</script>
                                     <a href="javascript:void(0)" class="social-login--facebook" onclick="loginFacebook()"><img width="129px" height="37px" alt="facebook-login-button" src="images/logo/fb-btn.svg"></a>
                                     <a href="javascript:void(0)" class="social-login--google" onclick="loginGoogle()"><img width="129px" height="37px" alt="google-login-button" src="images/logo/gp-btn.svg"></a>
                                 </div>
@@ -67,16 +71,68 @@
 </body>
 <script type="text/javascript" src="javascripts/main.js"></script>
 <script>
+    var CORRECT_ADMIN = localStorage.getItem('abc@gmail.com');
+    var CORRECT_PASS_ADMIN = localStorage.getItem('123');
 
-    $(document).ready(function(){
-        $('#eye').click(function(){
+    var CORRECT_USER = localStorage.getItem('email');
+    var CORRECT_PASS = localStorage.getItem('password');
+
+    var inputUsername = document.getElementById('email');
+    var inputPassword = document.getElementById('customer_password');
+
+    var formLogin = document.getElementById('customer_login');
+
+    if (formLogin.attachEvent) {
+        formLogin.attachEvent('submit', onFormSubmit);
+    } else {
+        formLogin.addEventListener('submit', onFormSubmit);
+    }
+
+    function onFormSubmit(e) {
+        e.preventDefault();
+        var username = inputUsername.value;
+        var password = inputPassword.value;
+        var errorMessageElement = document.getElementById('error-message');
+        if (username == CORRECT_USER && password == CORRECT_PASS) {
+            var overlay = document.getElementById('overlay');
+            overlay.style.display = 'block';
+
+            // Tạo hiệu ứng loading trong 2 giây (có thể thay đổi thời gian tùy ý)
+            setTimeout(function() {
+                // Nếu thông tin đúng, chuyển hướng đến trang khác
+                window.location.href = 'index.html';
+            }, 2000);
+        } else {
+            errorMessageElement.textContent = 'Sai tên đăng nhập hoặc mật khẩu. Vui lòng thử lại.';
+        }
+        if(username == CORRECT_ADMIN && password ==CORRECT_PASS_ADMIN){
+            var overlay = document.getElementById('overlay');
+            overlay.style.display = 'block';
+
+            // Tạo hiệu ứng loading trong 2 giây (có thể thay đổi thời gian tùy ý)
+            setTimeout(function() {
+                // Nếu thông tin đúng, chuyển hướng đến trang khác
+                window.location.href = 'admin/admin.html';
+            }, 2000);
+        }
+    }
+
+    $(document).ready(function() {
+        $('#eye').click(function() {
             $(this).toggleClass('open');
             $(this).children('i').toggleClass('fa-eye-slash fa-eye');
-            if($(this).hasClass('open')){
+            if ($(this).hasClass('open')) {
                 $(this).prev().attr('type', 'text');
-            }else{
+            } else {
                 $(this).prev().attr('type', 'password');
             }
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('register-link').addEventListener('click', function(event) {
+            event.preventDefault();
+
+            window.location.href = 'signup.html';
         });
     });
 </script>

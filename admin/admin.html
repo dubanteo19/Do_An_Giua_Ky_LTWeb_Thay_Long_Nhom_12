@@ -17,7 +17,7 @@
     <body>
         <div class="container-fluid p-0 ">
             <div class="row gx-0 mx-0 ">
-                <div class="col-2 position-fixed">
+                <div id="left" class="col-2 position-fixed">
                     <div class="left-side ">
                         <div class="profile-box d-flex flex-column align-items-center pt-2">
                             <img width="100px" src="Images/avatar.png" alt="">
@@ -53,8 +53,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-10 offset-2">
+                <div id="right" class="col-10 offset-2">
                     <div class="container-fluid header position-fixed">
+                        <i class="menu-icon fa-solid fa-bars"></i>
                         <i class="fa-solid fa-right-from-bracket sign-out-icon"></i>
                     </div>
                     <iframe src="dashboard.html" id="frame" style="margin-top: 70px;" width="100%" height="1150px" frameborder="0">
@@ -65,6 +66,35 @@
         </div>
         <script type="text/javascript" src="../javascripts/jquery-3.7.1.js"></script>
         <script type="text/javascript">
+        var flag = true;
+        $(".menu-icon").click("click", function() {
+            var menuIcon = $(".menu-icon");
+            var leftSide = $("#left");
+            var rightSide = $("#right");
+            if (flag) {
+                leftSide.css("width", "0px");
+                leftSide.removeClass("position-fixed");
+                leftSide.removeClass("col-2");
+                rightSide.removeClass("col-10");
+                rightSide.removeClass("offset-2");
+                rightSide.addClass("col-12");
+                menuIcon.css("left", "10px");
+                flag = !flag;
+
+            } else {
+                console.log(flag);
+                leftSide.css("width", "16.66666667%");
+                leftSide.addClass("col-2");
+                leftSide.addClass("position-fixed");
+
+                rightSide.removeClass("col-12");
+                rightSide.addClass("col-10");
+                rightSide.addClass("offset-2");
+                flag = !flag;
+
+            }
+        });
+
         function removeActive() {
             var productsLink = $(".nav-link");
             productsLink.each(function() {
@@ -77,7 +107,7 @@
         productsLink.each(function() {
 
             $(this).click("click", function() {
-                var link =$(this).data("link");
+                var link = $(this).data("link");
                 removeActive();
                 $(this).addClass("active");
                 frame.attr("src", link);

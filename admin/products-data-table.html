@@ -22,55 +22,131 @@
         <div class="container-fluid">
             <div class="row w-100">
                 <div class="col-12">
-                     <div class="btns mt-3 btn-sm">
-                        <button class="btn btn-success ">+Tạo sản phẩm mới</button>
+                    <div class="btns mt-3 btn-sm">
+                        <button id="newProduct" class="btn btn-success "><i class="fa-solid fa-plus"></i>Tạo sản phẩm mới</button>
+                        <button class="btn btn-warning "><i class="fa-solid fa-file-pdf"></i>Xuất file PDF</button>
+                        <button class="btn btn-success "><i class="fa-solid fa-file-excel"></i>Xuất file excel</button>
+                        <button class="btn btn-secondary"><i class="fa-solid fa-trash"></i>Xóa tất cả</button>
                     </div>
-                    <div class="list-orders mt-3 bg-white">
+                    <div class=" mt-3 bg-white">
                         <div class="sub-title">
-                            <h4>Tình trạng đơn hàng</h4>
+                            <h4>Danh sách sản phẩm</h4>
                         </div>
                         <table class="table" id="orders">
                             <thead>
                                 <tr>
-                                    <th scope="col">ID khách hàng</th>
-                                    <th scope="col">Tên khách hàng</th>
-                                    <th scope="col">Tổng tiền</th>
-                                    <th scope="col">Trạng thái</th>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Mã sản phẩm</th>
+                                    <th scope="col">Tên sản phẩm</th>
+                                    <th scope="col">Hình ảnh</th>
+                                    <th scope="col">Số lượng</th>
+                                    <th scope="col">Tình trạng</th>
+                                    <th scope="col">Giá nhập</th>
+                                    <th scope="col">Giá bán</th>
+                                    <th scope="col">Danh mục</th>
+                                    <th scope="col">Loại</th>
+                                    <th scope="col">Nhà cung cấp</th>
+                                    <th scope="col">Chức năng</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>DH3331</td>
-                                    <td>Dư Ban Teo</td>
-                                    <td>100.000đ</td>
-                                    <td><button class="btn btn-info btn-sm">Chờ xử lý</button></td>
+                                    <td><input type="checkbox"></td>
+                                    <td>SPR001</td>
+                                    <td>Rau tàn ô </td>
+                                    <td></td>
+                                    <td>100</td>
+                                    <td>Còn hàng</td>
+                                    <td>10000đ</td>
+                                    <td>15000đ</td>
+                                    <td>Rau</td>
+                                    <td>500g</td>
+                                    <td>Công ty rau sạch</td>
+                                    <td>
+                                        <button class="btn edit-btn"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn delete-btn"><i class="fa-solid fa-trash"></i></button>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>DH2312</td>
-                                    <td>Lê Hoàng Long</td>
-                                    <td>210.000đ</td>
-                                    <td><button class="btn btn-warning btn-sm">Đang vận chuyển</button></td>
+                                    <td><input type="checkbox"></td>
+                                    <td>SPR001</td>
+                                    <td>Rau tàn ô </td>
+                                    <td></td>
+                                    <td>100</td>
+                                    <td>Còn hàng</td>
+                                    <td>10000đ</td>
+                                    <td>15000đ</td>
+                                    <td>Rau</td>
+                                    <td>500g</td>
+                                    <td>Công ty rau sạch</td>
+                                    <td>
+                                        <button class="btn edit-btn"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn delete-btn"><i class="fa-solid fa-trash"></i></button>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>DH8321</td>
-                                    <td>Ngô Cẩm Ly</td>
-                                    <td>400.000đ</td>
-                                    <td><button class="btn btn-success btn-sm">Đã hoàn thành</button></td>
+                                    <td><input type="checkbox"></td>
+                                    <td>SPR001</td>
+                                    <td>Rau tàn ô </td>
+                                    <td></td>
+                                    <td>100</td>
+                                    <td>Còn hàng</td>
+                                    <td>10000đ</td>
+                                    <td>15000đ</td>
+                                    <td>Rau</td>
+                                    <td>500g</td>
+                                    <td>Công ty rau sạch</td>
+                                    <td>
+                                        <button class="btn edit-btn"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn delete-btn"><i class="fa-solid fa-trash"></i></button>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>DH1121</td>
-                                    <td>Hà Hạnh Chi</td>
-                                    <td>190.000đ</td>
-                                    <td><button class="btn btn-danger btn-sm">Đã hủy</button></td>
+                                    <td><input type="checkbox"></td>
+                                    <td>SPR001</td>
+                                    <td>Rau tàn ô </td>
+                                    <td></td>
+                                    <td>100</td>
+                                    <td>Còn hàng</td>
+                                    <td>10000đ</td>
+                                    <td>15000đ</td>
+                                    <td>Rau</td>
+                                    <td>500g</td>
+                                    <td>Công ty rau sạch</td>
+                                    <td>
+                                        <button class="btn edit-btn"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn delete-btn"><i class="fa-solid fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>SPR001</td>
+                                    <td>Rau tàn ô </td>
+                                    <td></td>
+                                    <td>100</td>
+                                    <td>Còn hàng</td>
+                                    <td>10000đ</td>
+                                    <td>15000đ</td>
+                                    <td>Rau</td>
+                                    <td>500g</td>
+                                    <td>Công ty rau sạch</td>
+                                    <td>
+                                        <button class="btn edit-btn"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn delete-btn"><i class="fa-solid fa-trash"></i></button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                   
                 </div>
-              
             </div>
 </body>
 <script type="text/javascript" src="javascripts/chartDraw.js"></script>
 <script type="text/javascript" src="javascripts/Utils.js"></script>
+<script type="text/javascript">
+var newProduct = document.querySelector("#newProduct").addEventListener("click", () => {
+    window.location.href="new-product.html";
+});
+</script>
+
 </html>

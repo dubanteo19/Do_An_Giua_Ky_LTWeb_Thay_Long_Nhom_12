@@ -48,7 +48,6 @@
     display: block;
     position: absolute;
     height: auto;
-    padding: 0 6px;
     border-bottom: 1px solid #ddd;
     right: 12px;
     cursor: pointer;
@@ -62,12 +61,12 @@
     font-size: 16px;
 }
 .adress-form-content form input, select{
-    height: 45px;
+    height: 40px;
     display: block;
     width: 100%;
     margin-top: 20px;
     border-bottom: 1px solid #ddd;
-    padding: 6px;
+    padding: 0 6px;
     border-radius: 5px;
 }
 .adress-form-content form button{
@@ -81,4 +80,23 @@
     border: none;
     color: #ddd;
 
+}
+.select2-selection__rendered {
+    line-height: 35px !important;
+}
+.select2-container .select2-selection--single {
+    text-align: left;
+    height: 35px !important;
+    width: 438px;!important;
+}
+.select2-selection__arrow {
+    height: 34px !important;
+}
+.form-group {
+    margin: 0;!important;
+}
+.select-field{
+    border: black 2px solid;
+    border-radius: 5px;
+    border-bottom: 1px solid #ddd;
 }

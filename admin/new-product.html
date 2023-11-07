@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" type="text/css" media="all" href='../styles/bootstrap.css'>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css">
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/admin.css">
+    <link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="container-fluid p-8 bg-grey">
+        <div class="container title d-flex justify-content-between bg-white rounded">
+            <h5>Thêm sản phẩm mới</h5>
+            <span class="date">Thứ 2, ngày 30/10/2023 - 11 giờ 25 phút</span>
+        </div>
+        <form class="px-5" action="">
+            <div class="row">
+                <div class="col-6">
+                    <div class="input-group">
+                        <input class="form-control" name="product_id" type="text" placeholder="Mã sản phẩm">
+                        <div class="input-group-append" style=" margin-top: 10px;">
+                            <div class="input-group-text">#</div>
+                        </div>
+                    </div>
+                    <input class="form-control" name="product_name" type="text" placeholder="Tên sản phẩm">
+                    <input class="form-control" name="product_sell_price" type="text" placeholder="Giá bán">
+                    <input class="form-control" name="product_buy_price" type="text" placeholder="Giá nhập">
+                    <input class="form-control" name="product_buy_price" type="text" placeholder="Giảm giá">
+                </div>
+                <div class="col-6">
+                    <input class="form-control" name="product_id" type="text" placeholder="Số lượng">
+                    <input class="form-control" name="product_name" type="text" placeholder="Tình trạng">
+                    <select name="danhMuc" id="danhMuc" class="form-control">
+                        <option hidden value="">Danh mục</option>
+                        <option value="">Gạo</option>
+                    </select>
+                    <input class="form-control" name="product_buy_price" type="text" placeholder="Loại">
+                    <input class="form-control" name="product_buy_price" type="text" placeholder="Nhà cung cấp">
+                </div>
+                <div class="col-12">
+                    <div class="file-upload-wrapper">
+                        <input type="file" class="file-upload" accept="image/*" multiple onchange="loadImages(this)">
+                        <div class="text-center">
+                            <h6>Chọn các hình ảnh hiện thị cho sản phảm</h6>
+                            <i class="fa-solid fa-upload fs-2"></i>
+                        </div>
+                    </div>
+                    <div class="images-wraper d-flex">
+                    </div>
+                    <div class="product-description">
+                        <h4 class="text-primary-green">Miêu tả sản phẩm</h4>
+                        <textarea class="wys"></textarea>
+                    </div>
+                    <div class="container d-flex justify-content-center p-2">
+                        <button class="btn btn-warning me-2">Quay lại</button>
+                        <button class="btn btn-success">Lưu sản phẩm</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+<style type="text/css">
+.file-upload {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.images-wraper {
+    margin-top: 20px;
+    width: 100%;
+    padding: 20px;
+    /*    height: 300px;*/
+}
+
+.file-upload-wrapper:hover {
+    background-color: #679210;
+    color: white;
+    border: 3px dashed rgba(0, 0, 0, 0.2);
+}
+
+.file-upload-wrapper {
+    margin-top: 10px;
+    color: #679210;
+    position: relative;
+    width: 200px;
+    height: 100px;
+    border: 3px dashed rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    transition: 0.4s ease;
+}
+
+.product-image {
+    width: 200px;
+    height: 200px;
+    margin-right: 10px;
+    display: block;
+}
+
+input,select {
+    margin-top: 10px;
+}
+</style>
+<script src="javascripts/chart.js"></script>
+<script type="text/javascript" src="../javascripts/jquery-3.7.1.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js"></script>
+<script type="text/javascript">
+new FroalaEditor(".wys");
+
+function loadImages(input) {
+    console.log("load iamge");
+    if (input.files.length < 6) {
+        for (var i = 0; i < input.files.length; i++) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var image = $("<img>").attr({
+                    "src": e.target.result,
+                    "class": 'product-image'
+                });
+                var editBtn = $("<button>").addClass('btn btn-warning btn-sm me-2').append($("<i>").addClass("fa-solid fa-retweet"));
+                var removeBtn = $("<button>").addClass('btn btn-danger btn-sm').append($("<i>").addClass("fa-solid fa-trash"));
+                var btns = $("<div>").css({
+                    "width": "100%",
+                    "display": "flex",
+                    "justifyContent": "center"
+                });
+                btns.append(editBtn).append(removeBtn);
+                imageContainer = $("<div>").append(image).append(btns);
+                var imageWraper = $(".images-wraper");
+                if (imageWraper.children("div").length < 6) {
+                    imageWraper.append(imageContainer);
+                    console.log(imageWraper.children("div").length);
+                } else {
+                    alert("Quá nhiều iamgé")
+                }
+            }
+            reader.readAsDataURL(input.files[i]);
+        }
+    } else {
+        alert("Khong the up load nhieu hon 6 hinh anh")
+    }
+}
+</script>
+
+</html>

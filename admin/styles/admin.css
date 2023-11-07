@@ -21,7 +21,7 @@
 }
 
 #navigation {
-    /*	border-top: 1px solid rgba(0, 0, 0, 0.4	);*/
+    /*  border-top: 1px solid rgba(0, 0, 0, 0.4 );*/
 }
 
 .line:after {
@@ -44,7 +44,7 @@
 }
 
 #navigation .nav-link {
-	cursor: pointer;
+    cursor: pointer;
     color: white;
     text-align: center;
     font-size: 15px;
@@ -65,9 +65,11 @@
 .title {
     border-left: 8px solid var(--bs-yellow);
 }
-.left-side{
-/*	width: 250px;*/
+
+.left-side {
+    /*  width: 250px;*/
 }
+
 .widget {
     display: flex;
     flex-direction: column;
@@ -102,7 +104,8 @@
     color: #FF8B07;
 }
 
-.list-orders,.list-new-customers {
+.list-orders,
+.list-new-customers {
     width: 95%;
     border-radius: 5px;
     padding: 10px;
@@ -118,3 +121,33 @@
     border-bottom: 3px solid var(--bs-yellow);
 }
 
+.menu-icon {
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 5px solid white;
+    position: absolute;
+    left: -50px;
+    top: 0px;
+    cursor: pointer;
+    width: 50px;
+}
+
+.edit-btn i {
+    color: var(--bs-yellow);
+    font-size: 20px;
+}
+
+.delete-btn i {
+    color: var(--bs-danger);
+    font-size: 20px;
+
+}
+
+input[type='checkbox'] {
+    margin: 4px 0 0 ;
+    line-height: normal;
+    width: 20px;
+    height: 20px;
+}

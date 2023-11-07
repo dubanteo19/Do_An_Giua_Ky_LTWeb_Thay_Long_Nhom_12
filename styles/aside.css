@@ -1,0 +1,73 @@
+.aside-content .scroll {
+    max-height: 258px;
+    overflow-y: auto;
+}
+
+.aside-content {
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.aside-content ul {
+    padding-left: 0;
+    margin-bottom: 10px;
+}
+
+.aside-content .nav-list {
+    list-style: none;
+}
+
+.aside-content .nav-list .nav-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.aside-content .nav-list .nav-item > a {
+    text-decoration: none;
+    color: #000;
+}
+
+.dash-border {
+    border-radius: 5px;
+    border: 2px dashed var(--primary-green);
+    padding: 5px 10px;
+}
+
+.price-filter {
+    font-size: 14px;
+}
+
+.price-filter .input-box {
+    margin-bottom: 10px;
+    border-radius: 5px !important;
+    padding: 5px 5px;
+    border: 1px solid var(--primary-green);
+}
+
+.price-filter label {
+    margin-bottom: 5px;
+}
+
+.aside-content:not(:first-child) {
+    font-size: 14px;
+}
+
+.nav-filter > *:not(*:last-child) {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.nav-filter ul {
+    display: flex;
+    list-style: none;
+    padding-left: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.nav-filter li:not(li:last-child) {
+    margin-right: 10px;
+}
+
+.nav-filter li > a {
+    text-decoration: none;
+}

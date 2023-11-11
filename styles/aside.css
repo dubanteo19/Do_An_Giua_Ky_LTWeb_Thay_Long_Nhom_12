@@ -18,13 +18,30 @@
 }
 
 .aside-content .nav-list .nav-item {
-    display: flex;
-    justify-content: space-between;
+    /*display: flex;*/
+    /*justify-content: space-between;*/
 }
 
-.aside-content .nav-list .nav-item > a {
+.sub-nav {
+    display: none;
+    padding-top: 10px;
+}
+
+.sub-nav .nav-item {
+    margin-left: 10px;
+}
+
+.aside-content .nav-list .nav-item  a {
     text-decoration: none;
     color: #000;
+}
+
+.aside-content .nav-list .nav-item  a:hover {
+    color: var(--primary-green);
+}
+
+.aside-content .nav-list .nav-item  i {
+    cursor: pointer;
 }
 
 .dash-border {

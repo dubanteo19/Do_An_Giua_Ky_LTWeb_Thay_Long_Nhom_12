@@ -103,46 +103,92 @@
 </body>
 
 <script>
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     document.getElementById('customer_register').addEventListener('submit', function(event) {
+    //         event.preventDefault();
+    //         var password = document.getElementById('password').value;
+    //         var confirmPassword = document.getElementById('password-again').value;
+    //         var errorMessageElement = document.getElementById('error-message');
+    //         if (password !== confirmPassword) {
+    //             errorMessageElement.textContent = 'Mật khẩu không trùng khớp. Vui lòng thử lại.';
+    //             event.preventDefault();
+    //         }
+    //         else{
+    //             document.getElementById('customer_register').addEventListener('submit', function(event) {
+    //                 event.preventDefault(); // Ngăn chặn gửi form mặc định
+    //
+    //                 // Lấy dữ liệu từ các trường nhập liệu
+    //                 var lastName = document.getElementById('lastName').value;
+    //                 var firstName = document.getElementById('firstName').value;
+    //                 var email = document.getElementById('email').value;
+    //                 var phoneNumber = document.getElementById('PhoneNumber');
+    //                 var password = document.getElementById('password').value;
+    //
+    //                 // Lưu dữ liệu vào localStorage
+    //                 localStorage.setItem('lastName', lastName);
+    //                 localStorage.setItem('firstName', firstName);
+    //                 localStorage.setItem('email', email);
+    //                 localStorage.setItem('PhoneNumber', phoneNumber);
+    //                 localStorage.setItem('password', password);
+    //
+    //                 var overlay = document.getElementById('overlay');
+    //                 overlay.style.display = 'block';
+    //
+    //                 // Tạo hiệu ứng loading trong 2 giây (có thể thay đổi thời gian tùy ý)
+    //                 setTimeout(function() {
+    //                     // Nếu thông tin đúng, chuyển hướng đến trang khác
+    //                     window.location.href = 'index.html';
+    //                 }, 2000);
+    //             });
+    //         }
+    //     });
+    //
+    // });
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('customer_register').addEventListener('submit', function(event) {
             event.preventDefault();
             var password = document.getElementById('password').value;
             var confirmPassword = document.getElementById('password-again').value;
             var errorMessageElement = document.getElementById('error-message');
+
             if (password !== confirmPassword) {
                 errorMessageElement.textContent = 'Mật khẩu không trùng khớp. Vui lòng thử lại.';
                 event.preventDefault();
-            }
-            else{
-                document.getElementById('customer_register').addEventListener('submit', function(event) {
-                    event.preventDefault(); // Ngăn chặn gửi form mặc định
+            } else {
+                var users = JSON.parse(localStorage.getItem('users')) || []; // Lấy danh sách người dùng từ localStorage
 
-                    // Lấy dữ liệu từ các trường nhập liệu
-                    var lastName = document.getElementById('lastName').value;
-                    var firstName = document.getElementById('firstName').value;
-                    var email = document.getElementById('email').value;
-                    var phoneNumber = document.getElementById('PhoneNumber');
-                    var password = document.getElementById('password').value;
+                // Lấy thông tin người dùng từ form
+                var lastName = document.getElementById('lastName').value;
+                var firstName = document.getElementById('firstName').value;
+                var email = document.getElementById('email').value;
+                var phoneNumber = document.getElementById('PhoneNumber');
+                var password = document.getElementById('password').value;
 
-                    // Lưu dữ liệu vào localStorage
-                    localStorage.setItem('lastName', lastName);
-                    localStorage.setItem('firstName', firstName);
-                    localStorage.setItem('email', email);
-                    localStorage.setItem('PhoneNumber', phoneNumber);
-                    localStorage.setItem('password', password);
+                // Tạo một đối tượng người dùng mới
+                var newUser = {
+                    lastName: lastName,
+                    firstName: firstName,
+                    email: email,
+                    phoneNumber: phoneNumber,
+                    password: password
+                };
 
-                    var overlay = document.getElementById('overlay');
-                    overlay.style.display = 'block';
+                // Thêm người dùng vào danh sách
+                users.push(newUser);
 
-                    // Tạo hiệu ứng loading trong 2 giây (có thể thay đổi thời gian tùy ý)
-                    setTimeout(function() {
-                        // Nếu thông tin đúng, chuyển hướng đến trang khác
-                        window.location.href = 'index.html';
-                    }, 2000);
-                });
+                // Lưu danh sách người dùng mới vào localStorage
+                localStorage.setItem('users', JSON.stringify(users));
+
+                var overlay = document.getElementById('overlay');
+                overlay.style.display = 'block';
+
+                // Tạo hiệu ứng loading trong 2 giây (có thể thay đổi thời gian tùy ý)
+                setTimeout(function() {
+                    // Nếu thông tin đúng, chuyển hướng đến trang khác
+                    window.location.href = 'index.html';
+                }, 2000);
             }
         });
-
     });
     $(document).ready(function(){
         $('#eye').click(function(){

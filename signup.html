@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="styles/base.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/news.css">
+    <link rel="stylesheet" type="text/css" href="styles/footer.css">
+    <link rel="stylesheet" type="text/css" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/login.css">
+    <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
+    <title></title>
+</head>
+
+<body>
+    <iframe onload="resizeIframe(this,320)" src="top-title.html?title=Đăng ký"></iframe>
+    <section class="section">
+        <div class="container ">
+            <div class="wrap_background_aside ">
+                <div class="wrap_background_aside">
+                    <div class="row">
+                        <div style="margin: auto;" class="col-lg-4 col-md-6 col-sm-12 col-12 col-xl-4 offset-xl-4 offset-lg-4 offset-md-3 offset-xl-3">
+                            <div class="row no-margin align-items-center" style="background: #fff;border-radius: 5px;">
+                                <div class="page-login clearfix no-padding">
+                                    <div class="wpx">
+                                        <h1 class="title_heads text-center pt-3"><span>Đăng ký</span></h1>
+                                        <div id="overlay">
+                                            <div class="loader"></div>
+                                        </div>
+                                        <div id="login" class="section">
+                                            <form method="post" action="login" id="customer_register" accept-charset="UTF-8">
+                                                <div class="form-signup clearfix">
+                                                    <div class="row">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                                            <fieldset class="form-group">
+                                                                <input type="text" class="form-input" value="" name="lastName" id="lastName" placeholder="Họ" required="">
+                                                            </fieldset>
+                                                        </div>
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                                            <fieldset class="form-group">
+                                                                <input type="text" class="form-input" value="" name="firstName" id="firstName" placeholder="Tên" required="">
+                                                            </fieldset>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                                            <fieldset class="form-group">
+                                                                <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" class="form-input" value="" name="email" id="email" placeholder="Email" required="">
+                                                            </fieldset>
+                                                        </div>
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                                            <fieldset class="form-group">
+                                                                <input placeholder="Số điện thoại" type="text" pattern="\d+" class="form-input form-control-comment" name="PhoneNumber" required="" id="PhoneNumber">
+                                                            </fieldset>
+                                                        </div>
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                                            <fieldset class="form-group">
+                                                                <input type="password" class="form-input" value="" name="password" id="password" placeholder="Mật khẩu" required="">
+                                                                <div id="eye">
+                                                                    <i class="far fa-eye"></i>
+                                                                </div>
+                                                            </fieldset>
+                                                        </div>
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                                            <fieldset class="form-group">
+                                                                <input type="password" class="form-input" value="" name="password" id="password-again" placeholder="Nhập lại mật khẩu" required="">
+                                                                <div id="eyes-again">
+                                                                    <i class="far fa-eye"></i>
+                                                                </div>
+                                                            </fieldset>
+                                                        </div>
+                                                    </div>
+                                                    <div class="section" style="justify-items: center; text-align: center">
+                                                        <button type="submit" id="signupBtn" value="Đăng ký" class="btn btn-green w-100" style="color: #fff">Đăng ký</button>
+                                                    </div>
+                                                    <div id="error-message" style="color: red;"></div>
+                                                </div>
+                                            </form>
+                                            <div class="block social-login--facebooks" style="justify-items: center; text-align: center">
+                                                <p class="a-center">
+                                                    Hoặc <a href="login.html" class="text-primary-green">đăng nhập</a> bằng
+                                                </p>
+                                                <a href="javascript:void(0)" class="social-login--facebook" onclick="loginFacebook()"><img width="129px" height="37px" alt="facebook-login-button" src="images/logo/fb-btn.svg"></a>
+                                                <a href="javascript:void(0)" class="social-login--google" onclick="loginGoogle()"><img width="129px" height="37px" alt="google-login-button" src="images/logo/gp-btn.svg"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <iframe src="footer.html" onload="resizeIframe(this,339)"></iframe>
+    </footer>
+</body>
+<script type="text/javascript" src="admin/javascripts/FakeDataBase.js"></script>
+<script>
+$(document).ready(function() {
+    $("#customer_register").on("submit",function(event){
+        signUp(event);
+    });
+    $('#eye').click(function() {
+        $(this).toggleClass('open');
+        $(this).children('i').toggleClass('fa-eye-slash fa-eye');
+        if ($(this).hasClass('open')) {
+            $(this).prev().attr('type', 'text');
+        } else {
+            $(this).prev().attr('type', 'password');
+        }
+    });
+    $('#eyes-again').click(function() {
+        $(this).toggleClass('open');
+        $(this).children('i').toggleClass('fa-eye-slash fa-eye');
+        if ($(this).hasClass('open')) {
+            $(this).prev().attr('type', 'text');
+        } else {
+            $(this).prev().attr('type', 'password');
+        }
+    });
+});
+
+
+function signUp(event) {
+    console.log("a");
+    event.preventDefault();
+    var password = $("#password").val();
+    var confirmPassword = $("#password-again").val();
+    var errorMessageElement = $('#error-message');
+    if (password !== confirmPassword) {
+        errorMessageElement.text("Mật khẩu không trùng khớp. Vui lòng thử lại.");
+    } else {
+        var lastName = $("#lastName").val();
+        var firstName = $("#firstName").val();
+        var email = $("#email").val().toLowerCase();;
+        var phoneNumber = $("#PhoneNumber").val();
+        var password = $("#password").val();
+        var fullName = lastName + firstName;
+        // Lưu dữ liệu vào fake Database
+        if (fakeDataBase.addUser(new User(email, password, fullName, phoneNumber))) {
+            var overlay = document.getElementById('overlay');
+            overlay.style.display = 'block';
+            // Tạo hiệu ứng loading trong 2 giây (có thể thay đổi thời gian tùy ý)
+            setTimeout(function() {
+                // Nếu thông tin đúng, chuyển hướng đến trang khác
+                window.location.href = 'login.html';
+            }, 2000);
+        } else {
+            errorMessageElement.text("Email đã tồn tại.");
+        }
+    }
+}
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="javascripts/main.js"></script>
+
+</html>

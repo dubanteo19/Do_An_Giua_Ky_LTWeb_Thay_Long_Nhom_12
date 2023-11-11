@@ -1,0 +1,102 @@
+#Change_Password .form-signup .form-group input {
+    width: 100%;
+    border-radius: 4px;
+    height: 40px;
+    font-size: 15px;
+    border: 1px solid #e6e6e6;
+    border-bottom: 2px solid #000;
+    padding: 1px 10px;
+    margin-bottom: 10px;
+}
+.signup ul li{
+    list-style-type: none;
+}
+ #Change_Password, #address_your, #YOUR_ORDER{
+    display: none;
+}
+.adress-form{
+    position: fixed;
+    width: 100vw;
+    height:100vh;
+    background-color: rgba(0,0,0,0.5);
+    top:0;
+    left:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #333;
+    /*display: none;*/
+    z-index: 999;
+}
+.adress-form-content{
+    width: 550px;
+    height:auto;
+    background-color: white;
+    border-radius: 5px;
+}
+.adress-form-content form{
+    padding: 12px 40px;
+}
+.adress-form-content h2{
+    font-size: 20px;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+.adress-form-content h2 span{
+    display: block;
+    position: absolute;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+    right: 12px;
+    cursor: pointer;
+    top:50%;
+    transform: translateY(-50%);
+    line-height: 30px;
+    color: #333;
+    border-radius: 5px;
+}
+.adress-form-content form p{
+    font-size: 16px;
+}
+.adress-form-content form input, select{
+    height: 40px;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    border-bottom: 1px solid #ddd;
+    padding: 0 6px;
+    border-radius: 5px;
+}
+.adress-form-content form button{
+    font-size: 16px;
+    margin-top: 20px;
+    height: 40px;
+    width: 30%;
+    background-color: var(--primary-green);
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: #ddd;
+
+}
+.select2-selection__rendered {
+    line-height: 35px !important;
+}
+.select2-container .select2-selection--single {
+    text-align: left;
+    height: 35px !important;
+    width: 438px;!important;
+}
+.select2-selection__arrow {
+    height: 34px !important;
+}
+.form-group {
+    margin: 0;!important;
+}
+.select-field{
+    border: black 2px solid;
+    border-radius: 5px;
+    border-bottom: 1px solid #ddd;
+}

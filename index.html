@@ -40,9 +40,57 @@
                         <button type="button" class="btn btn-hover ms-md-2 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="left" title="Sản phẩm yêu thích">
                             <i class="fa-regular fa-heart"></i>
                         </button>
-                        <button type="button" class="btn btn-hover ms-md-2 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="left" title="Giỏ hàng">
+                        <button type="button" id="btn-card" class="btn btn-hover ms-md-2 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="left" title="Giỏ hàng">
                             <i class="fas fa-cart-shopping"></i>
                         </button>
+                        <div class="top-cart-content" style="width: 300px; height: auto">
+                            <div class="CartHeaderContainer">
+                                <form action="" method="post" novalidate="" class="cart">
+                                    <div class=" cart_body items">
+                                        <div class="row">
+                                            <div class="cart_product d-flex">
+                                                    <a href="" class="cart_image p-3" title="Kim chi">
+                                                        <img width="80" height="80" src="images/product-images/kim-chi1.png" alt="Kim chi">
+                                                    </a>
+                                                <div class="cart_info pt-3">
+                                                    <div class="cart_name " style="display: flex!important;flex-direction: column">
+                                                        <a href="" class="product-name text-dark" title="Kim chi">Kim chi</a>
+                                                        <span class="variant-title">300g</span>
+                                                        <a class="cart__btn-remove remove-item-cart" style="color: red">Xóa</a>
+                                                    </div>
+                                                    <div class="grid pt-2 mb-3">
+                                                        <div class="one-half cart_select cart_item_name">
+                                                            <div class="cart_prices d-flex justify-content-between">
+                                                                <label class="cart_quantity" style="padding-right: 70px">Số lượng</label>
+                                                                <span class="cart-price fw-bold" style="color: #679210">4.500₫</span>
+                                                            </div>
+                                                            <div class="quantity mt-1">
+                                                                <div class="quantity-form text-center justify-content-center" style="width: 96px; height: 28px;border: 1px solid #679210; border-radius: 5px">
+                                                                    <button class="btn-green minus-btn" style="width:25px; height: 25px; color: #fff; border-radius: 5px">-</button>
+                                                                    <input type="text" name="updates[]" class="input-quanlity number-sidebar text-center" maxlength="3" value="3" min="0" data-id="" data-line="2" aria-label="quantity" pattern="[0-9]*" style="width: 33px">
+                                                                    <button class="btn-green plus-btn" style="width: 25px ; height: 25px; color: #fff; border-radius: 5px">+</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cart-footer" style="border-top: 1px solid #679210">
+                                        <div class="subtotal p-3">
+                                            <div class="cart__subtotal d-flex" style="justify-content: space-between">
+                                                <div class="cart__col-6">Tổng tiền:</div>
+                                                <div class=" cart__totle"><span class="total-price text-primary-green fw-bold">4.500₫</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="cart__btn-proceed-checkout-dt m-3">
+                                            <button type="button" class="button btn btn-default bg-primary-green text-primary-white w-100" id="btn-proceed-checkout" title="Thanh toán">Thanh toán</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                     <div class="languages d-none d-md-flex align-items-center">
                         <a class="nav-link text-primary-green fw-bolder" href="#">EN</a>
@@ -97,7 +145,7 @@
                             <a class="nav-link text-light" href="#">Đặt hàng nhanh</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Chính sách thành viên</a>
+                            <a class="nav-link text-light" href="chinh-sach.html">Chính sách thành viên</a>
                         </li>
                     </ul>
                 </div>
@@ -1197,5 +1245,20 @@
 <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
 <script type="text/javascript" src="javascripts/main.js"></script>
 <script type="text/javascript" src="javascripts/bootstrap.bundle.js"></script>
+<script>
+    document.getElementById('btn-card').addEventListener('mouseover', function() {
+        document.querySelector('.top-cart-content').classList.add('active');
+    });
 
+    document.querySelector('.top-cart-content').addEventListener('mouseover', function() {
+        document.querySelector('.top-cart-content').classList.add('active');
+    });
+    document.querySelector('.top-cart-content').addEventListener('mouseout', function() {
+        document.querySelector('.top-cart-content').classList.remove('active');
+    });
+
+    document.getElementById('btn-card').addEventListener('click', function() {
+        window.location.href = 'gio-hang.html';
+    });
+</script>
 </html>

@@ -7,11 +7,21 @@
     <link rel="stylesheet" type="text/css" href="styles/base.css">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/news.css">
+    <link rel="stylesheet" type="text/css" href="styles/footer.css">
+    <link rel="stylesheet" type="text/css" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/login.css">
     <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="theme-color" content="#fafafa">
 
@@ -94,9 +104,24 @@
             font-size: 20px;
             font-weight: 400;
         }
+        .select2-selection__rendered {
+            line-height: 31px !important;
+        }
+        .select2-container .select2-selection--single {
+            background-color: #3dd5f3;
+            height: 35px !important;
+        }
+        .select2-selection__arrow {
+            height: 34px !important;
+        }
+        .col{
+            padding: 0 !important;
+            margin-bottom: 10px;
+        }
     </style>
 
 </head>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 <body>
     <div id="wrapper">
         <div class="container-fluid">
@@ -111,12 +136,27 @@
                                 <h4 class="title-head">Thông tin đăng nhập</h4>
                                 <a style="color: #2a9dcc; text-decoration: none" href="">Đăng nhập</a>
                             </div>
-                            <form class="mb-child-10">
-                                <input type="email" id="email" name="email" class="form-control" placeholder="Email">
-                                <input type="text" id="full-name" name="full-name" class="form-control" placeholder="Họ và tên">
-                                <input type="number" id="phone-number" name="phone-number" class="form-control" placeholder="Số điện thoại">
+                            <form class="mb-child-10"  method="post" id="thanh-toan" accept-charset="UTF-8">
+                                <input type="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" name="email" class="form-control" placeholder="Email" required="">
+                                <div id="error-email" style="color: red;"></div>
+                                <input type="text" id="full-name" name="full-name" class="form-control" placeholder="Họ và tên" required="">
+                                <div id="error-full-name" style="color: red;"></div>
+                                <input type="text" id="phone-number" name="phone-number" class="form-control" pattern="\d+" placeholder="Số điện thoại" required="">
+                                <div id="error-phone" style="color: red;"></div>
                                 <input type="text" id="address" name="address" class="form-control" placeholder="Địa chỉ (tùy chọn)">
-
+                                <div class="col">
+                                    <select class="form-control" id="provinces" onchange="getDistricts()" ></select>
+                                </div>
+                                <div class="col">
+                                    <select name="" id="districts" class="form-control" onchange="getWards()">
+                                        <option value="" hidden="">Quận huyện</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <select id="wards" class="form-control" >
+                                        <option value="" hidden="">Phường xã</option>
+                                    </select>
+                                </div>
                                 <textarea id="note" name="note" rows="4" placeholder="Ghi chú (tùy chọn)"></textarea>
                             </form>
                         </div>
@@ -182,7 +222,7 @@
                         </div>
                         <div class="d-flex align-items-center justify-content-between mt-3">
                             <a style="color: #2a9dcc" href="">< Quay về giỏ hàng</a>
-                            <button class="btn-blue">Đặt hàng</button>
+                            <button class="btn-blue" type="button" id="dat-hang" onclick="validateAndSubmit()">Đặt hàng</button>
                         </div>
                     </div>
                 </aside>
@@ -190,4 +230,91 @@
         </div>
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="javascripts/vn-provinces.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+    var districts;
+    var provincesElement = $("#provinces");
+    var districtsE = $("#districts");
+    for (const province of provinces) {
+        var optionE = $("<option>").html(province.name);
+        provincesElement.append(optionE);
+    }
+    provincesElement.select2();
+    function  getDistricts(){
+        var selectedProvince = $("#provinces").val();
+
+
+        districtsE.empty();
+        for (const province of provinces) {
+            if(province.name===(selectedProvince)){
+                districts = province.districts
+            }
+        }
+        for (const district of districts) {
+            var option = $("<option>").html(district.name);
+            districtsE.append(option);
+        }
+    }
+
+    function  getWards(){
+        var selectedDisctrict = districtsE.val();
+        var wards;
+        var wardE = $("#wards");
+        wardE.empty();
+        for (const district of districts) {
+            if(district.name===(selectedDisctrict)){
+                wards = district.wards;
+            }
+        }
+        for (const ward of wards) {
+            var option = $("<option>").html(ward.name);
+            wardE.append(option);
+        }
+    }
+
+</script>
+<script>
+    function validateAndSubmit() {
+        // Lấy giá trị từ các trường
+        var email = $("#email").val();
+        var fullName = $("#full-name").val();
+        var phoneNumber = $("#phone-number").val();
+
+        // Thực hiện kiểm tra
+        var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(email)) {
+            $("#error-email").text("Định dạng email không hợp lệ. Vui lòng nhập đúng định dạng.");
+            return;
+        }
+        if (fullName === '') {
+            $("#error-full-name").text("Vui lòng điền đầy đủ thông tin.");
+            return;
+        }
+        var phoneRegex = /^\d+$/;
+        if (!phoneRegex.test(phoneNumber)) {
+            $("#error-phone").text("Số điện thoại không hợp lệ. Vui lòng chỉ nhập chữ số.");
+            return;
+        }
+
+        // Kiểm tra điều kiện khác nếu cần
+
+        // Nếu mọi thứ hợp lệ, thực hiện đặt hàng
+        $("#thanh-toan").submit();
+    }
+
+    $("#email").on("focus", function () {
+        $("#error-email").text("");
+    })
+
+    $("#full-name").on("focus", function () {
+        $("#error-full-name").text("");
+    })
+
+    $("#phone-number").on("focus", function () {
+        $("#error-phone").text("");
+    })
+</script>
 </html>

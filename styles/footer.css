@@ -66,3 +66,6 @@
 #footer .footer-top .footer-newsletter form input[type=submit]:hover {
     background: var(--hover-green);
 }
+#footer-links li a:hover {
+    color: var(--primary-green);
+}

@@ -14,7 +14,45 @@
     <link rel="stylesheet" type="text/css" href="styles/nav.css">
     <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
 </head>
+<style>
+    .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        visibility: hidden;
+        width: 44px;
+        height: 44px;
+        color: #fff;
+        border-radius: 50%;
+        font-size: 20px;
+        text-align: center;
+        line-height: 40px;
+        cursor: pointer;
+        border: 2px solid var(--primary-green);
+        transition: opacity 0.4s ease-in-out;
+    }
 
+    .back-to-top i {
+        font-size: 28px;
+        color: #cda45e;
+        line-height: 0;
+    }
+
+    .back-to-top:hover {
+        background:var(--hover-green);
+        color: #1a1814;
+    }
+
+    .back-to-top:hover i {
+        color: #444444;
+    }
+
+    /*.back-to-top.active {*/
+    /*    visibility: visible;*/
+    /*    opacity: 1;*/
+    /*}*/
+
+</style>
 <body>
     <header class="header" style="min-height: 124px">
         <nav class="nav navbar-light bg-light" style="height: 60px">
@@ -1239,6 +1277,7 @@
     <footer id="footer">
         <iframe onload="resizeIframe(this,339)" src="footer.html"></iframe>
     </footer>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fa-solid fa-arrow-up"></i></a>
 </body>
 <link rel="stylesheet" type="text/css" href="styles/base.css">
 <link rel="stylesheet" type="text/css" href="styles/main.css">
@@ -1260,5 +1299,27 @@
     document.getElementById('btn-card').addEventListener('click', function() {
         window.location.href = 'gio-hang.html';
     });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var backToTopButton = document.querySelector('.back-to-top');
+
+        // Thêm sự kiện cuộn trang
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                // Hiển thị nút khi cuộn xuống
+                backToTopButton.style.visibility = 'visible';
+            } else {
+                // Ẩn nút khi cuộn lên đầu
+                backToTopButton.style.visibility = 'hidden';
+            }
+        });
+
+        // Thêm sự kiện click để cuộn về đầu trang
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    });
+
+
 </script>
 </html>

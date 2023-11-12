@@ -15,6 +15,11 @@
     <link rel="stylesheet" type="text/css" href="styles/nav.css">
     <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
     <title></title>
+    <style>
+        .h_recover{
+            display: none;
+        }
+    </style>
 </head>
 <body>
 <iframe onload="resizeIframe(this,320)" src="top-title.html?title=Đăng nhập"></iframe>
@@ -50,6 +55,21 @@
                                             </div>
                                         </div>
                                     </form>
+                                    <div class="h_recover" style="">
+                                        <div id="recover-password" class="form-signup page-login">
+                                            <form method="post"id="recover_customer_password" accept-charset="UTF-8">
+                                                <div class="error" style="color: red"></div>
+                                                <div class="form-signup clearfix">
+                                                    <fieldset class="form-group">
+                                                        <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" class="form-control" value="" name="Email" id="recover-email" placeholder="Email" required="">
+                                                    </fieldset>
+                                                </div>
+                                                <div class="action_bottom">
+                                                    <input class="btn btn-hover w-100 " style="margin-top: 0px;background-color: #2c3034; border: none" type="submit" value="Lấy lại mật khẩu">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="block social-login--facebooks pt-3"style="justify-items: center; text-align: center">
@@ -74,6 +94,53 @@
 </body>
 <script type="text/javascript" src="javascripts/main.js"></script>
 <script>
+    $(document).ready(function() {
+        $('#register-link').on('click', function(event) {
+            event.preventDefault();
+            window.location.href = 'signup.html';
+        });
+
+        var quenMatKhauButton = $('.quenmk');
+        var hRecoverElement = $('.h_recover');
+        var recoverForm = $('#recover_customer_password');
+        var errorElement = $('.error');
+
+        quenMatKhauButton.on('click', function(event) {
+            event.preventDefault();
+            hRecoverElement.slideDown();
+            errorElement.text('');
+        });
+
+        recoverForm.on('submit', function(event) {
+            event.preventDefault();
+
+            var emailValue = $('#recover-email').val();
+            var email = localStorage.getItem('email');
+            if (emailValue !== email) {
+                displayError('Email không tồn tại trong hệ thống.');
+                return;
+            }
+            else{
+                var newPassword = generateRandomPassword(8);
+                localStorage.setItem('password', newPassword);
+                alert('Mật khẩu mới của bạn là: ' + newPassword);
+                hRecoverElement.slideUp();
+            }
+            function generateRandomPassword(length) {
+                var charset = '0123456789';
+                var password = '';
+                for (var i = 0; i < length; i++) {
+                    var randomIndex = Math.floor(Math.random() * charset.length);
+                    password += charset[randomIndex];
+                }
+                return password;
+            }
+        });
+
+        function displayError(errorMessage) {
+            errorElement.text(errorMessage);
+        }
+    });
     var CORRECT_ADMIN = localStorage.getItem('admin@gmail.com');
     var CORRECT_PASS_ADMIN = localStorage.getItem('123');
 
@@ -131,12 +198,6 @@
             }
         });
     });
-    document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('register-link').addEventListener('click', function(event) {
-            event.preventDefault();
 
-            window.location.href = 'signup.html';
-        });
-    });
 </script>
 </html>

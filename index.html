@@ -47,11 +47,38 @@
         color: #444444;
     }
 
-    /*.back-to-top.active {*/
-    /*    visibility: visible;*/
-    /*    opacity: 1;*/
-    /*}*/
+    .card{
+        position: relative;
+    }
+    .icons{
+        opacity: 0;
+        display: flex;
+        position: absolute;
+        transition: opacity 0.3s ease;
+        right: 0;
+        flex-direction: column;
+    }
+    .icons a{
+        border: 1px solid var(--primary-green);
+        padding: 10px;
+        margin-bottom: 4px;
+        color: #fff;
+        background: var(--primary-green);
+        text-decoration: none;
+    }
+    .icons a:nth-child(1) {
+        border-radius: 5px 5px 0 0;
+    }
 
+    .icons a:nth-child(3) {
+        border-radius: 0 0 5px 5px ;
+    }
+    .card:hover .icons {
+        opacity: 1;
+    }
+    .icons a.fas.fa-heart.active {
+        color: red;
+    }
 </style>
 <body>
     <header class="header" style="min-height: 124px">
@@ -64,14 +91,18 @@
                     </div>
                     <div class="search-smart d-none d-md-flex">
                         <form class="">
-                            <input class="form-control justify-content-md-start" type="search" placeholder="Bạn tìm gì..." aria-label="Search" width="300" height="200">
+                            <input id="searchInput" class="form-control justify-content-md-start" type="search" placeholder="Bạn tìm gì..." aria-label="Search" width="300" height="200">
                             <i class="fas fa-search bg-primary-green"></i>
                         </form>
                     </div>
                     <div class="header-control d-none d-md-flex" style="padding-top: 2px">
-                        <button type="button" class="btn btn-hover bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="right" title="">
-                            <a href="login.html" style="color: #fff"> <i class="fa-solid fa-circle-user"></i></a>
+                        <button class=" btn btn-hover ms-md-2 bg-primary-green btn-user" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a style="color: #fff"> <i class="fa-solid fa-circle-user"></i></a>
                         </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="login.html">Đăng nhập</a></li>
+                            <li><a class="dropdown-item" href="signup.html">Đăng ký</a></li>
+                        </ul>
                         <button type="button" class="btn btn-hover ms-md-2 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Hệ thống cửa hàng">
                             <a href="he-thong.html" style="color: #fff"><i class="fa-solid fa-location-dot"></i></a>
                         </button>
@@ -155,16 +186,31 @@
                             <a class="nav-link active text-light" aria-current="page" href="index.html">Trang chủ</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle text-light" href="san-pham.html" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Sản phẩm
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item " href="#">Nước</a></li>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
                                 <li><a class="dropdown-item" href="#">Đồ khô</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Sản phẩm khác</a></li>
+                                <li><a class="dropdown-item" href="#">Gạo</a></li>
+                                <li><a class="dropdown-item" href="#">Củ quả</a>
+                                    <ul class="level1">
+
+                                        <li class="level2">
+                                            <a href="/rau-la" title="Rau lá">Ngô</a>
+                                        </li>
+
+                                        <li class="level2">
+                                            <a href="/cu-qua" title="Củ, quả">Sắn</a>
+                                        </li>
+
+                                        <li class="level2">
+                                            <a href="/nam-cac-loai" title="Nấm các loại">Khoai</a>
+                                        </li>
+
+                                    </ul></li>
+
+                                <li><a class="dropdown-item" href="#">Hạt</a></li>
+                                <li><a class="dropdown-item" href="#">Ngũ cốc</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -298,9 +344,14 @@
                             </div>
                         </div>
                         <div class="card-deck d-flex mr-child-20">
-                            <div class="card radius-green" onclick="location.href='show-san-pham.html'">
+                            <div class="card radius-green"  onclick="redirectToPage('show-san-pham.html')">
                                 <span class="span-sale">Giảm 11%</span>
                                 <img class="card-img-top" src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="">
+                                <div class="icons">
+                                    <a href="#" class="fas fa-heart heartIcon"></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
@@ -328,6 +379,11 @@
                             <div class="card radius-green">
                                 <span class="span-sale">Giảm 11%</span>
                                 <img class="card-img-top" src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="">
+                                <div class="icons">
+                                    <a href="#" class="fas fa-heart heartIcon"></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
@@ -355,6 +411,11 @@
                             <div class="card radius-green">
                                 <span class="span-sale">Giảm 11%</span>
                                 <img class="card-img-top" src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="">
+                                <div class="icons">
+                                    <a href="#" class="fas fa-heart heartIcon"></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
@@ -382,6 +443,11 @@
                             <div class="card radius-green">
                                 <span class="span-sale">Giảm 11%</span>
                                 <img class="card-img-top" src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="">
+                                <div class="icons">
+                                    <a href="#" class="fas fa-heart heartIcon"></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
@@ -409,6 +475,11 @@
                             <div class="card radius-green">
                                 <span class="span-sale">Giảm 11%</span>
                                 <img class="card-img-top" src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="">
+                                <div class="icons">
+                                    <a href="#" class="fas fa-heart heartIcon"></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
@@ -505,6 +576,11 @@
                         <div class="card-deck d-flex mr-child-20">
                             <div class="card radius-green">
                                 <img class="card-img-top" src="images/product_test/rau-den-4kfarm-goi-500g-202205181556012255.webp" alt="">
+                                <div class="icons">
+                                    <a href="#" class="fas fa-heart heartIcon"></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
@@ -518,6 +594,11 @@
                             </div>
                             <div class="card radius-green">
                                 <img class="card-img-top" src="images/product_test/rau-den-4kfarm-goi-500g-202205181556012255.webp" alt="">
+                                <div class="icons">
+                                    <a href="#" class="fas fa-heart heartIcon"></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
@@ -531,6 +612,11 @@
                             </div>
                             <div class="card radius-green">
                                 <img class="card-img-top" src="images/product_test/rau-den-4kfarm-goi-500g-202205181556012255.webp" alt="">
+                                <div class="icons">
+                                    <a href="#" class="fas fa-heart heartIcon"></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
@@ -544,6 +630,11 @@
                             </div>
                             <div class="card radius-green">
                                 <img class="card-img-top" src="images/product_test/rau-den-4kfarm-goi-500g-202205181556012255.webp" alt="">
+                                <div class="icons">
+                                    <a href="#" class="fas fa-heart"></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
@@ -611,6 +702,11 @@
                         <div class="card-deck d-flex mr-child-20">
                             <div class="card radius-green">
                                 <img class="card-img-top" src="images/product_test/buoi-da-xanh-trai-tu-17kg-tro-len-202205111921599930.webp" alt="">
+                                <div class="icons">
+                                    <a href="#" class="fas fa-heart heartIcon"></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
@@ -624,6 +720,11 @@
                             </div>
                             <div class="card radius-green">
                                 <img class="card-img-top" src="images/product_test/buoi-da-xanh-trai-tu-17kg-tro-len-202205111921599930.webp" alt="">
+                                <div class="icons">
+                                    <a href="#" class="fas fa-heart heartIcon"></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
@@ -637,6 +738,11 @@
                             </div>
                             <div class="card radius-green">
                                 <img class="card-img-top" src="images/product_test/buoi-da-xanh-trai-tu-17kg-tro-len-202205111921599930.webp" alt="">
+                                <div class="icons">
+                                    <a href="#" class="fas fa-heart heartIcon"></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
@@ -650,6 +756,11 @@
                             </div>
                             <div class="card radius-green">
                                 <img class="card-img-top" src="images/product_test/buoi-da-xanh-trai-tu-17kg-tro-len-202205111921599930.webp" alt="">
+                                <div class="icons">
+                                    <a href="#" class="fas fa-heart heartIcon"></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
@@ -707,6 +818,11 @@
                         <div class="card-deck d-flex mr-child-20">
                             <div class="card radius-green">
                                 <img class="card-img-top" src="images/product_test/lac-cuc-do-ly-tuong-goi-400g-202208170859346002.webp" alt="">
+                                <div class="icons">
+                                    <a href="#" class="fas fa-heart"></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
@@ -720,6 +836,11 @@
                             </div>
                             <div class="card radius-green">
                                 <img class="card-img-top" src="images/product_test/lac-cuc-do-ly-tuong-goi-400g-202208170859346002.webp" alt="">
+                                <div class="icons">
+                                    <a href="#" class="fas fa-heart heartIcon"></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
@@ -733,6 +854,11 @@
                             </div>
                             <div class="card radius-green">
                                 <img class="card-img-top" src="images/product_test/lac-cuc-do-ly-tuong-goi-400g-202208170859346002.webp" alt="">
+                                <div class="icons">
+                                    <a href="#" class="fas fa-heart heartIcon"></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
@@ -746,6 +872,11 @@
                             </div>
                             <div class="card radius-green">
                                 <img class="card-img-top" src="images/product_test/lac-cuc-do-ly-tuong-goi-400g-202208170859346002.webp" alt="">
+                                <div class="icons">
+                                    <a href="#" class="fas fa-heart heartIcon"></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
@@ -788,7 +919,7 @@
                             </div>
                             <div class="button-control">
                                 <div class="btn-green btn-small disabled">
-                                    <i class="fa-solid fa-chevron-left fa-chevron"></i>
+                                    <i class="fa-solid fa-chevron-left fa-chevron" ></i>
                                 </div>
                                 <div class="btn-green btn-small">
                                     <i class="fa-solid fa-chevron-right fa-chevron"></i>
@@ -817,7 +948,7 @@
                                                     <i class="fa-solid fa-magnifying-glass"></i>
                                                 </div>
                                                 <div class="btn-green btn-small">
-                                                    <i class="fa-solid fa-heart"></i>
+                                                    <i class="fa-solid fa-heart" ></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -1300,6 +1431,10 @@
         window.location.href = 'gio-hang.html';
     });
 
+    document.getElementById('navbarScrollingDropdown').addEventListener('click', function() {
+        window.location.href = 'san-pham.html';
+    });
+
     document.addEventListener('DOMContentLoaded', function() {
         var backToTopButton = document.querySelector('.back-to-top');
 
@@ -1320,6 +1455,44 @@
         });
     });
 
+    $(document).ready(function() {
+        // Mảng chứa các placeholder khác nhau
+        var placeholders = ["Tìm kiếm theo tên sản phẩm", "Tìm kiếm theo danh mục", "Tìm kiếm theo thương hiệu"];
+        var currentIndex = 0;
+        var currentPlaceholder = "";
+        var placeholderIndex = 0;
 
+        // Hàm cập nhật placeholder với từng chữ
+        function updatePlaceholder() {
+            if (placeholderIndex <= placeholders[currentIndex].length) {
+                currentPlaceholder = placeholders[currentIndex].substring(0, placeholderIndex);
+                $("#searchInput").attr("placeholder", currentPlaceholder);
+                placeholderIndex++;
+            } else {
+                // Khi hoàn thành, đặt lại index và chuyển sang placeholder tiếp theo
+                placeholderIndex = 0;
+                currentIndex = (currentIndex + 1) % placeholders.length;
+            }
+        }
+
+        // Thực hiện cập nhật mỗi giây
+        setInterval(updatePlaceholder, 60);
+    });
+
+    $(document).ready(function() {
+        $(".heartIcon").click(function(event) {
+            event.preventDefault();
+            $(this).toggleClass("active");
+        });
+    });
+
+    function redirectToPage(page) {
+        var heartIcon = document.querySelector('.heartIcon');
+        if (heartIcon && heartIcon.classList.contains('active')) {
+            // Nếu nút yêu thích được nhấn, không chuyển trang
+            return;
+        }
+
+    }
 </script>
 </html>

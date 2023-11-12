@@ -159,3 +159,25 @@ header {
 .top-cart-content.active {
     display: block;
 }
+.btn-user{
+    position: relative;
+}
+.header-control .dropdown-menu{
+    position: absolute;
+    top: 55px;
+    right:430px;
+}
+.dropdown-menu:hover{
+    display: block;
+}
+.dropdown-menu a:hover{
+    color: #FFFFFF;
+    background-color: var(--primary-green);
+}
+.header-control .btn-user:hover + .dropdown-menu {
+    display: block;
+}
+#navbarScroll .dropdown-menu{
+    top: 58px;
+    right:0px;
+}

@@ -15,6 +15,7 @@
     <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
     <title></title>
 </head>
+
 <body>
 <iframe onload="resizeIframe(this,320)" src="top-title.html?title=Đăng ký"></iframe>
 <section class="section">
@@ -30,6 +31,7 @@
                                     <div id="overlay">
                                         <div class="loader"></div>
                                     </div>
+                                    <div id="error-message" style="color: red;"></div>
                                     <div id="login" class="section">
                                         <form method="post" action="login" id="customer_register" accept-charset="UTF-8">
                                             <div class="form-signup clearfix">
@@ -56,6 +58,7 @@
                                                             <input placeholder="Số điện thoại" type="text" pattern="\d+" class="form-input form-control-comment" name="PhoneNumber" required="" id="PhoneNumber">
                                                         </fieldset>
                                                     </div>
+                                                    <div id="error-pass" style="color: red;"></div>
                                                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                                         <fieldset class="form-group">
                                                             <input type="password" class="form-input" value="" name="password" id="password" placeholder="Mật khẩu" required="">
@@ -64,24 +67,24 @@
                                                             </div>
                                                         </fieldset>
                                                     </div>
-                                                    <div id="error-message" style="color: red;"></div>
                                                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                                         <fieldset class="form-group">
                                                             <input type="password" class="form-input" value="" name="password" id="password-again" placeholder="Nhập lại mật khẩu" required="">
                                                             <div id="eyes-again">
-                                                                 <i class="far fa-eye"></i>
+                                                                <i class="far fa-eye"></i>
                                                             </div>
                                                         </fieldset>
                                                     </div>
                                                 </div>
                                                 <div class="section" style="justify-items: center; text-align: center">
-                                                    <button type="submit" value="Đăng ký" class="btn btn-green w-100" style="color: #fff">Đăng ký</button>
+                                                    <button type="submit" id="signupBtn" value="Đăng ký" class="btn btn-green w-100" style="color: #fff">Đăng ký</button>
                                                 </div>
+
                                             </div>
                                         </form>
                                         <div class="block social-login--facebooks" style="justify-items: center; text-align: center">
                                             <p class="a-center">
-                                                Hoặc đăng nhập bằng
+                                                Hoặc <a href="login.html" class="text-primary-green">đăng nhập</a> bằng
                                             </p>
                                             <a href="javascript:void(0)" class="social-login--facebook" onclick="loginFacebook()"><img width="129px" height="37px" alt="facebook-login-button" src="images/logo/fb-btn.svg"></a>
                                             <a href="javascript:void(0)" class="social-login--google" onclick="loginGoogle()"><img width="129px" height="37px" alt="google-login-button" src="images/logo/gp-btn.svg"></a>
@@ -89,7 +92,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -101,118 +103,73 @@
     <iframe src="footer.html" onload="resizeIframe(this,339)"></iframe>
 </footer>
 </body>
-
+<script type="text/javascript" src="admin/javascripts/FakeDataBase.js"></script>
 <script>
-    // document.addEventListener('DOMContentLoaded', function() {
-    //     document.getElementById('customer_register').addEventListener('submit', function(event) {
-    //         event.preventDefault();
-    //         var password = document.getElementById('password').value;
-    //         var confirmPassword = document.getElementById('password-again').value;
-    //         var errorMessageElement = document.getElementById('error-message');
-    //         if (password !== confirmPassword) {
-    //             errorMessageElement.textContent = 'Mật khẩu không trùng khớp. Vui lòng thử lại.';
-    //             event.preventDefault();
-    //         }
-    //         else{
-    //             document.getElementById('customer_register').addEventListener('submit', function(event) {
-    //                 event.preventDefault(); // Ngăn chặn gửi form mặc định
-    //
-    //                 // Lấy dữ liệu từ các trường nhập liệu
-    //                 var lastName = document.getElementById('lastName').value;
-    //                 var firstName = document.getElementById('firstName').value;
-    //                 var email = document.getElementById('email').value;
-    //                 var phoneNumber = document.getElementById('PhoneNumber');
-    //                 var password = document.getElementById('password').value;
-    //
-    //                 // Lưu dữ liệu vào localStorage
-    //                 localStorage.setItem('lastName', lastName);
-    //                 localStorage.setItem('firstName', firstName);
-    //                 localStorage.setItem('email', email);
-    //                 localStorage.setItem('PhoneNumber', phoneNumber);
-    //                 localStorage.setItem('password', password);
-    //
-    //                 var overlay = document.getElementById('overlay');
-    //                 overlay.style.display = 'block';
-    //
-    //                 // Tạo hiệu ứng loading trong 2 giây (có thể thay đổi thời gian tùy ý)
-    //                 setTimeout(function() {
-    //                     // Nếu thông tin đúng, chuyển hướng đến trang khác
-    //                     window.location.href = 'index.html';
-    //                 }, 2000);
-    //             });
-    //         }
-    //     });
-    //
-    // });
-    document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('customer_register').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var password = document.getElementById('password').value;
-            var confirmPassword = document.getElementById('password-again').value;
-            var errorMessageElement = document.getElementById('error-message');
-
-            if (password !== confirmPassword) {
-                errorMessageElement.textContent = 'Mật khẩu không trùng khớp. Vui lòng thử lại.';
-                event.preventDefault();
+    $(document).ready(function() {
+        $("#customer_register").on("submit",function(event){
+            signUp(event);
+        });
+        $('#eye').click(function() {
+            $(this).toggleClass('open');
+            $(this).children('i').toggleClass('fa-eye-slash fa-eye');
+            if ($(this).hasClass('open')) {
+                $(this).prev().attr('type', 'text');
             } else {
-                var users = JSON.parse(localStorage.getItem('users')) || []; // Lấy danh sách người dùng từ localStorage
+                $(this).prev().attr('type', 'password');
+            }
+        });
+        $('#eyes-again').click(function() {
+            $(this).toggleClass('open');
+            $(this).children('i').toggleClass('fa-eye-slash fa-eye');
+            if ($(this).hasClass('open')) {
+                $(this).prev().attr('type', 'text');
+            } else {
+                $(this).prev().attr('type', 'password');
+            }
+        });
+    });
 
-                // Lấy thông tin người dùng từ form
-                var lastName = document.getElementById('lastName').value;
-                var firstName = document.getElementById('firstName').value;
-                var email = document.getElementById('email').value;
-                var phoneNumber = document.getElementById('PhoneNumber');
-                var password = document.getElementById('password').value;
 
-                // Tạo một đối tượng người dùng mới
-                var newUser = {
-                    lastName: lastName,
-                    firstName: firstName,
-                    email: email,
-                    phoneNumber: phoneNumber,
-                    password: password
-                };
+    function signUp(event) {
+        event.preventDefault();
+        var password = $("#password").val();
+        var confirmPassword = $("#password-again").val();
+        var errorMessageElement = $('#error-message');
+        var errorPassElement = $('#error-pass');
 
-                // Thêm người dùng vào danh sách
-                users.push(newUser);
+        // Kiểm tra chiều dài của mật khẩu
+        if (password.length < 6) {
+            errorPassElement.text("Mật khẩu phải chứa ít nhất 6 ký tự.");
+            return;
+        }
+        else{
+            errorPassElement.text("");
+        }
 
-                // Lưu danh sách người dùng mới vào localStorage
-                localStorage.setItem('users', JSON.stringify(users));
-
+        if (password !== confirmPassword) {
+            errorMessageElement.text("Mật khẩu không trùng khớp. Vui lòng thử lại.");
+        } else {
+            var lastName = $("#lastName").val();
+            var firstName = $("#firstName").val();
+            var email = $("#email").val().toLowerCase();;
+            var phoneNumber = $("#PhoneNumber").val();
+            var password = $("#password").val();
+            var fullName = lastName + firstName;
+            // Lưu dữ liệu vào fake Database
+            if (fakeDataBase.addUser(new User(email, password, fullName, phoneNumber))) {
                 var overlay = document.getElementById('overlay');
                 overlay.style.display = 'block';
-
                 // Tạo hiệu ứng loading trong 2 giây (có thể thay đổi thời gian tùy ý)
                 setTimeout(function() {
                     // Nếu thông tin đúng, chuyển hướng đến trang khác
-                    window.location.href = 'index.html';
+                    window.location.href = 'login.html';
                 }, 2000);
+            } else {
+                errorMessageElement.text("Email đã tồn tại.");
             }
-        });
-    });
-    $(document).ready(function(){
-        $('#eye').click(function(){
-            $(this).toggleClass('open');
-            $(this).children('i').toggleClass('fa-eye-slash fa-eye');
-            if($(this).hasClass('open')){
-                $(this).prev().attr('type', 'text');
-            }else{
-                $(this).prev().attr('type', 'password');
-            }
-        });
-    });
-    $(document).ready(function(){
-        $('#eyes-again').click(function(){
-            $(this).toggleClass('open');
-            $(this).children('i').toggleClass('fa-eye-slash fa-eye');
-            if($(this).hasClass('open')){
-                $(this).prev().attr('type', 'text');
-            }else{
-                $(this).prev().attr('type', 'password');
-            }
-        });
-    });
+    }
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script type="text/javascript" src="javascripts/main.js"></script>
+
 </html>

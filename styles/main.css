@@ -37,7 +37,6 @@ section {
 }
 
 .product-catalog {
-    border-top: 1px solid var(--primary-green);
     height: 200px;
 }
 
@@ -396,4 +395,80 @@ section {
     overflow: hidden;
     display: inline-block;
     height: 50px;
+}
+/*************************************/
+.product-form{
+    position: fixed;
+    width: 100vw;
+    height:100vh;
+    background-color: rgba(0,0,0,0.5);
+    top:0;
+    left:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #333;
+    /*display: none;*/
+    z-index: 999;
+}
+.product-form-content{
+    width: 900px;
+    height:auto;
+    background-color: white;
+    border-radius: 5px;
+}
+.product-form-content form{
+    padding: 12px 40px;
+}
+.product-form-content h2{
+    font-size: 20px;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+.product-form-content h2 span{
+    display: block;
+    position: absolute;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+    right: 12px;
+    cursor: pointer;
+    top:50%;
+    transform: translateY(-50%);
+    line-height: 30px;
+    color: #333;
+    border-radius: 5px;
+}
+.product-form-content form p{
+    font-size: 16px;
+}
+.product-form-content form input, select{
+    height: 40px;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    border-bottom: 1px solid #ddd;
+    padding: 0 6px;
+    border-radius: 5px;
+}
+.product-form-content form button{
+    font-size: 16px;
+    margin-top: 20px;
+    height: 40px;
+    width: 30%;
+    background-color: var(--primary-green);
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: #ddd;
+
+}
+.img-main{
+    border: 1px solid var(--primary-green);
+    padding: 30px 5px;
+}
+.img-detail li{
+    border: 1px solid var(--primary-green);
+    margin: 5px;
 }

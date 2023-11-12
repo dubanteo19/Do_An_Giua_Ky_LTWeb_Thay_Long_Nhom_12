@@ -12,73 +12,13 @@
     <link rel="stylesheet" type="text/css" href="styles/news.css">
     <link rel="stylesheet" type="text/css" href="styles/footer.css">
     <link rel="stylesheet" type="text/css" href="styles/nav.css">
+    <link rel="stylesheet" type="text/css" href="styles/product-detail.css">
+    <link rel="stylesheet" type="text/css" href="styles/lightslider.css">
     <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="styles/gio-hang.css">
 </head>
 <style>
-    .back-to-top {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        visibility: hidden;
-        width: 44px;
-        height: 44px;
-        color: #fff;
-        border-radius: 50%;
-        font-size: 20px;
-        text-align: center;
-        line-height: 40px;
-        cursor: pointer;
-        border: 2px solid var(--primary-green);
-        transition: opacity 0.4s ease-in-out;
-    }
 
-    .back-to-top i {
-        font-size: 28px;
-        color: #cda45e;
-        line-height: 0;
-    }
-
-    .back-to-top:hover {
-        background:var(--hover-green);
-        color: #1a1814;
-    }
-
-    .back-to-top:hover i {
-        color: #444444;
-    }
-
-    .card{
-        position: relative;
-    }
-    .icons{
-        opacity: 0;
-        display: flex;
-        position: absolute;
-        transition: opacity 0.3s ease;
-        right: 0;
-        flex-direction: column;
-    }
-    .icons a{
-        border: 1px solid var(--primary-green);
-        padding: 10px;
-        margin-bottom: 4px;
-        color: #fff;
-        background: var(--primary-green);
-        text-decoration: none;
-    }
-    .icons a:nth-child(1) {
-        border-radius: 5px 5px 0 0;
-    }
-
-    .icons a:nth-child(3) {
-        border-radius: 0 0 5px 5px ;
-    }
-    .card:hover .icons {
-        opacity: 1;
-    }
-    .icons a.fas.fa-heart.active {
-        color: red;
-    }
 </style>
 <body>
     <header class="header" style="min-height: 124px">
@@ -96,21 +36,26 @@
                         </form>
                     </div>
                     <div class="header-control d-none d-md-flex" style="padding-top: 2px">
-                        <button class=" btn btn-hover ms-md-2 bg-primary-green btn-user" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class=" btn btn-hover ms-md-2 bg-primary-green btn-user" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 10px">
                             <a style="color: #fff"> <i class="fa-solid fa-circle-user"></i></a>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <li><a class="dropdown-item" href="login.html">Đăng nhập</a></li>
                             <li><a class="dropdown-item" href="signup.html">Đăng ký</a></li>
                         </ul>
-                        <button type="button" class="btn btn-hover ms-md-2 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Hệ thống cửa hàng">
+                        <button type="button" class="btn btn-hover ms-md-2 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Hệ thống cửa hàng" style="margin-right: 10px">
                             <a href="he-thong.html" style="color: #fff"><i class="fa-solid fa-location-dot"></i></a>
                         </button>
-                        <button type="button" class="btn btn-hover ms-md-2 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="left" title="Sản phẩm yêu thích">
+                        <button type="button" class="position-relative btn btn-hover ms-md-2 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="left" title="Sản phẩm yêu thích" style="margin-right: 10px">
                             <i class="fa-regular fa-heart"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">1</span>
+                            <span class="visually-hidden">unread messages</span>
                         </button>
-                        <button type="button" id="btn-card" class="btn btn-hover ms-md-2 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="left" title="Giỏ hàng">
+
+                        <button type="button" id="btn-card" class="position-relative btn btn-hover ms-md-2 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="left" title="Giỏ hàng">
                             <a href="gio-hang.html" style="color: #fff"><i class="fas fa-cart-shopping"></i></a>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">1</span>
+                            <span class="visually-hidden">unread messages</span>
                         </button>
                         <div class="top-cart-content" style="width: 300px; height: auto">
                             <div class="CartHeaderContainer">
@@ -350,7 +295,84 @@
                                 <div class="icons">
                                     <a href="#" class="fas fa-heart heartIcon"></a>
                                     <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
-                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass chi-tiet"></i></a>
+                                </div>
+                                <div class="product-form">
+                                    <div class="product-form-content">
+                                        <h2>
+                                            Chi tiết sản phẩm
+                                            <span id="product-close" style="background: red">X Đóng</i></span></h2>
+                                        <form action="" class="d-flex">
+                                            <div class="col-6">
+                                                <div class="product-images">
+                                                    <ul id="imageGallery">
+                                                        <li data-thumb="images/thumbs/thumb-kim-chi1.png" data-src="images/thumbs/thumb-kim-chi1.png">
+                                                            <img class="img-main" width="400px" src="images/product-images/kim-chi1.png" />
+                                                        </li>
+                                                        <div class="d-flex justify-content-between pt-3 img-detail">
+                                                            <li data-thumb="images/product-images/kim-chi2.png" data-src="images/product-images/kim-chi2.png">
+                                                                <img width="70px"  src="images/product-images/kim-chi2.png" />
+                                                            </li>
+                                                            <li data-thumb="images/product-images/kim-chi3.png" data-src="images/product-images/kim-chi3.png">
+                                                                <img width="70px" src="images/product-images/kim-chi3.png" />
+                                                            </li>
+                                                            <li data-thumb="images/product-images/kim-chi4.png" data-src="images/product-images/kim-chi4.png">
+                                                                <img width="70px" src="images/product-images/kim-chi4.png" />
+                                                            </li>
+                                                            <li data-thumb="images/product-images/kim-chi5.png" data-src="images/product-images/kim-chi5.png">
+                                                                <img width="70px" src="images/product-images/kim-chi5.png" />
+                                                            </li>
+                                                            <li data-thumb="images/product-images/kim-chi6.png" data-src="images/product-images/kim-chi6.png">
+                                                                <img width="70px" src="images/product-images/kim-chi6.png" />
+                                                            </li>
+                                                        </div>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-6" style="text-align: left; padding-left: 30px;">
+                                                <div class="product-details">
+                                                    <h4 class="title text-primary-green">Kim chi cải thảo cắt lát Bibigo Ông Kim's gói</h4>
+                                                    <div class=" d-flex justify-content-between" >
+                                                        <div class="description"> <span>Tình trạng: </span><span class="description text-light-color">Còn hàng</span>
+                                                        </div>
+                                                        <div class="description"> <span>Mã sản phẩm: </span><span class="description text-light-color">KT0032</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-price-box bg-white">
+                                                        <div class="row gx-0 ">
+                                                            <div class="col-4">
+                                                                <h2 class="text-primary-green">12.000đ</h2>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <span class="origin-price">13.500đ</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="weight ">
+                                                        <span class="description fw-bold">Trọng lượng: </span><span class="text-primary-green">200g</span>
+                                                        <div class="weight-btns d-flex">
+                                                            <button class="weight-btn active" style="width: 50px">100g</button>
+                                                            <button class="weight-btn" style="width: 50px">200g</button>
+                                                            <button class="weight-btn" style="width: 50px">300g</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="quantity mt-3">
+                                                        <span class="description fw-bold">Số lượng: </span>
+                                                        <div class="quantity">
+                                                            <div class="quantity-form d-flex" style="width: 100px; height: 30px; top: 5px">
+                                                                <button class="btn-green minus-btn m-0" style="width:25px; height: 25px; color: #fff">-</button>
+                                                                <input type="text" name="updates[]" class="input-quanlity number-sidebar m-0 p-0" maxlength="3" value="3" min="0" data-id="" data-line="2" aria-label="quantity" pattern="[0-9]*" style="width: 44px; height: 26px">
+                                                                <button class="btn-green plus-btn m-0" style="width: 25px ; height: 25px; color: #fff">+</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="add-to-cart-btn btn-green mt-3 w-100">
+                                                        Thêm vào giỏ hàng
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                                 <div class="card-body">
                                     <h3 class="card-title">
@@ -376,6 +398,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="card radius-green">
                                 <span class="span-sale">Giảm 11%</span>
                                 <img class="card-img-top" src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="">
@@ -597,7 +620,7 @@
                                 <div class="icons">
                                     <a href="#" class="fas fa-heart heartIcon"></a>
                                     <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
-                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass chi-tiet"></i></a>
                                 </div>
                                 <div class="card-body">
                                     <h3 class="card-title">
@@ -1410,12 +1433,23 @@
     </footer>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fa-solid fa-arrow-up"></i></a>
 </body>
+<script type="text/javascript" src="javascripts/lightslider.js"></script>
 <link rel="stylesheet" type="text/css" href="styles/base.css">
 <link rel="stylesheet" type="text/css" href="styles/main.css">
 <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
 <script type="text/javascript" src="javascripts/main.js"></script>
 <script type="text/javascript" src="javascripts/bootstrap.bundle.js"></script>
 <script>
+    const adressopen = document.querySelector('.chi-tiet')
+    const adressclose = document.querySelector('#product-close')
+    adressopen.addEventListener("click", function() {
+        document.querySelector('.product-form').style.display = "flex";
+    })
+    adressclose.addEventListener("click", function() {
+        document.querySelector('.product-form').style.display = "none";
+    });
+
+
     document.getElementById('btn-card').addEventListener('mouseover', function() {
         document.querySelector('.top-cart-content').classList.add('active');
     });
@@ -1494,5 +1528,7 @@
         }
 
     }
+
+
 </script>
 </html>

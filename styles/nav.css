@@ -165,7 +165,7 @@ header {
 .header-control .dropdown-menu{
     position: absolute;
     top: 55px;
-    right:430px;
+    right:450px;
 }
 .dropdown-menu:hover{
     display: block;
@@ -180,4 +180,71 @@ header {
 #navbarScroll .dropdown-menu{
     top: 58px;
     right:0px;
+}
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    visibility: hidden;
+    width: 44px;
+    height: 44px;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    border: 2px solid var(--primary-green);
+    transition: opacity 0.4s ease-in-out;
+}
+
+.back-to-top i {
+    font-size: 28px;
+    color: #cda45e;
+    line-height: 0;
+}
+
+.back-to-top:hover {
+    background:var(--hover-green);
+    color: #1a1814;
+}
+
+.back-to-top:hover i {
+    color: #444444;
+}
+
+.card{
+    position: relative;
+}
+.icons{
+    opacity: 0;
+    display: flex;
+    position: absolute;
+    transition: opacity 0.3s ease;
+    right: 0;
+    flex-direction: column;
+}
+.icons a{
+    border: 1px solid var(--primary-green);
+    padding: 10px;
+    margin-bottom: 4px;
+    color: #fff;
+    background: var(--primary-green);
+    text-decoration: none;
+}
+.icons a:nth-child(1) {
+    border-radius: 5px 5px 0 0;
+}
+
+.icons a:nth-child(3) {
+    border-radius: 0 0 5px 5px ;
+}
+.card:hover .icons {
+    opacity: 1;
+}
+.icons a.fas.fa-heart.active {
+    color: red;
+}
+#imageGallery li{
+    list-style-type: none;
 }

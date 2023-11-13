@@ -22,7 +22,7 @@
                     <div class="col-6">
                         <div class="product-images">
                             <ul id="imageGallery">
-                                <li data-thumb="images/thumbs/thumb-kim-chi1.png" data-src="images/thumbs/thumb-kim-chi1.png">
+                                <!-- <li data-thumb="images/thumbs/thumb-kim-chi1.png" data-src="">
                                     <img width="400px" src="images/product-images/kim-chi1.png" />
                                 </li>
                                 <li data-thumb="images/product-images/kim-chi2.png" data-src="images/product-images/kim-chi2.png">
@@ -39,7 +39,7 @@
                                 </li>
                                 <li data-thumb="images/product-images/kim-chi6.png" data-src="images/product-images/kim-chi6.png">
                                     <img width="400px" src="images/product-images/kim-chi6.png" />
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                                 <span class="description fw-bold">Số lượng: </span>
                                 <div class="quantity-form">
                                     <button class="btn-green minus-btn">-</button>
-                                    <input class="input-quanlity" type="text" value="1">
+                                    <input class="input-quanlity" type="number" value="1">
                                     <button class="btn-green plus-btn">+</button>
                                 </div>
                             </div>
@@ -358,21 +358,21 @@
                             <p class="fs-5 m-0">FREESHIP</p>
                             <i class="fa-solid fa-info"></i>
                             <small class="d-block">Miễn phí vận chuyển</small>
-                            <small class="text-primary-green">HSD: Không thời hạn</small>
+                            <small class="text-primary-green ">HSD: <br> Không thời hạn</small>
                             <button class="btn-green copy-btn">Sao chép</button>
                         </div>
                         <div class="discount-item mt-2">
                             <p class="fs-5 m-0">LTV20</p>
                             <i class="fa-solid fa-info"></i>
                             <small class="d-block">Giảm 20% giá trị đơn hàng</small>
-                            <small class="text-primary-green">HSD: 1/12/2023</small>
+                            <small class="text-primary-green ">HSD: 1/12/2023</small>
                             <button class="btn-green copy-btn">Sao chép</button>
                         </div>
                         <div class="discount-item mt-2">
                             <p class="fs-5 m-0">LTV50K</p>
                             <i class="fa-solid fa-info"></i>
                             <small class="d-block">Giảm 50.000đ giá trị đơn hàng</small>
-                            <small class="text-primary-green">HSD: 1/12/2023</small>
+                            <small class="text-primary-green ">HSD: 1/12/2023</small>
                             <button class="btn-green copy-btn">Sao chép</button>
                         </div>
                     </div>
@@ -440,27 +440,53 @@ function fetchProductData() {
     let urlParametes = new URLSearchParams(window.location.search);
     let productId = urlParametes.get("productId");
     let product = fakeDataBase.findProduct(productId);
+    let images = fakeDataBase.getImagesByProductId(productId);
+
+    let imageGallery = $("#imageGallery");
+    for (const image of images) {
+        let li = $("<li>").attr({
+            "data-thumb": image.path,
+            "data-src": image.path
+        });
+        let img = $("<img>").attr({
+            "src": image.path,
+            "width": "400px"
+        });
+        li.append(img);
+        imageGallery.append(li);
+    }
     $("#top-title").attr("src", "top-title.html?title=" + product.name);
     $("#productId").text(product.id);
     $("#productName").text(product.name);
-
-
-
 }
 $(document).ready(function() {
+    function plus(val) {
+        let inputQuanlity = $(".input-quanlity");
+        let newCount = Number(inputQuanlity.val()) + val;
+        if(newCount>0){
+            inputQuanlity.val(newCount);
+        }
+    }
+
+    function getThumbsCount() {
+        let re = $("#imageGallery li").length;
+        return re;
+    }
     fetchProductData();
+    getThumbsCount();
     $('#imageGallery').lightSlider({
         gallery: true,
         item: 1,
         loop: true,
         auto: true,
-        thumbItem: 6,
+        thumbItem: getThumbsCount(),
         slideMargin: 0,
         enableDrag: true,
         currentPagerPosition: 'left',
 
     });
-    $(".plus-btn").on('click', () => $(".input-quanlity").val($(".input-quanlity").val()+1));
+    $(".plus-btn").on('click', () => plus(1));
+    $(".minus-btn").on('click', () => plus(-1));
 
 
 

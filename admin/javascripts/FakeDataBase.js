@@ -1,3 +1,27 @@
+class Type {
+    constructor(id, description, categoryId) {
+        this.id = id;
+        this.description = description;
+        this.categoryId = categoryId;
+    }
+}
+class Price {
+    constructor(id, productId, costPrice, unitPrice, typeId) {
+        this.id = id;
+        this.productId = productId;
+        this.costPrice = costPrice;
+        this.UnitPrice = unitPrice;
+        this.typeId = typeId;
+    }
+}
+class Image {
+    constructor(id, productId, name, path) {
+        this.id = id;
+        this.productId = productId;
+        this.name = name;
+        this.path = path;
+    }
+}
 class Order {
     constructor(id, statusId, userId, totalPrice, discount_id, paymentMethod, shipingFee, address) {
         this.id = id;
@@ -62,7 +86,10 @@ class DataBaseManager {
     users = []
     categories = [];
     products = [];
-    orders = []
+    orders = [];
+    images = [];
+    types = [];
+    prices = [];
     constructor() {
         this.loadDataBase();
     }
@@ -73,6 +100,9 @@ class DataBaseManager {
         localStorage.setItem("products", JSON.stringify(this.products));
         localStorage.setItem("categories", JSON.stringify(this.categories));
         localStorage.setItem("orders", JSON.stringify(this.orders));
+        localStorage.setItem("images", JSON.stringify(this.images));
+        localStorage.setItem("types", JSON.stringify(this.types));
+        localStorage.setItem("prices", JSON.stringify(this.prices));
 
     }
     loadDataBase() {
@@ -81,11 +111,58 @@ class DataBaseManager {
         let products = JSON.parse(localStorage.getItem("products"));
         let categories = JSON.parse(localStorage.getItem("categories"));
         let orders = JSON.parse(localStorage.getItem("orders"));
+        let images = JSON.parse(localStorage.getItem("images"));
+        let types = JSON.parse(localStorage.getItem("types"));
+        let prices = JSON.parse(localStorage.getItem("prices"));
         if (statuses != null) this.statuses = statuses;
         if (users != null) this.users = users;
         if (products != null) this.products = products;
         if (categories != null) this.categories = categories;
+        if (images != null) this.images = images;
+        if (types != null) this.types = types;
+        if (prices != null) this.prices = prices;
     }
+    //Price manager
+    addPrice(price) {
+        for (const p of this.prices) {
+            if (price.id === price) return false;
+        }
+        this.prices.push(price);
+        this.saveData();
+        return true;
+    }
+
+    //Type manager 
+    addType(type) {
+        for (const t of this.types) {
+            if (t.id === type) return false;
+        }
+        this.types.push(type);
+        this.saveData();
+        return true;
+    }
+
+
+
+    // Image manager
+    addImage(image) {
+        for (const i of this.images) {
+            if (i.id === image.id) return false;
+        }
+        this.images.push(image);
+        this.saveData();
+        return true;
+    }
+    getImagesByProductId(id) {
+        let re = [];
+        for (const i of this.images) {
+            if (i.productId === id) {
+                re.push(i);
+            }
+        }
+        return re;
+    }
+
     // Order manager
     addOrder(order) {
         for (const o of this.orders) {
@@ -182,6 +259,13 @@ class DataBaseManager {
         }
         return null
     }
+    findUserByUsername(username) {
+        for (const user of this.users) {
+            if (user.email === username)
+                return user;
+        }
+        return null
+    }
     deleteUser(id) {
         let user = this.findUser(id);
         if (user == null) {
@@ -232,5 +316,13 @@ function initDataBase() {
     fakeDataBase.addOrder(new Order("o2", "7", "2", 250000, "", "COD", 20000, "Dai hoc Nong Lam TPHCM"));
     fakeDataBase.addOrder(new Order("o3", "9", "3", 450000, "", "COD", 20000, "Linh Trung, Thuc Duc, TP HCM"));
     fakeDataBase.addOrder(new Order("o4", "8", "3", 250000, "", "COD", 20000, "Phu Thai,  Tan Binh ,TP Ho Chi Minh"));
+    fakeDataBase.addImage(new Image("i1", "GAO1", "gao1", "Images/product-images/gaoLaoMien1.png"));
+    fakeDataBase.addImage(new Image("i2", "GAO1", "gao2", "Images/product-images/gaoLaoMien2.png"));
+    fakeDataBase.addImage(new Image("i3", "GAO1", "gao3", "Images/product-images/gaoLaoMien3.png"));
+    fakeDataBase.addType(new Type("t1", "Bao 100 ký", "C1"));
+    fakeDataBase.addType(new Type("t2", "Bao 50 ký", "C1"));
+    fakeDataBase.addType(new Type("t3", "Bao 10 ký", "C1"));
+
+
     return fakeDataBase;
 }

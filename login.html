@@ -88,11 +88,11 @@ function login() {
     var username = $("#email").val();
     var password = $("#customer_password").val();
     var errorMessageElement = $('#error-message');
-    var user = fakeDataBase.findUser(username);
+    var user = fakeDataBase.findUserByUsername(username);
     console.log(user);
     if (user != null) {
         if (user.password === password) {
-            localStorage.setItem("user",JSON.stringify(user));
+            localStorage.setItem("user", JSON.stringify(user));
             var overlay = document.getElementById('overlay');
             overlay.style.display = 'block';
             // Tạo hiệu ứng loading trong 2 giây (có thể thay đổi thời gian tùy ý)
@@ -100,8 +100,7 @@ function login() {
                 // Nếu thông tin đúng, chuyển hướng đến trang khác
                 window.location.href = getURL(user);
             }, 2000);
-        }
-        else{
+        } else {
             errorMessageElement.text('Sai mật khẩu. Vui lòng thử lại.');
         }
     } else {

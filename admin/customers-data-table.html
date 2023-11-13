@@ -46,6 +46,7 @@
 </body>
 <script type="text/javascript" src="../javascripts/jquery-3.7.1.js"></script>
 <script type="text/javascript" src="javascripts/FakeDataBase.js"></script>
+<script type="text/javascript" src="javascripts/Utils.js"></script>
 <script type="text/javascript">
 let users = fakeDataBase.users;
 
@@ -67,16 +68,13 @@ function fetchUserData() {
         })
         let emailCol = $("<td>").html(user.email);
         let addresslCol = $("<td>").html(user.address);
-        let statusCol = $("<td>").html(user.status).addClass("active");
-        let deleteBtn = $("<button>").attr({
-            "class": "btn btn-secondary btn-sm deleteBtn me-2",
-            "id": user.id
-        }).text("Delete");
+        let statusCol = $("<td>").append($("<span>").html(fakeDataBase.findStatus(user.statusId).description).addClass(getStatusClass(user.statusId)));
+
         let editBtn = $("<button>").attr({
             "class": "btn btn-warning btn-sm detail-btn",
             "id": user.id
         }).text("Chi tiết");
-        let btns = $("<div>").append(deleteBtn).append(editBtn);
+        let btns = $("<div>").append(editBtn);
         row.append(idCol).append(fullNameCol).append(phoneCol).append(emailCol).append(addresslCol).append(statusCol).append(btns);
         tbody.append(row);
     }
@@ -86,22 +84,10 @@ $(document).ready(function() {
     let detailBtns = $(".detail-btn");
     detailBtns.each(function() {
         $(this).on('click', function(event) {
-            window.location.href = "user-detail.html?userId="+this.id;
+            window.location.href = "user-detail.html?userId=" + this.id;
         });
     });
-    let deleteBtns = $(".deleteBtn");
-    deleteBtns.each(function() {
-        $(this).on("click", function() {
-            // console.log(fakeDataBase.findUser(2));
-            if (fakeDataBase.deleteUser(Number(this.id))) {
-                alert("Xoa khach hang thanh cong");
-                location.reload();
-            } else {
-                alert("That bai");
-            }
-        })
 
-    })
 })
 </script>
 

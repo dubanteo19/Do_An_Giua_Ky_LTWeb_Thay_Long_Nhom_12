@@ -1,7 +1,7 @@
 /*! lightslider - v1.1.3 - 2015-04-14
 * https://github.com/sachinchoolur/lightslider
 * Copyright (c) 2015 Sachin N; Licensed MIT */
-/** /!!! core css Should not edit !!!/**/ 
+/** /!!! core css Should not edit !!!/**/
 
 .lSSlideOuter {
     overflow: hidden;
@@ -12,39 +12,47 @@
     -ms-user-select: none;
     user-select: none
 }
-.lightSlider:before, .lightSlider:after {
+
+.lightSlider:before,
+.lightSlider:after {
     content: " ";
     display: table;
 }
+
 .lightSlider {
     overflow: hidden;
     margin: 0;
 }
+
 .lSSlideWrapper {
     max-width: 100%;
     overflow: hidden;
     position: relative;
 }
-.lSSlideWrapper > .lightSlider:after {
+
+.lSSlideWrapper>.lightSlider:after {
     clear: both;
 }
+
 .lSSlideWrapper .lSSlide {
     -webkit-transform: translate(0px, 0px);
     -ms-transform: translate(0px, 0px);
     transform: translate(0px, 0px);
     -webkit-transition: all 1s;
-    -webkit-transition-property: -webkit-transform,height;
-    -moz-transition-property: -moz-transform,height;
-    transition-property: transform,height;
+    -webkit-transition-property: -webkit-transform, height;
+    -moz-transition-property: -moz-transform, height;
+    transition-property: transform, height;
     -webkit-transition-duration: inherit !important;
     transition-duration: inherit !important;
     -webkit-transition-timing-function: inherit !important;
     transition-timing-function: inherit !important;
 }
+
 .lSSlideWrapper .lSFade {
     position: relative;
 }
-.lSSlideWrapper .lSFade > * {
+
+.lSSlideWrapper .lSFade>* {
     position: absolute !important;
     top: 0;
     left: 0;
@@ -52,7 +60,8 @@
     margin-right: 0;
     width: 100%;
 }
-.lSSlideWrapper.usingCss .lSFade > * {
+
+.lSSlideWrapper.usingCss .lSFade>* {
     opacity: 0;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
@@ -63,12 +72,15 @@
     -webkit-transition-timing-function: inherit !important;
     transition-timing-function: inherit !important;
 }
-.lSSlideWrapper .lSFade > *.active {
+
+.lSSlideWrapper .lSFade>*.active {
     z-index: 10;
 }
-.lSSlideWrapper.usingCss .lSFade > *.active {
+
+.lSSlideWrapper.usingCss .lSFade>*.active {
     opacity: 1;
 }
+
 /** /!!! End of core css Should not edit !!!/**/
 
 /* Pager */
@@ -77,12 +89,14 @@
     padding: 0;
     text-align: center;
 }
-.lSSlideOuter .lSPager.lSpg > li {
+
+.lSSlideOuter .lSPager.lSpg>li {
     cursor: pointer;
     display: inline-block;
     padding: 0 5px;
 }
-.lSSlideOuter .lSPager.lSpg > li a {
+
+.lSSlideOuter .lSPager.lSpg>li a {
     background-color: #222222;
     border-radius: 30px;
     display: inline-block;
@@ -95,15 +109,20 @@
     -webkit-transition: all 0.5s linear 0s;
     transition: all 0.5s linear 0s;
 }
-.lSSlideOuter .lSPager.lSpg > li:hover a, .lSSlideOuter .lSPager.lSpg > li.active a {
+
+.lSSlideOuter .lSPager.lSpg>li:hover a,
+.lSSlideOuter .lSPager.lSpg>li.active a {
     background-color: #428bca;
 }
+
 .lSSlideOuter .media {
     opacity: 0.8;
 }
+
 .lSSlideOuter .media.active {
     opacity: 1;
 }
+
 /* End of pager */
 
 /** Gallery */
@@ -126,6 +145,7 @@
     -ms-user-select: none;
     user-select: none;
 }
+
 .lSSlideOuter .lSPager.lSGallery li {
     overflow: hidden;
     -webkit-transition: border-radius 0.12s linear 0s 0.35s linear 0s;
@@ -133,33 +153,39 @@
     border-radius: 5px;
     border: 2px solid rgba(0, 0, 0, 0.2);
 }
-.lSSlideOuter .lSPager.lSGallery li.active, .lSSlideOuter .lSPager.lSGallery li:hover {
+
+.lSSlideOuter .lSPager.lSGallery li.active,
+.lSSlideOuter .lSPager.lSGallery li:hover {
     border-radius: 5px;
-     border: 2px solid #679210
+    border: 2px solid #679210;
 }
+
 .lSSlideOuter .lSPager.lSGallery img {
     display: block;
     height: 60px;
+    width: 100%;
 
-    max-width: 100%;
-   
 }
-.lSSlideOuter .lSPager.lSGallery:before, .lSSlideOuter .lSPager.lSGallery:after {
+
+.lSSlideOuter .lSPager.lSGallery:before,
+.lSSlideOuter .lSPager.lSGallery:after {
     content: " ";
     display: table;
 }
+
 .lSSlideOuter .lSPager.lSGallery:after {
     clear: both;
 }
+
 /* End of Gallery*/
 
 /* slider actions */
-.lSAction > a {
+.lSAction>a {
     width: 32px;
     display: block;
     top: 50%;
     height: 32px;
-    background-image: url('../img/controls.png');
+    background-image: url('../images/controls.png');
     cursor: pointer;
     position: absolute;
     z-index: 99;
@@ -168,20 +194,25 @@
     -webkit-transition: opacity 0.35s linear 0s;
     transition: opacity 0.35s linear 0s;
 }
-.lSAction > a:hover {
+
+.lSAction>a:hover {
     opacity: 1;
 }
-.lSAction > .lSPrev {
+
+.lSAction>.lSPrev {
     background-position: 0 0;
     left: 10px;
 }
-.lSAction > .lSNext {
+
+.lSAction>.lSNext {
     background-position: -32px 0;
     right: 10px;
 }
-.lSAction > a.disabled {
+
+.lSAction>a.disabled {
     pointer-events: none;
 }
+
 .cS-hidden {
     height: 1px;
     opacity: 0;
@@ -194,35 +225,41 @@
 .lSSlideOuter.vertical {
     position: relative;
 }
+
 .lSSlideOuter.vertical.noPager {
     padding-right: 0px !important;
 }
+
 .lSSlideOuter.vertical .lSGallery {
     position: absolute !important;
     right: 0;
     top: 0;
 }
-.lSSlideOuter.vertical .lightSlider > * {
+
+.lSSlideOuter.vertical .lightSlider>* {
     width: 100% !important;
     max-width: none !important;
 }
 
 /* vertical controlls */
-.lSSlideOuter.vertical .lSAction > a {
+.lSSlideOuter.vertical .lSAction>a {
     left: 50%;
     margin-left: -14px;
     margin-top: 0;
 }
-.lSSlideOuter.vertical .lSAction > .lSNext {
+
+.lSSlideOuter.vertical .lSAction>.lSNext {
     background-position: 31px -31px;
     bottom: 10px;
     top: auto;
 }
-.lSSlideOuter.vertical .lSAction > .lSPrev {
+
+.lSSlideOuter.vertical .lSAction>.lSPrev {
     background-position: 0 -31px;
     bottom: auto;
     top: 10px;
 }
+
 /* vertical */
 
 
@@ -230,19 +267,28 @@
 .lSSlideOuter.lSrtl {
     direction: rtl;
 }
-.lSSlideOuter .lightSlider, .lSSlideOuter .lSPager {
+
+.lSSlideOuter .lightSlider,
+.lSSlideOuter .lSPager {
     padding-left: 0;
     list-style: none outside none;
 }
-.lSSlideOuter.lSrtl .lightSlider, .lSSlideOuter.lSrtl .lSPager {
+
+.lSSlideOuter.lSrtl .lightSlider,
+.lSSlideOuter.lSrtl .lSPager {
     padding-right: 0;
 }
-.lSSlideOuter .lightSlider > *,  .lSSlideOuter .lSGallery li {
+
+.lSSlideOuter .lightSlider>*,
+.lSSlideOuter .lSGallery li {
     float: left;
 }
-.lSSlideOuter.lSrtl .lightSlider > *,  .lSSlideOuter.lSrtl .lSGallery li {
+
+.lSSlideOuter.lSrtl .lightSlider>*,
+.lSSlideOuter.lSrtl .lSGallery li {
     float: right !important;
 }
+
 /* Rtl */
 
 @-webkit-keyframes rightEnd {
@@ -258,6 +304,7 @@
         left: 0;
     }
 }
+
 @keyframes rightEnd {
     0% {
         left: 0;
@@ -271,6 +318,7 @@
         left: 0;
     }
 }
+
 @-webkit-keyframes topEnd {
     0% {
         top: 0;
@@ -284,6 +332,7 @@
         top: 0;
     }
 }
+
 @keyframes topEnd {
     0% {
         top: 0;
@@ -297,6 +346,7 @@
         top: 0;
     }
 }
+
 @-webkit-keyframes leftEnd {
     0% {
         left: 0;
@@ -310,6 +360,7 @@
         left: 0;
     }
 }
+
 @keyframes leftEnd {
     0% {
         left: 0;
@@ -323,6 +374,7 @@
         left: 0;
     }
 }
+
 @-webkit-keyframes bottomEnd {
     0% {
         bottom: 0;
@@ -336,6 +388,7 @@
         bottom: 0;
     }
 }
+
 @keyframes bottomEnd {
     0% {
         bottom: 0;
@@ -349,49 +402,57 @@
         bottom: 0;
     }
 }
+
 .lSSlideOuter .rightEnd {
     -webkit-animation: rightEnd 0.3s;
     animation: rightEnd 0.3s;
     position: relative;
 }
+
 .lSSlideOuter .leftEnd {
     -webkit-animation: leftEnd 0.3s;
     animation: leftEnd 0.3s;
     position: relative;
 }
+
 .lSSlideOuter.vertical .rightEnd {
     -webkit-animation: topEnd 0.3s;
     animation: topEnd 0.3s;
     position: relative;
 }
+
 .lSSlideOuter.vertical .leftEnd {
     -webkit-animation: bottomEnd 0.3s;
     animation: bottomEnd 0.3s;
     position: relative;
 }
+
 .lSSlideOuter.lSrtl .rightEnd {
     -webkit-animation: leftEnd 0.3s;
     animation: leftEnd 0.3s;
     position: relative;
 }
+
 .lSSlideOuter.lSrtl .leftEnd {
     -webkit-animation: rightEnd 0.3s;
     animation: rightEnd 0.3s;
     position: relative;
 }
+
 /*/  GRab cursor */
-.lightSlider.lsGrab > * {
-  cursor: -webkit-grab;
-  cursor: -moz-grab;
-  cursor: -o-grab;
-  cursor: -ms-grab;
-  cursor: grab;
+.lightSlider.lsGrab>* {
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    cursor: -o-grab;
+    cursor: -ms-grab;
+    cursor: grab;
 }
-.lightSlider.lsGrabbing > * {
-  cursor: move;
-  cursor: -webkit-grabbing;
-  cursor: -moz-grabbing;
-  cursor: -o-grabbing;
-  cursor: -ms-grabbing;
-  cursor: grabbing;
+
+.lightSlider.lsGrabbing>* {
+    cursor: move;
+    cursor: -webkit-grabbing;
+    cursor: -moz-grabbing;
+    cursor: -o-grabbing;
+    cursor: -ms-grabbing;
+    cursor: grabbing;
 }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" type="text/css" media="all" href='../styles/bootstrap.css'>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css">
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/admin.css">
+    <script src="javascripts/chart.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid p-8 bg-grey">
+        <div class="container title d-flex justify-content-between bg-white rounded">
+            <h5>Chi tiết khách hàng</h5>
+            <span class="date">Thứ 2, ngày 30/10/2023 - 11 giờ 25 phút</span>
+        </div>
+        <div class="container-fluid">
+            <div class="row w-100">
+                <div class="col-12">
+                    <div class="list-orders mt-3 bg-white">
+                        <div class="sub-title">
+                            <h4>Thông tin chung</h4>
+                        </div>
+                    </div>
+                    <div class="user-profile mt-3">
+                        <span class="d-block">Id khách hàng: <strong id="id"></strong></span>
+                        <span class="d-block">Họ và tên: <strong id="fullName"></strong></span>
+                        <span class="d-block">Email: <strong id="email"></strong></span>
+                        <span class="d-block">Số điện thoại: <strong id="phone"></strong></span>
+                        <span class="d-block">Địa chỉ: <strong id="address"></strong></span>
+                        <span class="d-block">Trạng thái: <strong id="status"></strong></span>
+                    </div>
+                    <div class="sub-title mt-3">
+                        <h4>Lịch sử mua hàng</h4>
+                    </div>
+                </div>
+            </div>
+</body>
+<script type="text/javascript" src="javascripts/Utils.js"></script>
+<script type="text/javascript" src="javascripts/FakeDataBase.js"></script>
+<script type="text/javascript" src="../javascripts/jquery-3.7.1.js"></script>
+<script type="text/javascript">
+let urlP = new URLSearchParams(window.location.search);
+let user = fakeDataBase.findUser(Number(urlP.get("userId")));
+let userId = user.id;
+let fullName = user.fullName;
+let email = user.email;
+let phone = user.phone;
+let address = user.address ===""?"Chưa có địa chỉ":user.address;
+let status = fakeDataBase.findStatus(user.statusId).description;
+$("#id").text(userId);
+$("#fullName").text(fullName);
+$("#email").text(email);
+$("#phone").text(phone);
+$("#address").text(address);
+$("#phone").text(phone);
+$("#status").text(status);
+</script>
+
+</html>

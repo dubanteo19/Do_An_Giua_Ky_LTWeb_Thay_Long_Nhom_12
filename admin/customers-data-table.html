@@ -31,7 +31,6 @@
                                     <th scope="col">ID khách hàng</th>
                                     <th scope="col">Tên khách hàng</th>
                                     <th scope="col">Số điện thoại</th>
-                                    <th scope="col">Hình</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Địa chỉ</th>
                                     <th scope="col">Trạng thái</th>
@@ -46,15 +45,13 @@
             </div>
 </body>
 <script type="text/javascript" src="../javascripts/jquery-3.7.1.js"></script>
-<script type="text/javascript" src="javascripts/UsersManager.js"></script>
+<script type="text/javascript" src="javascripts/FakeDataBase.js"></script>
 <script type="text/javascript">
-let usersManager = new UsersManager();
-let user3 = new User("Cm3", "Nguyễn Chúc Ngân", "0925821477", "avatars/avatar_cm01.png", "dubanteo2003@gmail.com", "Linh trung, Thu Duc, TP HCM", "Hoạt động");
-usersManager.addUser(user3);
-let users = usersManager.users;
+let users = fakeDataBase.users;
 
 function fetchUserData() {
     let tbody = $("tbody");
+    tbody.empty();
     console.log(tbody);
     for (const user of users) {
         let row = $("<tr>");
@@ -62,31 +59,49 @@ function fetchUserData() {
         let fullNameCol = $("<td>").html(user.fullName);
         let phoneCol = $("<td>").html(user.phone);
         let image = $("<img>").attr({
-            "src":user.avatar,
+            "src": user.avatar,
 
         }).css({
-            "width":"50px",
-            "height":"50px"
+            "width": "50px",
+            "height": "50px"
         })
-        let imageCol = $("<td>").append(image);
         let emailCol = $("<td>").html(user.email);
         let addresslCol = $("<td>").html(user.address);
-        let statusCol = $("<td>").html(user.status);
+        let statusCol = $("<td>").html(user.status).addClass("active");
         let deleteBtn = $("<button>").attr({
-            "class":"btn btn-secondary btn-sm",
-            "id":user.id
+            "class": "btn btn-secondary btn-sm deleteBtn me-2",
+            "id": user.id
         }).text("Delete");
-        let editBtn=$("<button>").attr({
-            "class":"btn btn-warning btn-sm",
-            "id":user.id
-        }).text("Edit");
+        let editBtn = $("<button>").attr({
+            "class": "btn btn-warning btn-sm detail-btn",
+            "id": user.id
+        }).text("Chi tiết");
         let btns = $("<div>").append(deleteBtn).append(editBtn);
-        row.append(idCol).append(fullNameCol).append(phoneCol).append(imageCol).append(emailCol).append(addresslCol).append(statusCol).append(btns);
+        row.append(idCol).append(fullNameCol).append(phoneCol).append(emailCol).append(addresslCol).append(statusCol).append(btns);
         tbody.append(row);
     }
 }
 $(document).ready(function() {
     fetchUserData();
+    let detailBtns = $(".detail-btn");
+    detailBtns.each(function() {
+        $(this).on('click', function(event) {
+            window.location.href = "user-detail.html?userId="+this.id;
+        });
+    });
+    let deleteBtns = $(".deleteBtn");
+    deleteBtns.each(function() {
+        $(this).on("click", function() {
+            // console.log(fakeDataBase.findUser(2));
+            if (fakeDataBase.deleteUser(Number(this.id))) {
+                alert("Xoa khach hang thanh cong");
+                location.reload();
+            } else {
+                alert("That bai");
+            }
+        })
+
+    })
 })
 </script>
 

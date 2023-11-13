@@ -145,8 +145,29 @@
 
 }
 
+.status {
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.status-active {
+
+    background-color: var(--primary-green) !important;
+
+}
+
+.status-delivering {
+    background-color: var(--bs-yellow);
+}
+
+    .status-cancel {
+ background-color: var(--bs-red);
+}
+
 input[type='checkbox'] {
-    margin: 4px 0 0 ;
+    margin: 4px 0 0;
     line-height: normal;
     width: 20px;
     height: 20px;

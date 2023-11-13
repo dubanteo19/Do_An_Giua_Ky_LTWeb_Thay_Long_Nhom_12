@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <iframe onload="resizeIframe(this,320)" src="top-title.html?title=Kim chi cải thảo cắt lát Bibigo Ông Kim's"></iframe>
+    <iframe id="top-title" onload="resizeIframe(this,320)" src="top-title.html?title=Kim chi cải thảo cắt lát Bibigo Ông Kim's"></iframe>
     <div class="container mt-3">
         <div class="row gx-4">
             <div class="col-9">
@@ -45,10 +45,10 @@
                     </div>
                     <div class="col-6">
                         <div class="product-details">
-                            <h4 class="title text-primary-green">Kim chi cải thảo cắt lát Bibigo Ông Kim's gói</h4>
-                            <div class="description"> <span>Tình trạng: </span><span class="description text-light-color">Còn hàng</span>
+                            <h4 class="title text-primary-green" id="productName">Kim chi cải thảo cắt lát Bibigo Ông Kim's gói</h4>
+                            <div class="description"> <span>Tình trạng: </span><span class="description text-light-color" id="productStatus">Còn hàng</span>
                             </div>
-                            <div class="description"> <span>Mã sản phẩm: </span><span class="description text-light-color">KT0032</span>
+                            <div class="description"> <span>Mã sản phẩm: </span><span id="productId" class="description text-light-color">KT0032</span>
                             </div>
                             <div class="product-price-box">
                                 <div class="row gx-0">
@@ -136,7 +136,7 @@
                                 </div>
                             </div>
                         </div>
-                         <div class="card-deck d-flex mr-child-20">
+                        <div class="card-deck d-flex mr-child-20">
                             <div class="card radius-green">
                                 <span class="span-sale">Giảm 11%</span>
                                 <img class="card-img-top" src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="">
@@ -156,7 +156,7 @@
                                     </div>
                                 </div>
                             </div>
-                               <div class="card radius-green">
+                            <div class="card radius-green">
                                 <span class="span-sale">Giảm 11%</span>
                                 <img class="card-img-top" src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="">
                                 <div class="card-body">
@@ -175,7 +175,7 @@
                                     </div>
                                 </div>
                             </div>
-                               <div class="card radius-green">
+                            <div class="card radius-green">
                                 <span class="span-sale">Giảm 11%</span>
                                 <img class="card-img-top" src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="">
                                 <div class="card-body">
@@ -194,7 +194,7 @@
                                     </div>
                                 </div>
                             </div>
-                               <div class="card radius-green">
+                            <div class="card radius-green">
                                 <span class="span-sale">Giảm 11%</span>
                                 <img class="card-img-top" src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="">
                                 <div class="card-body">
@@ -214,9 +214,8 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                       <div class="relative-product">
+                    <div class="relative-product">
                         <div class="group_title mt-5">
                             <div class="title">
                                 <a class="title-name" href="">
@@ -232,7 +231,7 @@
                                 </div>
                             </div>
                         </div>
-                         <div class="card-deck d-flex mr-child-20">
+                        <div class="card-deck d-flex mr-child-20">
                             <div class="card radius-green">
                                 <span class="span-sale">Giảm 11%</span>
                                 <img class="card-img-top" src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="">
@@ -252,7 +251,7 @@
                                     </div>
                                 </div>
                             </div>
-                               <div class="card radius-green">
+                            <div class="card radius-green">
                                 <span class="span-sale">Giảm 11%</span>
                                 <img class="card-img-top" src="images/product_test/xa-lach-bup-mo-thuy-canh-tui-300g-202010051645203830.webp" alt="">
                                 <div class="card-body">
@@ -271,7 +270,7 @@
                                     </div>
                                 </div>
                             </div>
-                               <div class="card radius-green">
+                            <div class="card radius-green">
                                 <span class="span-sale">Giảm 11%</span>
                                 <img class="card-img-top" src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="">
                                 <div class="card-body">
@@ -290,7 +289,7 @@
                                     </div>
                                 </div>
                             </div>
-                               <div class="card radius-green">
+                            <div class="card radius-green">
                                 <span class="span-sale">Giảm 11%</span>
                                 <img class="card-img-top" src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="">
                                 <div class="card-body">
@@ -310,7 +309,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -436,9 +434,21 @@
 <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
 <script type="text/javascript" src="javascripts/lightslider.js"></script>
 <script type="text/javascript" src="javascripts/main.js"></script>
-<script type="text/javascript" src="javascripts/lightslider.js"></script>
+<script type="text/javascript" src="admin/javascripts/FakeDataBase.js"></script>
 <script type="text/javascript">
+function fetchProductData() {
+    let urlParametes = new URLSearchParams(window.location.search);
+    let productId = urlParametes.get("productId");
+    let product = fakeDataBase.findProduct(productId);
+    $("#top-title").attr("src", "top-title.html?title=" + product.name);
+    $("#productId").text(product.id);
+    $("#productName").text(product.name);
+
+
+
+}
 $(document).ready(function() {
+    fetchProductData();
     $('#imageGallery').lightSlider({
         gallery: true,
         item: 1,
@@ -448,12 +458,13 @@ $(document).ready(function() {
         slideMargin: 0,
         enableDrag: true,
         currentPagerPosition: 'left',
-        onSliderLoad: function(el) {
-            el.lightGallery({
-                selector: '#imageGallery .lslide'
-            });
-        }
+
     });
+    $(".plus-btn").on('click', () => $(".input-quanlity").val($(".input-quanlity").val()+1));
+
+
+
+
     var showDesBtn = $("#show-des-btn");
     var showGuideBtn = $("#show-guide-btn");
     $(".buy-guide-box").hide();

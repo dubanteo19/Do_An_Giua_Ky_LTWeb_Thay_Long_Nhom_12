@@ -22,24 +22,6 @@
                     <div class="col-6">
                         <div class="product-images">
                             <ul id="imageGallery">
-                                <!-- <li data-thumb="images/thumbs/thumb-kim-chi1.png" data-src="">
-                                    <img width="400px" src="images/product-images/kim-chi1.png" />
-                                </li>
-                                <li data-thumb="images/product-images/kim-chi2.png" data-src="images/product-images/kim-chi2.png">
-                                    <img width="400px" src="images/product-images/kim-chi2.png" />
-                                </li>
-                                <li data-thumb="images/product-images/kim-chi3.png" data-src="images/product-images/kim-chi3.png">
-                                    <img width="400px" src="images/product-images/kim-chi3.png" />
-                                </li>
-                                <li data-thumb="images/product-images/kim-chi4.png" data-src="images/product-images/kim-chi4.png">
-                                    <img width="400px" src="images/product-images/kim-chi4.png" />
-                                </li>
-                                <li data-thumb="images/product-images/kim-chi5.png" data-src="images/product-images/kim-chi5.png">
-                                    <img width="400px" src="images/product-images/kim-chi5.png" />
-                                </li>
-                                <li data-thumb="images/product-images/kim-chi6.png" data-src="images/product-images/kim-chi6.png">
-                                    <img width="400px" src="images/product-images/kim-chi6.png" />
-                                </li> -->
                             </ul>
                         </div>
                     </div>
@@ -53,7 +35,7 @@
                             <div class="product-price-box">
                                 <div class="row gx-0">
                                     <div class="col-4">
-                                        <h2 class="text-primary-green">12.000đ</h2>
+                                        <h2 id="price" class="text-primary-green">12.000đ</h2>
                                         <span class="saving">Tiết kiệm: <span class="text-red">1.500đ</span></span>
                                     </div>
                                     <div class="col-4">
@@ -62,11 +44,8 @@
                                 </div>
                             </div>
                             <div class="weight mt-3">
-                                <span class="description fw-bold">Trọng lượng: </span><span class="text-primary-green">200g</span>
-                                <div class="weight-btns d-flex">
-                                    <button class="weight-btn active">100g</button>
-                                    <button class="weight-btn">200g</button>
-                                    <button class="weight-btn">300g</button>
+                                <span class="description fw-bold">Trọng lượng: </span><span id="type-label" class="text-primary-green"></span>
+                                <div class="type-btns d-flex">
                                 </div>
                             </div>
                             <div class="quantity mt-3">
@@ -437,11 +416,21 @@
 <script type="text/javascript" src="admin/javascripts/FakeDataBase.js"></script>
 <script type="text/javascript">
 function fetchProductData() {
+    let typeBtns = $(".type-btns");
+
     let urlParametes = new URLSearchParams(window.location.search);
     let productId = urlParametes.get("productId");
     let product = fakeDataBase.findProduct(productId);
     let images = fakeDataBase.getImagesByProductId(productId);
-
+    let types = fakeDataBase.getTypesByProductId(productId);
+    for (const t of types) {
+        let typeBtn = $("<button>").text(t.description).attr({
+            "id": t.id,
+            "class": "btn weight-btn"
+        });
+        typeBtns.append(typeBtn);
+    }
+    $(".weight-btn").first().addClass(" active");
     let imageGallery = $("#imageGallery");
     for (const image of images) {
         let li = $("<li>").attr({
@@ -460,10 +449,12 @@ function fetchProductData() {
     $("#productName").text(product.name);
 }
 $(document).ready(function() {
+
+
     function plus(val) {
         let inputQuanlity = $(".input-quanlity");
         let newCount = Number(inputQuanlity.val()) + val;
-        if(newCount>0){
+        if (newCount > 0) {
             inputQuanlity.val(newCount);
         }
     }

@@ -125,23 +125,40 @@ class DataBaseManager {
     //Price manager
     addPrice(price) {
         for (const p of this.prices) {
-            if (price.id === price) return false;
+            if (p.id === price.id) return false;
         }
         this.prices.push(price);
         this.saveData();
         return true;
     }
+    getTypesByProductId(id) {
+        let re = [];
+        for (const t of this.prices) {
+            if (t.productId === id) {
+                re.push(this.findType(t.typeId));
+            }
+        }
+        return re;
+    }
+
 
     //Type manager 
     addType(type) {
         for (const t of this.types) {
-            if (t.id === type) return false;
+            if (t.id === type.id) return false;
         }
         this.types.push(type);
         this.saveData();
         return true;
     }
-
+    findType(id){
+        for(const t of this.types){
+            if(t.id ==id){
+                return t;
+            }
+        }
+        return null;
+    }
 
 
     // Image manager
@@ -322,7 +339,7 @@ function initDataBase() {
     fakeDataBase.addType(new Type("t1", "Bao 100 ký", "C1"));
     fakeDataBase.addType(new Type("t2", "Bao 50 ký", "C1"));
     fakeDataBase.addType(new Type("t3", "Bao 10 ký", "C1"));
-
-
+    fakeDataBase.addPrice(new Price("p1", "GAO1", 2000000, 2300000, "t1"));
+    fakeDataBase.addPrice(new Price("p2", "GAO1", 1200000, 1500000, "t2"));
     return fakeDataBase;
 }

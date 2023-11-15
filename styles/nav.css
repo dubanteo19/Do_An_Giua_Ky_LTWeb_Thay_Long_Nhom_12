@@ -106,6 +106,11 @@ header {
     z-index: -1;
     border-radius: 8px 8px 0 0;
 }
+.carousel-caption {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
 
 .carousel-control-next:hover,
 .carousel-control-prev:hover {
@@ -121,10 +126,11 @@ header {
 .carousel-caption p {
     font-size: 20px;
     color: var(--primary-white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .btn-hover {
-    color: #fff;
+    color: #fff!important;
     background-color: var(--primary-green);
     border-color: var(--primary-green);
 }
@@ -159,23 +165,11 @@ header {
 .top-cart-content.active {
     display: block;
 }
-.btn-user{
-    position: relative;
-}
-.header-control .dropdown-menu{
-    position: absolute;
-    top: 55px;
-    right:450px;
-}
-.dropdown-menu:hover{
-    display: block;
-}
-.dropdown-menu a:hover{
-    color: #FFFFFF;
-    background-color: var(--primary-green);
-}
-.header-control .btn-user:hover + .dropdown-menu {
-    display: block;
+
+.header-control #userLinks{
+    top: 5px!important;
+    left: -110px!important;
+    transition: display 2s ease;
 }
 #navbarScroll .dropdown-menu{
     top: 58px;
@@ -248,3 +242,4 @@ header {
 #imageGallery li{
     list-style-type: none;
 }
+/***************/

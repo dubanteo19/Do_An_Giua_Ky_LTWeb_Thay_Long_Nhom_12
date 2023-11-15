@@ -154,7 +154,7 @@
             var email = $("#email").val().toLowerCase();;
             var phoneNumber = $("#PhoneNumber").val();
             var password = $("#password").val();
-            var fullName = lastName + firstName;
+            var fullName = lastName +" "+firstName;
             // Lưu dữ liệu vào fake Database
             if (fakeDataBase.addUser(new User(email, password, fullName, phoneNumber))) {
                 var overlay = document.getElementById('overlay');
@@ -167,7 +167,7 @@
             } else {
                 errorMessageElement.text("Email đã tồn tại.");
             }
-    }
+    }}
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script type="text/javascript" src="javascripts/main.js"></script>

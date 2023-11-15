@@ -110,7 +110,7 @@ function login() {
     var username = $("#email").val();
     var password = $("#customer_password").val();
     var errorMessageElement = $('#error-message');
-    var user = fakeDataBase.findUser(username);
+    var user = fakeDataBase.findUserByUsername(username);
     console.log(user);
     if (user != null) {
         if (user.password === password) {
@@ -141,91 +141,16 @@ $(document).ready(function() {
         }
 
     });
-});
-
-    $(document).ready(function() {
-        $('#eye').click(function() {
-            $(this).toggleClass('open');
-            $(this).children('i').toggleClass('fa-eye-slash fa-eye');
-            if ($(this).hasClass('open')) {
-                $(this).prev().attr('type', 'text');
-            } else {
-                $(this).prev().attr('type', 'password');
-            }
-        });
+    $('#eye').click(function() {
+        $(this).toggleClass('open');
+        $(this).children('i').toggleClass('fa-eye-slash fa-eye');
+        if ($(this).hasClass('open')) {
+            $(this).prev().attr('type', 'text');
+        } else {
+            $(this).prev().attr('type', 'password');
+        }
     });
-    // $(document).ready(function() {
-    //     $('#register-link').on('click', function(event) {
-    //         event.preventDefault();
-    //         window.location.href = 'signup.html';
-    //     });
-    //
-    //     var quenMatKhauButton = $('.quenmk');
-    //     var hRecoverElement = $('.h_recover');
-    //     var recoverForm = $('#recover_customer_password');
-    //     var errorElement = $('.error');
-    //
-    //     quenMatKhauButton.on('click', function(event) {
-    //         event.preventDefault();
-    //         hRecoverElement.slideDown();
-    //         errorElement.text('');
-    //     });
-    //
-    //     recoverForm.on('submit', function(event) {
-    //         event.preventDefault();
-    //
-    //         var emailValue = $('#recover-email').val();
-    //         var storedUser = JSON.parse(localStorage.getItem('user'));
-    //
-    //         if (!storedUser || emailValue !== storedUser.email) {
-    //             errorElement.text('Email không tồn tại trong hệ thống.');
-    //             return;
-    //         } else {
-    //             var newPassword = generateRandomPassword(6);
-    //
-    //             // Cập nhật mật khẩu trong FakeDataBase
-    //             var updateSuccess = updateUserPassword(emailValue, newPassword);
-    //
-    //             if (updateSuccess) {
-    //                 // Thay đổi mật khẩu trong đối tượng người dùng
-    //                 storedUser.password = newPassword;
-    //
-    //                 // Lưu đối tượng người dùng đã cập nhật vào localStorage
-    //                 localStorage.setItem('user', JSON.stringify(storedUser));
-    //
-    //                 alert('Mật khẩu mới của bạn là: ' + newPassword);
-    //                 hRecoverElement.slideUp();
-    //             } else {
-    //                 errorElement.text('Không thể cập nhật mật khẩu.');
-    //             }
-    //     }
-    //     });
-    // });
-    //     function generateRandomPassword(length) {
-    //         var charset = '0123456789';
-    //         var password = '';
-    //         for (var i = 0; i < length; i++) {
-    //             var randomIndex = Math.floor(Math.random() * charset.length);
-    //             password += charset[randomIndex];
-    //         }
-    //         return password;
-    //     }
-    //
-    //     function displayError(errorMessage) {
-    //         errorElement.text(errorMessage);
-    //     }
-    //
-    // function updateUserPassword(email, newPassword) {
-    //     for (var i = 0; i < fakeDataBase.length; i++) {
-    //         if (fakeDataBase[i].email === email) {
-    //             console("db" +fakeDataBase.length);
-    //             // Cập nhật mật khẩu
-    //             fakeDataBase[i].password = newPassword;
-    //             return true; // Trả về true nếu người dùng được cập nhật thành công
-    //         }
-    //     }
-    //     return false; // Trả về false nếu không tìm thấy người dùng với email tương ứng
-    // }
+});
 </script>
 
 </html>

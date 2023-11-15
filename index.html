@@ -12,9 +12,7 @@
     <link rel="stylesheet" type="text/css" href="styles/news.css">
     <link rel="stylesheet" type="text/css" href="styles/footer.css">
     <link rel="stylesheet" type="text/css" href="styles/nav.css">
-    <link rel="stylesheet" type="text/css" href="styles/product-detail.css">
     <link rel="stylesheet" type="text/css" href="styles/lightslider.css">
-    <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
     <link rel="stylesheet" href="styles/gio-hang.css">
 </head>
 <style>
@@ -26,7 +24,7 @@
             <div id="topbar" class="d-flex align-items-center fixed-top bg-light pt-1">
                 <div class="container d-flex justify-content-center justify-content-md-between">
                     <div class="contact-info d-flex align-items-center">
-                        <i class="fas fa-mobile d-flex align-items-center " style="margin-right: 5px;"></i><span class=""> +1 5589 55488 55</span>
+                        <i class="fas fa-mobile d-flex align-items-center " style="margin-right: 5px;"></i><span class=""> +84 955 488 55</span>
                         <i class="fa-regular fa-clock d-flex align-items-center ms-4 " style="margin-right: 5px"></i><span class=""> Mon-Sat: 6AM - 23PM</span>
                     </div>
                     <div class="search-smart d-none d-md-flex">
@@ -39,7 +37,7 @@
                         <button class=" btn btn-hover ms-md-2 bg-primary-green btn-user" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 10px">
                             <a style="color: #fff"> <i class="fa-solid fa-circle-user"></i></a>
                         </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <ul class="dropdown-menu" id="userLinks">
                             <li><a class="dropdown-item" href="login.html">Đăng nhập</a></li>
                             <li><a class="dropdown-item" href="signup.html">Đăng ký</a></li>
                         </ul>
@@ -62,7 +60,7 @@
                                 <form action="" method="post" novalidate="" class="cart">
                                     <div class=" cart_body items">
                                         <div class="row">
-                                            <div class="cart_product d-flex">
+                                            <div class="cart_products d-flex">
                                                     <a href="" class="cart_image p-3" title="Kim chi">
                                                         <img width="80" height="80" src="images/product-images/kim-chi1.png" alt="Kim chi">
                                                     </a>
@@ -79,9 +77,9 @@
                                                                 <span class="cart-price fw-bold" style="color: #679210">4.500₫</span>
                                                             </div>
                                                             <div class="quantity mt-1">
-                                                                <div class="quantity-form text-center justify-content-center" style="width: 96px; height: 28px;border: 1px solid #679210; border-radius: 5px">
-                                                                    <button class="btn-green minus-btn" style="width:25px; height: 25px; color: #fff; border-radius: 5px">-</button>
-                                                                    <input type="text" name="updates[]" class="input-quanlity number-sidebar text-center" maxlength="3" value="3" min="0" data-id="" data-line="2" aria-label="quantity" pattern="[0-9]*" style="width: 33px">
+                                                                <div class="quantity-form text-center justify-content-center" style="width: 96px; height: 30px;border: 1px solid #679210; border-radius: 5px">
+                                                                    <button class="btn-green minus-btn" style="width:25px; height: 25px; color: #fff; border-radius: 5px; margin-top: 2px">-</button>
+                                                                    <input type="text" name="updates[]" class="input-quanlity number-sidebar text-center" maxlength="3" value="3" min="0" data-id="" data-line="2" aria-label="quantity" pattern="[0-9]*" style="width: 33px; border: none">
                                                                     <button class="btn-green plus-btn" style="width: 25px ; height: 25px; color: #fff; border-radius: 5px">+</button>
                                                                 </div>
                                                             </div>
@@ -134,8 +132,8 @@
                             <a class="nav-link dropdown-toggle text-light" href="san-pham.html" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Sản phẩm
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Đồ khô</a></li>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink" id="show-category">
+                                <li><a class="dropdown-item" href="#">Đậu</a></li>
                                 <li><a class="dropdown-item" href="#">Gạo</a></li>
                                 <li><a class="dropdown-item" href="#">Củ quả</a>
                                     <ul class="level1">
@@ -190,24 +188,24 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
-                <img src="images/slider/anh1.jpg" class="d-block w-100" style="height: 640px" alt="...">
+                <img src="images/slider/snapedit_1700070350154.png" class="d-block w-100" style="height: 640px" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+                    <h5>Vũ điệu của hương vị và màu sắc.</h5>
+                    <p>Một bữa ăn nhẹ lành mạnh và bổ dưỡng với nhiều loại hạt và đậu khác nhau.</p>
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="2000">
-                <img src="images/slider/anh2.jpg" class="d-block w-100" style="height: 640px" alt="...">
+                <img src="images/slider/snapedit_1700070244749.png" class="d-block w-100" style="height: 640px" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
+                    <h5>Bữa sáng trong mơ.</h5>
+                    <p> Một bữa sáng đầy màu sắc và ngon miệng với ngũ cốc, sữa, và trái cây.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="images/slider/anh3.jpg" class="d-block w-100" style="height: 640px" alt="...">
+                <img src="images/slider/zyro-image.png" class="d-block w-100" style="height: 640px" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
+                    <h5>Kho báu của thực phẩm lành mạnh.</h5>
+                    <p>Một lựa chọn tuyệt vời cho bữa sáng, bữa trưa, hoặc bữa tối.</p>
                 </div>
             </div>
         </div>
@@ -240,28 +238,28 @@
         <div class="container product-catalog overflow-auto ">
             <div class="d-flex justify-content-between">
                 <div class="catalog-item">
-                    <img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image ">
-                    <p class="catalog-name text-primary-green"> sản phẩm 1</p>
+                    <img src="images/catalogs/gao.png" alt="" class="catalog-image ">
+                    <p class="catalog-name text-primary-green"> Gạo</p>
                 </div>
                 <div class="catalog-item">
-                    <img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image ">
-                    <p class="catalog-name text-primary-green"> sản phẩm 2</p>
+                    <img src="images/catalogs/ngu-coc.png" height="100px" alt="" class="catalog-image ">
+                    <p class="catalog-name text-primary-green"> Ngũ cốc</p>
                 </div>
                 <div class="catalog-item">
-                    <img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image">
-                    <p class="catalog-name text-primary-green"> sản phẩm 3</p>
+                    <img src="images/catalogs/rau-cu.png" alt="" class="catalog-image">
+                    <p class="catalog-name text-primary-green"> Củ quả</p>
                 </div>
                 <div class="catalog-item">
-                    <img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image">
-                    <p class="catalog-name text-primary-green"> sản phẩm 4</p>
+                    <img src="images/catalogs/hat.png" alt="" class="catalog-image">
+                    <p class="catalog-name text-primary-green"> Hạt</p>
                 </div>
                 <div class="catalog-item">
-                    <img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image">
-                    <p class="catalog-name text-primary-green"> sản phẩm 5</p>
+                    <img src="images/catalogs/dau.png" alt="" class="catalog-image">
+                    <p class="catalog-name text-primary-green"> Đậu</p>
                 </div>
                 <div class="catalog-item">
-                    <img src="images/catalogs/danhmuc_4.png" alt="" class="catalog-image">
-                    <p class="catalog-name text-primary-green">sản phẩm khác</p>
+                    <img src="images/catalogs/danhmuc_8.webp" alt="" class="catalog-image">
+                    <p class="catalog-name text-primary-green">Sản phẩm khác</p>
                 </div>
             </div>
         </div>
@@ -290,101 +288,24 @@
                         </div>
                         <div class="card-deck d-flex mr-child-20">
                             <div class="card radius-green"  onclick="redirectToPage('show-san-pham.html')">
-                                <span class="span-sale">Giảm 11%</span>
-                                <img class="card-img-top" src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="">
+                                <span class="span-sale">Giảm 10%</span>
+                                <img class="card-img-top" src="images/product-images/gaoLaoMien1.png" alt="">
                                 <div class="icons">
                                     <a href="#" class="fas fa-heart heartIcon"></a>
                                     <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
                                     <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass chi-tiet"></i></a>
                                 </div>
-                                <div class="product-form">
-                                    <div class="product-form-content">
-                                        <h2>
-                                            Chi tiết sản phẩm
-                                            <span id="product-close" style="background: red">X Đóng</i></span></h2>
-                                        <form action="" class="d-flex">
-                                            <div class="col-6">
-                                                <div class="product-images">
-                                                    <ul id="imageGallery">
-                                                        <li data-thumb="images/thumbs/thumb-kim-chi1.png" data-src="images/thumbs/thumb-kim-chi1.png">
-                                                            <img class="img-main" width="400px" src="images/product-images/kim-chi1.png" />
-                                                        </li>
-                                                        <div class="d-flex justify-content-between pt-3 img-detail">
-                                                            <li data-thumb="images/product-images/kim-chi2.png" data-src="images/product-images/kim-chi2.png">
-                                                                <img width="70px"  src="images/product-images/kim-chi2.png" />
-                                                            </li>
-                                                            <li data-thumb="images/product-images/kim-chi3.png" data-src="images/product-images/kim-chi3.png">
-                                                                <img width="70px" src="images/product-images/kim-chi3.png" />
-                                                            </li>
-                                                            <li data-thumb="images/product-images/kim-chi4.png" data-src="images/product-images/kim-chi4.png">
-                                                                <img width="70px" src="images/product-images/kim-chi4.png" />
-                                                            </li>
-                                                            <li data-thumb="images/product-images/kim-chi5.png" data-src="images/product-images/kim-chi5.png">
-                                                                <img width="70px" src="images/product-images/kim-chi5.png" />
-                                                            </li>
-                                                            <li data-thumb="images/product-images/kim-chi6.png" data-src="images/product-images/kim-chi6.png">
-                                                                <img width="70px" src="images/product-images/kim-chi6.png" />
-                                                            </li>
-                                                        </div>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-6" style="text-align: left; padding-left: 30px;">
-                                                <div class="product-details">
-                                                    <h4 class="title text-primary-green">Kim chi cải thảo cắt lát Bibigo Ông Kim's gói</h4>
-                                                    <div class=" d-flex justify-content-between" >
-                                                        <div class="description"> <span>Tình trạng: </span><span class="description text-light-color">Còn hàng</span>
-                                                        </div>
-                                                        <div class="description"> <span>Mã sản phẩm: </span><span class="description text-light-color">KT0032</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price-box bg-white">
-                                                        <div class="row gx-0 ">
-                                                            <div class="col-4">
-                                                                <h2 class="text-primary-green">12.000đ</h2>
-                                                            </div>
-                                                            <div class="col-4">
-                                                                <span class="origin-price">13.500đ</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="weight ">
-                                                        <span class="description fw-bold">Trọng lượng: </span><span class="text-primary-green">200g</span>
-                                                        <div class="weight-btns d-flex">
-                                                            <button class="weight-btn active" style="width: 50px">100g</button>
-                                                            <button class="weight-btn" style="width: 50px">200g</button>
-                                                            <button class="weight-btn" style="width: 50px">300g</button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="quantity mt-3">
-                                                        <span class="description fw-bold">Số lượng: </span>
-                                                        <div class="quantity">
-                                                            <div class="quantity-form d-flex" style="width: 100px; height: 30px; top: 5px">
-                                                                <button class="btn-green minus-btn m-0" style="width:25px; height: 25px; color: #fff">-</button>
-                                                                <input type="text" name="updates[]" class="input-quanlity number-sidebar m-0 p-0" maxlength="3" value="3" min="0" data-id="" data-line="2" aria-label="quantity" pattern="[0-9]*" style="width: 44px; height: 26px">
-                                                                <button class="btn-green plus-btn m-0" style="width: 25px ; height: 25px; color: #fff">+</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <button class="add-to-cart-btn btn-green mt-3 w-100">
-                                                        Thêm vào giỏ hàng
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
-                                            Kim chi cải thảo cắt lát Bibigo Ông Kim's gói
+                                            GẠO LÀI MIÈN CAMPUCHIA 1
                                         </a>
                                     </h3>
                                     <div class="card-text">
                                         <div class="price-box">
-                                            12.000đ
+                                            270.000₫
                                             <span class="price-compare">
-                                                13.500đ
+                                                27.000đ
                                             </span>
                                         </div>
                                     </div>
@@ -401,7 +322,7 @@
 
                             <div class="card radius-green">
                                 <span class="span-sale">Giảm 11%</span>
-                                <img class="card-img-top" src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="">
+                                <img class="card-img-top" src="images/product-images/watermarked-gao-lai-mien-capuchia-copy.webp" alt="">
                                 <div class="icons">
                                     <a href="#" class="fas fa-heart heartIcon"></a>
                                     <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -410,12 +331,44 @@
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
-                                            Kim chi cải thảo cắt lát Bibigo Ông Kim's gói
+                                           GẠO LÀI MIÈN CAMPUCHIA 2
                                         </a>
                                     </h3>
                                     <div class="card-text">
                                         <div class="price-box">
-                                            12.000đ
+                                            250.000đ
+                                            <span class="price-compare">
+                                                27.500đ
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="product-state">
+                                        <div class="progress-bar small-progress-bar">
+                                            <div class="fill bg-primary-green"></div>
+                                        </div>
+                                        <span class="product-sold">
+                                            Đã bán 158
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card radius-green">
+                                <span class="span-sale">Giảm 5%</span>
+                                <img class="card-img-top" src="images/product-images/ngũ%20cốc.jpg" alt="">
+                                <div class="icons">
+                                    <a href="#" class="fas fa-heart heartIcon"></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="card-title">
+                                        <a href="">
+                                            Ngũ cốc Calbee đỏ 800g
+                                        </a>
+                                    </h3>
+                                    <div class="card-text">
+                                        <div class="price-box">
+                                            270.000đ
                                             <span class="price-compare">
                                                 13.500đ
                                             </span>
@@ -426,14 +379,14 @@
                                             <div class="fill bg-primary-green"></div>
                                         </div>
                                         <span class="product-sold">
-                                            Đã bán 148
+                                            Đã bán 19
                                         </span>
                                     </div>
                                 </div>
                             </div>
                             <div class="card radius-green">
                                 <span class="span-sale">Giảm 11%</span>
-                                <img class="card-img-top" src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="">
+                                <img class="card-img-top" src="images/product-images/2-goi-dau-xanh-hat3%20(1).jpg" alt="">
                                 <div class="icons">
                                     <a href="#" class="fas fa-heart heartIcon"></a>
                                     <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -442,14 +395,14 @@
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
-                                            Kim chi cải thảo cắt lát Bibigo Ông Kim's gói
+                                            2 gói đậu xanh hạt PMT 250g
                                         </a>
                                     </h3>
                                     <div class="card-text">
                                         <div class="price-box">
-                                            12.000đ
+                                            28.500đ
                                             <span class="price-compare">
-                                                13.500đ
+                                                3.135đ
                                             </span>
                                         </div>
                                     </div>
@@ -458,14 +411,14 @@
                                             <div class="fill bg-primary-green"></div>
                                         </div>
                                         <span class="product-sold">
-                                            Đã bán 148
+                                            Đã bán 53
                                         </span>
                                     </div>
                                 </div>
                             </div>
                             <div class="card radius-green">
-                                <span class="span-sale">Giảm 11%</span>
-                                <img class="card-img-top" src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="">
+                                <span class="span-sale">Giảm 10%</span>
+                                <img class="card-img-top" src="images/product-images/yen-mach-nguyen-chat-yumfood-goi-400g).jpg" alt="">
                                 <div class="icons">
                                     <a href="#" class="fas fa-heart heartIcon"></a>
                                     <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -474,46 +427,14 @@
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
-                                            Kim chi cải thảo cắt lát Bibigo Ông Kim's gói
+                                            Yến mạch nguyên chất Yumfood gói 400g
                                         </a>
                                     </h3>
                                     <div class="card-text">
                                         <div class="price-box">
-                                            12.000đ
+                                            86.500đ
                                             <span class="price-compare">
-                                                13.500đ
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="product-state">
-                                        <div class="progress-bar small-progress-bar">
-                                            <div class="fill bg-primary-green"></div>
-                                        </div>
-                                        <span class="product-sold">
-                                            Đã bán 148
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card radius-green">
-                                <span class="span-sale">Giảm 11%</span>
-                                <img class="card-img-top" src="images/product_test/kim-chi-cai-thao-cat-lat-bibigo-ong-kims-goi-100g-202002031131554036.webp" alt="">
-                                <div class="icons">
-                                    <a href="#" class="fas fa-heart heartIcon"></a>
-                                    <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
-                                    <a href="#" class="fas"><i class="fa-solid fa-magnifying-glass"></i></a>
-                                </div>
-                                <div class="card-body">
-                                    <h3 class="card-title">
-                                        <a href="">
-                                            Kim chi cải thảo cắt lát Bibigo Ông Kim's gói
-                                        </a>
-                                    </h3>
-                                    <div class="card-text">
-                                        <div class="price-box">
-                                            12.000đ
-                                            <span class="price-compare">
-                                                13.500đ
+                                                8.650đ
                                             </span>
                                         </div>
                                     </div>
@@ -547,7 +468,7 @@
                         <img class="services-image" src="images/services/dichvu_1.jpg" alt="">
                         <h4 class="service-title text-primary-green text-center">Lương thực an toàn</h4>
                         <div class="underline font-weight-bold text-primary-green "></div>
-                        <p class="text-center">Được trồng theo phương pháp hiện đại nhất, đạt tiêu chuẩn quốc tế, vô cùng an toàn khi sử dụng.</p>
+                        <p class="text-center">Lương thực được thu hoạch đúng độ chín, được bảo quản trong điều kiện tốt nhất, giữ được hương vị thơm ngon, chất dinh dưỡng cao.</p>
                         <button class="btn btn-white-border-green">Tìm hiểu thêm</button>
                     </div>
                 </div>
@@ -577,14 +498,14 @@
                 <div class="row">
                     <div class="col-md-3">
                         <a class="image-effect" href="">
-                            <img class="br-5" src="images/product_test/image_product1.webp" alt="">
+                            <img class="br-5" src="images/product-images/cac-loai-khoai%20(1).jpg" alt="">
                         </a>
                     </div>
                     <div class="col-md-9">
                         <div class="group_title">
                             <div class="title">
                                 <a class="title-name" href="">
-                                    Rau củ
+                                    Củ quả
                                 </a>
                             </div>
                             <div class="button-control">
@@ -598,7 +519,7 @@
                         </div>
                         <div class="card-deck d-flex mr-child-20">
                             <div class="card radius-green">
-                                <img class="card-img-top" src="images/product_test/rau-den-4kfarm-goi-500g-202205181556012255.webp" alt="">
+                                <img class="card-img-top" src="images/product-images/bap-nu-hoang-trai-tu-250g-tro-len.jpg" alt="">
                                 <div class="icons">
                                     <a href="#" class="fas fa-heart heartIcon"></a>
                                     <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -607,16 +528,16 @@
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
-                                            Rau dền 4KFarm 500gr
+                                            Bắp nữ hoàng trái 250g trở lên
                                         </a>
                                     </h3>
                                     <div class="card-text">
-                                        <div class="price-box">9.900đ</div>
+                                        <div class="price-box">16.000đ</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card radius-green">
-                                <img class="card-img-top" src="images/product_test/rau-den-4kfarm-goi-500g-202205181556012255.webp" alt="">
+                                <img class="card-img-top" src="images/product-images/khoai-lang-mat-tui-1kg-3-10-cu%20(1).jpg" alt="">
                                 <div class="icons">
                                     <a href="#" class="fas fa-heart heartIcon"></a>
                                     <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -625,16 +546,16 @@
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
-                                            Rau dền 4KFarm 500gr
+                                            Khoai lang mật 1kg (2 - 5 củ)
                                         </a>
                                     </h3>
                                     <div class="card-text">
-                                        <div class="price-box">9.900đ</div>
+                                        <div class="price-box">19.500đ</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card radius-green">
-                                <img class="card-img-top" src="images/product_test/rau-den-4kfarm-goi-500g-202205181556012255.webp" alt="">
+                                <img class="card-img-top" src="images/product-images/khoai-lang-tim-1kg%20(1).jpg" alt="">
                                 <div class="icons">
                                     <a href="#" class="fas fa-heart heartIcon"></a>
                                     <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -643,16 +564,16 @@
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
-                                            Rau dền 4KFarm 500gr
+                                            Khoai lang tím 1kg
                                         </a>
                                     </h3>
                                     <div class="card-text">
-                                        <div class="price-box">9.900đ</div>
+                                        <div class="price-box">38.000đ</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card radius-green">
-                                <img class="card-img-top" src="images/product_test/rau-den-4kfarm-goi-500g-202205181556012255.webp" alt="">
+                                <img class="card-img-top" src="images/product-images/khoai-so-got-vo-400g%20(1).jpg" alt="">
                                 <div class="icons">
                                     <a href="#" class="fas fa-heart"></a>
                                     <a href="#" class="fas"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -661,11 +582,11 @@
                                 <div class="card-body">
                                     <h3 class="card-title">
                                         <a href="">
-                                            Rau dền 4KFarm 500gr
+                                            Khoai sọ gọt vỏ 400g
                                         </a>
                                     </h3>
                                     <div class="card-text">
-                                        <div class="price-box">9.900đ</div>
+                                        <div class="price-box">36.000đ</div>
                                     </div>
                                 </div>
                             </div>
@@ -1434,21 +1355,10 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fa-solid fa-arrow-up"></i></a>
 </body>
 <script type="text/javascript" src="javascripts/lightslider.js"></script>
-<link rel="stylesheet" type="text/css" href="styles/base.css">
-<link rel="stylesheet" type="text/css" href="styles/main.css">
 <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
 <script type="text/javascript" src="javascripts/main.js"></script>
 <script type="text/javascript" src="javascripts/bootstrap.bundle.js"></script>
 <script>
-    const adressopen = document.querySelector('.chi-tiet')
-    const adressclose = document.querySelector('#product-close')
-    adressopen.addEventListener("click", function() {
-        document.querySelector('.product-form').style.display = "flex";
-    })
-    adressclose.addEventListener("click", function() {
-        document.querySelector('.product-form').style.display = "none";
-    });
-
 
     document.getElementById('btn-card').addEventListener('mouseover', function() {
         document.querySelector('.top-cart-content').classList.add('active');
@@ -1460,7 +1370,6 @@
     document.querySelector('.top-cart-content').addEventListener('mouseout', function() {
         document.querySelector('.top-cart-content').classList.remove('active');
     });
-
     document.getElementById('btn-card').addEventListener('click', function() {
         window.location.href = 'gio-hang.html';
     });
@@ -1489,6 +1398,41 @@
         });
     });
 
+
+    $(document).ready(function() {
+        $(".heartIcon").click(function(event) {
+            event.preventDefault();
+            $(this).toggleClass("active");
+        });
+        fetchUserLink();
+    });
+
+    function redirectToPage(page) {
+        var heartIcon = document.querySelector('.heartIcon');
+        if (heartIcon && heartIcon.classList.contains('active')) {
+            // Nếu nút yêu thích được nhấn, không chuyển trang
+            return;
+        }
+    }
+
+    function fetchUserLink(){
+        let user = JSON.parse(window.localStorage.getItem("user"));
+        let userLinks = $("#userLinks > li > a");
+        if(user!=null){
+            $(userLinks[0]).text("Tài khoản").attr("href","tai-khoan.html");
+            let logoutBtn = $(userLinks[1]);
+            logoutBtn.text("Đăng xuất").removeAttr("href").addClass("cursor-pointer");
+            logoutBtn.attr("id","logout");
+        }
+        function logout(){
+            setTimeout(function (){
+                window.localStorage.removeItem("user");
+                window.location.href = "index.html";
+            },1000)
+        }
+        let logoutBtn = $("#logout");
+        logoutBtn.on("click",logout);
+    }
     $(document).ready(function() {
         // Mảng chứa các placeholder khác nhau
         var placeholders = ["Tìm kiếm theo tên sản phẩm", "Tìm kiếm theo danh mục", "Tìm kiếm theo thương hiệu"];
@@ -1512,23 +1456,6 @@
         // Thực hiện cập nhật mỗi giây
         setInterval(updatePlaceholder, 60);
     });
-
-    $(document).ready(function() {
-        $(".heartIcon").click(function(event) {
-            event.preventDefault();
-            $(this).toggleClass("active");
-        });
-    });
-
-    function redirectToPage(page) {
-        var heartIcon = document.querySelector('.heartIcon');
-        if (heartIcon && heartIcon.classList.contains('active')) {
-            // Nếu nút yêu thích được nhấn, không chuyển trang
-            return;
-        }
-
-    }
-
 
 </script>
 </html>

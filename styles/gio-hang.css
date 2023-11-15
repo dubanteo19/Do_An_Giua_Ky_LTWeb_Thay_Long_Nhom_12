@@ -28,6 +28,13 @@
     align-items: center;
     height: 150px;
 }
+.cart_body .cart_products{
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
 #btn-proceed-checkout {
     width: 100%;
     background-color: #679210;

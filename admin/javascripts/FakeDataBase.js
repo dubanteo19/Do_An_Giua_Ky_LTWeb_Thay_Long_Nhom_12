@@ -175,6 +175,14 @@ class DataBaseManager {
         this.saveData();
         return true;
     }
+    findUserByUsername(username){
+        for(const  u of this.users){
+            if(u.email===username){
+                return u;
+            }
+        }
+        return null;
+    }
     findUser(id) {
         for (const user of this.users) {
             if (user.id === id)
@@ -220,7 +228,7 @@ function initDataBase() {
     fakeDataBase.addStatus(status9);
     fakeDataBase.addUser(new User("admin@gmail.com", "admin", "admin", "0925821477"));
     fakeDataBase.addUser(new User("minh@gmail.com", "123", "Thanh Minh", "0925821477"));
-    fakeDataBase.addUser(new User("huynhminh@gmail.com", "123", "Thanh Minh", "0925821477"));
+    fakeDataBase.addUser(new User("huynhminh@gmail.com", "123", "Huynh Minh", "0925821477"));
     fakeDataBase.addUser(new User("chucngan@gmail.com", "123", "Chuc Ngan", "0925545457"));
     fakeDataBase.addCategory(new Category("C1", "", "Gạo các loại ", 1));
     fakeDataBase.addCategory(new Category("GD", "C1", "Gạo dẻo ", 1));

@@ -17,83 +17,130 @@
     <body>
         <div class="container-fluid p-0 ">
             <div class="row gx-0 mx-0 ">
-                <div id="left" class="col-2 position-fixed">
-                    <div class="left-side ">
-                        <div class="profile-box d-flex flex-column align-items-center pt-2">
-                            <img width="100px" src="Images/avatar.png" alt="">
-                            <h3 class="text-white">Ban Teo</h3>
-                            <span class="text-white">Chào mừng bạn trở lại</span>
+                <div id="left" class="col-2 position-fixed bg-primary-green">
+                    <div class="left-side">
+                        <div id="profile" class="profile-box d-flex flex-column align-items-center pt-2 h">
+                            <img width="60px" src="Images/avatar.png" alt="">
+                            <h5 class="text-white">Admin</h5>
                             <div class="line"></div>
                         </div>
-                        <div class="nav flex-column bg-primary-green py-3" id="navigation">
+                        <div class="nav flex-column py-3" id="navigation">
                             <a class="nav-link active" id="dashboard-nav-link" data-link="dashboard.html">
                                 <i class="fa-solid fa-gauge mr-2"></i>
-                                Bảng điều khiển
+                                <span class="menu-text">Bảng điều khiển</span>
                             </a>
                             <a class="nav-link" id="customers-nav-link" data-link="customers-data-table.html">
                                 <i class="fa-solid fa-people-roof"></i>
-                                Quản lý khách hàng
+                                <span class="menu-text"> Quản lý khách hàng</span>
                             </a>
                             <a class="nav-link pointer-event" id="products-nav-link" data-link="products-data-table.html">
                                 <i class="fa-solid fa-box"></i>
-                                Quản lý sản phẩm
+                                <span class="menu-text"> Quản lý sản phẩm</span>
                             </a>
                             <a class="nav-link" id="orders-nav-link" data-link="orders-data-table.html">
                                 <i class="fa-solid fa-file-invoice-dollar"></i>
-                                Quản lý đơn hàng
+                                <span class="menu-text"> Quản lý đơn hàng</span>
                             </a>
-                            <a class="nav-link" id="catalogs-nav-link" data-link="catalogs-data-table.html">
-                                <i class="fa-solid fa-list"></i>
-                                Quản lý khác
-                            </a>
-                            <a class="nav-link" id="staffs-nav-link" data-link="staffs-data-table.html">
-                                <i class="fa-solid fa-users"></i>
-                                Quản lý nhân viên
-                            </a>
+                            <div class="parent-nav" id="promotions-nav-link">
+                                <a>
+                                    <i class="fa-solid fa-percent"></i>
+                                    <span class="menu-text"> Quản lý khuyến mãi</span>
+                                </a>
+                                <div class="text-start sub-menu">
+                                    <a class="nav-link" data-link="promotions-data-table.html" id="promotion-manager">Chương trình khuyến mãi</a>
+                                    <a class="nav-link" data-link="vouchers-data-table.html" id="voucher-nav-link">Quản lý voucher</a>
+                                </div>
+                            </div>
+                            <div class="parent-nav" id="more-nav-link">
+                                <a>
+                                    <i class="fa-solid fa-percent"></i>
+                                    <span class="menu-text"> Quản lý khác</span>
+                                </a>
+                                <div class="sub-menu">
+                                    <a class="nav-link" data-link="promotions-data-table.html" id="promotion-manager">Quản lý tin tức</a>
+                                    <a class="nav-link" data-link="vouchers-data-table.html" id="voucher-nav-link">Chỉnh sửa trang giới thiệu</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div id="right" class="col-10 offset-2 h-100">
-                    <div class="container-fluid header position-fixed">
-                        <i class="menu-icon fa-solid fa-bars"></i>
-                        <i class="fa-solid fa-right-from-bracket sign-out-icon"></i>
-                    </div>
-                    <iframe src="dashboard.html" id="frame" style="margin-top: 70px;" width="100%" height="1150px" frameborder="0">
-                    </iframe>
-                </div>
             </div>
+            <div id="right" class="col-10 offset-2 h-100">
+                <div class="container-fluid header position-fixed">
+                    <i class="menu-icon fa-solid fa-bars"></i>
+                    <i id="logoutBtn" class="fa-solid fa-right-from-bracket sign-out-icon"></i>
+                </div>
+                <iframe src="dashboard.html" id="frame" style="margin-top: 70px;" width="100%" height="1150px" frameborder="0">
+                </iframe>
+            </div>
+        </div>
         </div>
         </div>
         <script type="text/javascript" src="../javascripts/jquery-3.7.1.js"></script>
         <script type="text/javascript">
-        var flag = true;
-        $(".menu-icon").click("click", function() {
-            var menuIcon = $(".menu-icon");
-            var leftSide = $("#left");
-            var rightSide = $("#right");
-            if (flag) {
-                leftSide.css("width", "0px");
-                leftSide.removeClass("position-fixed");
-                leftSide.removeClass("col-2");
-                rightSide.removeClass("col-10");
-                rightSide.removeClass("offset-2");
-                rightSide.addClass("col-12");
-                menuIcon.css("left", "10px");
-                flag = !flag;
+        redirect();
 
-            } else {
-                console.log(flag);
-                leftSide.css("width", "16.66666667%");
-                leftSide.addClass("col-2");
-                leftSide.addClass("position-fixed");
+        function redirect() {
+            let frame = $("#frame");
+            let urlParas = new URLSearchParams(location.search);
+            let link = urlParas.get("show") == null ? "dashboard.html" : urlParas.get("show");
+            frame.attr("src", link);
+            $("html,boy").animate({ scrollTop: 0 }, 500);
+            let menu = urlParas.get("menu");
+            removeActive();
+            $("#" + menu).addClass("active");
+        }
+        $(document).ready(function() {
 
-                rightSide.removeClass("col-12");
-                rightSide.addClass("col-10");
-                rightSide.addClass("offset-2");
-                flag = !flag;
+            var productsLink = $(".nav-link");
+            productsLink.each(function() {
 
-            }
+                $(this).click("click", function() {
+                    var link = $(this).data("link");
+                    let url = new URLSearchParams(location.search);
+                    url.set("show", link);
+                    url.set("menu", this.id);
+                    window.location.search = url;
+                })
+            });
+            let subMenu = $(".sub-menu");
+            subMenu.hide();
+            $(".parent-nav").click(function() {
+                $(this).children(".sub-menu").toggle("slide");
+
+                console.log(id);
+            });
+            var flag = true;
+            $(".menu-icon").click("click", function() {
+                var menuIcon = $(".menu-icon");
+                var leftSide = $("#left");
+                var rightSide = $("#right");
+                if (flag) {
+                    // leftSide.removeClass("position-fixed");
+                    leftSide.removeClass("col-2");
+                    leftSide.css("display", "none");
+                    rightSide.removeClass("col-10");
+                    rightSide.removeClass("offset-2");
+                    menuIcon.css("left", "10px");
+                    flag = !flag;
+
+                } else {
+                    console.log(flag);
+                    leftSide.css("display", "block");
+                    leftSide.addClass("col-2");
+                    leftSide.addClass("position-fixed");
+                    rightSide.removeClass("col-12");
+                    rightSide.addClass("col-10");
+                    rightSide.addClass("offset-2");
+                    flag = !flag;
+                }
+
+            });
+            $("#logoutBtn").click(() => {
+                window.location.href = "../login.html";
+            })
         });
+
 
         function removeActive() {
             var productsLink = $(".nav-link");
@@ -101,19 +148,6 @@
                 $(this).removeClass('active');
             })
         };
-
-        var frame = $("#frame");
-        var productsLink = $(".nav-link");
-        productsLink.each(function() {
-
-            $(this).click("click", function() {
-                var link = $(this).data("link");
-                removeActive();
-                $(this).addClass("active");
-                frame.attr("src", link);
-                $("html,boy").animate({ scrollTop: 0 }, 500);
-            })
-        });
         </script>
     </body>
 

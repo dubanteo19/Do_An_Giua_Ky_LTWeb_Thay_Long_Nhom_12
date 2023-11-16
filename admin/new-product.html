@@ -31,17 +31,19 @@
                     <input class="form-control" name="product_name" type="text" placeholder="Tên sản phẩm">
                     <input class="form-control" name="product_sell_price" type="text" placeholder="Giá bán">
                     <input class="form-control" name="product_buy_price" type="text" placeholder="Giá nhập">
-                    <input class="form-control" name="product_buy_price" type="text" placeholder="Giảm giá">
                 </div>
                 <div class="col-6">
                     <input class="form-control" name="product_id" type="text" placeholder="Số lượng">
-                    <input class="form-control" name="product_name" type="text" placeholder="Tình trạng">
                     <select name="danhMuc" id="danhMuc" class="form-control">
                         <option hidden value="">Danh mục</option>
                         <option value="">Gạo</option>
                     </select>
-                    <input class="form-control" name="product_buy_price" type="text" placeholder="Loại">
-                    <input class="form-control" name="product_buy_price" type="text" placeholder="Nhà cung cấp">
+                    <input class="form-control" name="product_weight_price" type="text" placeholder="Trọng lượng">
+                    <select name="danhMuc" id="danhMuc" class="form-control">
+                        <option hidden value="">Tình trạng</option>
+                        <option value="">Còn hàng</option>
+                        <option value="">Hết hàng</option>
+                    </select>
                 </div>
                 <div class="col-12">
                     <div class="file-upload-wrapper">
@@ -105,7 +107,8 @@
     display: block;
 }
 
-input,select {
+input,
+select {
     margin-top: 10px;
 }
 </style>

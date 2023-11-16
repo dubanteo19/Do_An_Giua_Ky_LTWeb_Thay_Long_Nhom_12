@@ -16,8 +16,18 @@
 }
 
 .profile-box {
-    background-color: var(--primary-green);
     width: 100%;
+}
+
+.sub-menu a {
+    text-align: left !important;
+    /*    color: red !important;*/
+    font-size: 13px !important;
+    font-weight: normal !important;
+    padding: 0 !important;
+    margin: ;
+    : 0 !important;
+    min-height: 10px !important;
 }
 
 #navigation {
@@ -43,7 +53,8 @@
     color: var(--primary-green);
 }
 
-#navigation .nav-link {
+#navigation .nav-link,
+.parent-nav {
     cursor: pointer;
     color: white;
     text-align: center;
@@ -53,8 +64,8 @@
     border-radius: 5px;
     width: 95%;
     padding-top: 10px;
-    margin: 8px auto;
-    height: 50px;
+    margin: 5px auto;
+    min-height: 50px;
 }
 
 .bg-grey {
@@ -64,10 +75,6 @@
 /*dashboard css" */
 .title {
     border-left: 8px solid var(--bs-yellow);
-}
-
-.left-side {
-    /*  width: 250px;*/
 }
 
 .widget {
@@ -148,7 +155,8 @@
 .status {
     border-radius: 5px;
     display: inline-block;
-    width: 75px;
+    min-width: 80px;
+    max-width: 130px;
     text-align: center;
     padding: 5px;
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -174,4 +182,8 @@ input[type='checkbox'] {
     line-height: normal;
     width: 20px;
     height: 20px;
+}
+
+#left {
+    min-height: 100%;
 }

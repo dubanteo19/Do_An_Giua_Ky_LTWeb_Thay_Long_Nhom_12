@@ -26,7 +26,7 @@
                         <button id="newProduct" class="btn btn-success "><i class="fa-solid fa-plus"></i>Tạo sản phẩm mới</button>
                         <button class="btn btn-warning "><i class="fa-solid fa-file-pdf"></i>Xuất file PDF</button>
                         <button class="btn btn-success "><i class="fa-solid fa-file-excel"></i>Xuất file excel</button>
-                        <button class="btn btn-info "> <i class="fa-solid fa-list"></i>Quản lý danh mục</button>
+                        <button id="categorybtn" class="btn btn-info "> <i class="fa-solid fa-list"></i>Quản lý danh mục</button>
                         <button class="btn btn-secondary"><i class="fa-solid fa-trash"></i>Xóa tất cả</button>
                     </div>
                     <div class=" mt-3 bg-white">
@@ -42,8 +42,6 @@
                                     <th scope="col">Hình ảnh</th>
                                     <th scope="col">Số lượng</th>
                                     <th scope="col">Tình trạng</th>
-                                    <th scope="col">Giá nhập</th>
-                                    <th scope="col">Giá bán</th>
                                     <th scope="col">Danh mục</th>
                                     <th scope="col">Loại</th>
                                     <th scope="col">Chức năng</th>
@@ -69,8 +67,6 @@ function fetchProductsData() {
         let productName = product.name;
         let productQuantity = product.quantity;
         let productStatus = fakeDataBase.findStatus(product.statusId).description;
-        let productUnitPrice = 200000;
-        let productCostPrice = 150000;
         let productCategory = fakeDataBase.findCategory(product.categoryId).name;
         let productType = "Bao 50 ký";
 
@@ -82,20 +78,18 @@ function fetchProductsData() {
         let imagesE = $("<img>").attr("src", "../images/product-images/gaoLaoMien1.png").css('width', '70px');
         let quantityE = $("<td>").text(productQuantity);
         let statusE = $("<td>").append($("<span>").text(productStatus).attr("class", getStatusClass(product.statusId)));
-        let unitPriceE = $("<td>").text(productUnitPrice);
-        let costPriceE = $("<td>").text(productCostPrice);
         let categoryE = $("<td>").text(productCategory);
         let typeE = $("<td>").text(productType);
         let deleteBtn = $("<button>").attr({
-            "class": "btn btn-secondary btn-sm deleteBtn",
+            "class": "btn btn-secondary btn-sm deleteBtn me-1",
             "id": product.id
-        }).text("Delete");
+        }).html("<i class='fa-solid fa-trash'></i>");
         let editBtn = $("<button>").attr({
             "class": "btn btn-warning btn-sm",
             "id": product.id
-        }).text("Edit");
+        }).html("<i class='fa-solid fa-pen-to-square'></i>  ");
         let btns = $("<div>").append(deleteBtn).append(editBtn);
-        row.append(checkBox).append(idE).append(nameE).append(imagesE).append(quantityE).append(statusE).append(costPriceE).append(unitPriceE).append(categoryE).append(typeE).append(btns);
+        row.append(checkBox).append(idE).append(nameE).append(imagesE).append(quantityE).append(statusE).append(categoryE).append(typeE).append(btns);
         tbody.append(row);
     }
 
@@ -103,6 +97,9 @@ function fetchProductsData() {
 $(document).ready(function() {
     var newProduct = document.querySelector("#newProduct").addEventListener("click", () => {
         window.location.href = "new-product.html";
+    });
+    $("#categorybtn").click(() => {
+        window.location.href = "categories-data-table.html";
     });
     fetchProductsData();
 

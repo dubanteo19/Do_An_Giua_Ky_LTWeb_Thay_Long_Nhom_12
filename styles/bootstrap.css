@@ -294,8 +294,9 @@ th {
   border-color: inherit;
   border-style: solid;
   border-width: 0;
-}
+  vertical-align: middle;
 
+}
 label {
   display: inline-block;
 }
@@ -5170,6 +5171,7 @@ textarea.form-control-lg {
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem;
+  transition: 0.3s ;
 }
 .toast:not(.showing):not(.show) {
   opacity: 0;

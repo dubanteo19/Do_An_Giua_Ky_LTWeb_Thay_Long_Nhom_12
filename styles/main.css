@@ -16,6 +16,15 @@ section {
     margin-bottom: 40px;
 }
 
+.small-text {
+    font-size: 12px;
+}
+
+
+.bg-light-green {
+    background-color: var(--primary-light-green-2);
+}
+
 .text-primary-green {
     color: var(--primary-green);
 }
@@ -51,7 +60,7 @@ section {
 
 .catalog-item:hover {
     box-shadow: 0 0 0 3px var(--primary-green);
-    /*	border: 3px solid var(--primary-green);*/
+    /*  border: 3px solid var(--primary-green);*/
 }
 
 .catalog-item:not(:last-child) {
@@ -66,8 +75,8 @@ section {
     padding: 20px 10px;
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 5px;
-    /*	background-color: red;*/
-    /*	position: relative;*/
+    /*  background-color: red;*/
+    /*  position: relative;*/
 }
 
 .product-catalog {
@@ -121,6 +130,29 @@ section {
     color: var(--primary-green);
     background-color: white;
     transition: 0.3s ease;
+}
+
+.border-green {
+    border-radius: 5px;
+    border: 1px solid var(--primary-green);
+    color: var(--primary-green);
+    padding: 5px 10px;
+}
+
+.border-green:hover,
+.border-green:active {
+    background-color: var(--primary-green);
+    color: #fff;
+}
+
+.title-head-large {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.title-head {
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .group_title {
@@ -188,17 +220,15 @@ section {
 }
 
 .span-sale {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: auto;
-    height: auto;
     background-color: var(--primary-red);
     border-top-left-radius: 8px;
     border-bottom-right-radius: 8px;
     color: #Fff;
     padding: 3px 20px;
     font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .card-title {
@@ -206,6 +236,7 @@ section {
     font-weight: normal;
     width: 100%;
     height: calc(1em * 1.4 * 2);
+    overflow: hidden;
 }
 
 .card-title a {
@@ -283,9 +314,11 @@ section {
     text-decoration: none;
     color: var(--primary-green);
 }
-.border-hover-green:hover{
-       box-shadow: 0 0 0 3px var(--primary-green);
+
+.border-hover-green:hover {
+    box-shadow: 0 0 0 3px var(--primary-green);
 }
+
 .border-s-r-5 {
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 5px;
@@ -314,7 +347,7 @@ section {
 }
 
 .card-img-top {
-    padding: 24px 10px 0 10px;
+    padding: 30px 10px 0 10px;
     margin-bottom: 20px;
 }
 
@@ -356,10 +389,12 @@ section {
 .bg-footer {
     background-color: #efffcf;
 }
-.vertical-items-container .item{
-	height: 100px;
-	cursor: pointer;
+
+.vertical-items-container .item {
+    height: 100px;
+    cursor: pointer;
 }
+
 .item-name {
     width: 140px;
     text-overflow: ellipsis;

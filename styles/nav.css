@@ -144,3 +144,18 @@ header {
     color: #FFFFFF;
     background-color: var(--hover-green);
 }
+.top-cart-content{
+    position: fixed;
+    background-color: #FFFFFF;
+    border: 1px solid var(--primary-green);
+    border-radius: 5px;
+    top: 60px;
+    right: 280px;
+}
+.top-cart-content {
+    display: none;
+}
+
+.top-cart-content.active {
+    display: block;
+}

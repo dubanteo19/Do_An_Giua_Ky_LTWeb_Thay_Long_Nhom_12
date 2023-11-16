@@ -16,7 +16,7 @@
 <body>
     <div class="container-fluid p-8 bg-grey">
         <div class="container title d-flex justify-content-between bg-white rounded">
-            <h5>Quản lý đơn hàng</h5>
+            <h5>Chương trình khuyến mãi</h5>
             <span class="date">Thứ 2, ngày 30/10/2023 - 11 giờ 25 phút</span>
         </div>
         <div class="container-fluid">
@@ -24,16 +24,20 @@
                 <div class="col-12">
                     <div class="list-orders mt-3 bg-white">
                         <div class="sub-title">
-                            <h4>Danh sách đơn hàng</h4>
+                            <h4>Danh sách các chương trình khuyến mãi</h4>
+                        </div>
+                        <div class="btns mt-3 btn-sm">
+                            <button id="createCategory" class="btn btn-success " data-togle="modal" data-target="#newCategoryModal"><i class="fa-solid fa-plus"></i>Tạo chương trình mới</button>
                         </div>
                         <table class="table" id="orders">
                             <thead>
                                 <tr>
-                                    <th scope="col">ID đơn hàng</th>
-                                    <th scope="col">Tên khách hàng</th>
-                                    <th scope="col">Tổng tiền</th>
-                                    <th scope="col">Trạng thái</th>
-                                    <th scope="col">Ngày tạo đơn hàng</th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Tên chương trình</th>
+                                    <th scope="col">Phần trăm giảm</th>
+                                    <th scope="col">Số lượng còn lại</th>
+                                    <th scope="col">Ngày bắt đầu</th>
+                                    <th scope="col">Ngày kết thúc</th>
                                     <th scope="col">Chức năng</th>
                                 </tr>
                             </thead>
@@ -43,35 +47,14 @@
                     </div>
                 </div>
             </div>
+    
 </body>
 <script type="text/javascript" src="javascripts/FakeDataBase.js"></script>
-<script type="text/javascript" src="javascripts/Utils.js"></script>
 <script type="text/javascript" src="../javascripts/jquery-3.7.1.js"></script>
+<script type="text/javascript" src="javascripts/Utils.js"></script>
+<script src="../javascripts/bootstrap.min.js"></script>
+<script src="../javascripts/bootstrap.bundle.js"></script>
 <script type="text/javascript">
-    console.log(getStatusClass("6"));
-function fetchData() {
-    let orders = fakeDataBase.orders;
-    let tbody = $("tbody");
-
-    for (const o of orders) {
-        let row = $("<tr>");
-        let idE = $("<td>").text(o.id);
-        let userNameE = $("<td>").text(fakeDataBase.findUser(Number(o.userId)).fullName);
-        let totalPriceE = $("<td>").text(o.totalPrice + " vnđ");
-        let statusE = $("<td>").append($("<span>").text(fakeDataBase.findStatus(o.statusId).description).attr("class", getStatusClass(o.statusId)));
-        let dateCreatedE = $("<td>").text(o.dateCreated);
-        let btn = $("<button>").html("Chi tiết").attr({
-            "id": o.id,
-            "class": "btn btn-secondary btn-sm"
-        })
-        let btns = $("<div>").append(btn);
-        row.append(idE).append(userNameE).append(totalPriceE).append(statusE).append(dateCreatedE).append(btns);
-        tbody.append(row);
-    }
-}
-$(document).ready(function() {
-    fetchData();
-});
 </script>
 
 </html>

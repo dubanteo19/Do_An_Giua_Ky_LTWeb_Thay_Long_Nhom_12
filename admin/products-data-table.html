@@ -22,52 +22,88 @@
         <div class="container-fluid">
             <div class="row w-100">
                 <div class="col-12">
-                    <div class="list-orders mt-3 bg-white">
+                    <div class="btns mt-3 btn-sm">
+                        <button id="newProduct" class="btn btn-success "><i class="fa-solid fa-plus"></i>Tạo sản phẩm mới</button>
+                        <button class="btn btn-warning "><i class="fa-solid fa-file-pdf"></i>Xuất file PDF</button>
+                        <button class="btn btn-success "><i class="fa-solid fa-file-excel"></i>Xuất file excel</button>
+                        <button id="categorybtn" class="btn btn-info "> <i class="fa-solid fa-list"></i>Quản lý danh mục</button>
+                        <button class="btn btn-secondary"><i class="fa-solid fa-trash"></i>Xóa tất cả</button>
+                    </div>
+                    <div class=" mt-3 bg-white">
                         <div class="sub-title">
-                            <h4>Tình trạng đơn hàng</h4>
+                            <h4>Danh sách sản phẩm</h4>
                         </div>
                         <table class="table" id="orders">
                             <thead>
                                 <tr>
-                                    <th scope="col">ID khách hàng</th>
-                                    <th scope="col">Tên khách hàng</th>
-                                    <th scope="col">Tổng tiền</th>
-                                    <th scope="col">Trạng thái</th>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Mã sản phẩm</th>
+                                    <th scope="col">Tên sản phẩm</th>
+                                    <th scope="col">Hình ảnh</th>
+                                    <th scope="col">Số lượng</th>
+                                    <th scope="col">Tình trạng</th>
+                                    <th scope="col">Danh mục</th>
+                                    <th scope="col">Loại</th>
+                                    <th scope="col">Chức năng</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>DH3331</td>
-                                    <td>Dư Ban Teo</td>
-                                    <td>100.000đ</td>
-                                    <td><button class="btn btn-info btn-sm">Chờ xử lý</button></td>
-                                </tr>
-                                <tr>
-                                    <td>DH2312</td>
-                                    <td>Lê Hoàng Long</td>
-                                    <td>210.000đ</td>
-                                    <td><button class="btn btn-warning btn-sm">Đang vận chuyển</button></td>
-                                </tr>
-                                <tr>
-                                    <td>DH8321</td>
-                                    <td>Ngô Cẩm Ly</td>
-                                    <td>400.000đ</td>
-                                    <td><button class="btn btn-success btn-sm">Đã hoàn thành</button></td>
-                                </tr>
-                                <tr>
-                                    <td>DH1121</td>
-                                    <td>Hà Hạnh Chi</td>
-                                    <td>190.000đ</td>
-                                    <td><button class="btn btn-danger btn-sm">Đã hủy</button></td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
-                   
                 </div>
-              
             </div>
 </body>
-<script type="text/javascript" src="javascripts/chartDraw.js"></script>
+<script type="text/javascript" src="javascripts/FakeDataBase.js"></script>
 <script type="text/javascript" src="javascripts/Utils.js"></script>
+<script type="text/javascript" src="../javascripts/jquery-3.7.1.js"></script>
+<script type="text/javascript">
+function fetchProductsData() {
+    let products = fakeDataBase.products;
+    let tbody = $("tbody");
+    for (const product of products) {
+        let row = $("<tr>");
+        let productId = product.id;
+        let productName = product.name;
+        let productQuantity = product.quantity;
+        let productStatus = fakeDataBase.findStatus(product.statusId).description;
+        let productCategory = fakeDataBase.findCategory(product.categoryId).name;
+        let productType = "Bao 50 ký";
+
+        let checkBox = $("<input>").attr({
+            "type": "checkbox",
+        })
+        let idE = $("<td>").text(productId);
+        let nameE = $("<td>").text(productName);
+        let imagesE = $("<img>").attr("src", "../images/product-images/gaoLaoMien1.png").css('width', '70px');
+        let quantityE = $("<td>").text(productQuantity);
+        let statusE = $("<td>").append($("<span>").text(productStatus).attr("class", getStatusClass(product.statusId)));
+        let categoryE = $("<td>").text(productCategory);
+        let typeE = $("<td>").text(productType);
+        let deleteBtn = $("<button>").attr({
+            "class": "btn btn-secondary btn-sm deleteBtn me-1",
+            "id": product.id
+        }).html("<i class='fa-solid fa-trash'></i>");
+        let editBtn = $("<button>").attr({
+            "class": "btn btn-warning btn-sm",
+            "id": product.id
+        }).html("<i class='fa-solid fa-pen-to-square'></i>  ");
+        let btns = $("<div>").append(deleteBtn).append(editBtn);
+        row.append(checkBox).append(idE).append(nameE).append(imagesE).append(quantityE).append(statusE).append(categoryE).append(typeE).append(btns);
+        tbody.append(row);
+    }
+
+}
+$(document).ready(function() {
+    var newProduct = document.querySelector("#newProduct").addEventListener("click", () => {
+        window.location.href = "new-product.html";
+    });
+    $("#categorybtn").click(() => {
+        window.location.href = "categories-data-table.html";
+    });
+    fetchProductsData();
+
+});
+</script>
+
 </html>

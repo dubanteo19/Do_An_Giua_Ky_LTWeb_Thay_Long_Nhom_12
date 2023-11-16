@@ -10830,5 +10830,7 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-
+.cursor-pointer{
+  cursor: pointer;
+}
 /*# sourceMappingURL=bootstrap.css.map */

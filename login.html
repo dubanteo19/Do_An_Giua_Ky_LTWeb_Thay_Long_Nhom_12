@@ -15,8 +15,12 @@
     <link rel="stylesheet" type="text/css" href="styles/nav.css">
     <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
     <title></title>
+    <style>
+        .h_recover{
+            display: none;
+        }
+    </style>
 </head>
-
 <body>
     <iframe onload="resizeIframe(this,320)" src="top-title.html?title=Đăng nhập"></iframe>
     <section class="section">
@@ -49,6 +53,21 @@
                                             </div>
                                         </form>
                                     </div>
+                                    <div class="h_recover" style="">
+                                        <div id="recover-password" class="form-signup page-login">
+                                            <form method="post"id="recover_customer_password" accept-charset="UTF-8">
+                                                <div class="error" style="color: red"></div>
+                                                <div class="form-signup clearfix">
+                                                    <fieldset class="form-group">
+                                                        <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" class="form-control" value="" name="Email" id="recover-email" placeholder="Email" required="">
+                                                    </fieldset>
+                                                </div>
+                                                <div class="action_bottom">
+                                                    <input class="btn btn-hover w-100 " style="margin-top: 0px;background-color: #2c3034; border: none" type="submit" value="Lấy lại mật khẩu">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
                                     <div class="block social-login--facebooks pt-3" style="justify-items: center; text-align: center">
                                         <p>Không có tài khoản? <a href="signup.html" id="register-link">Đăng ký</a></p>
                                         <p class="text-center">
@@ -68,6 +87,9 @@
 <script type="text/javascript" src="javascripts/main.js"></script>
 <script type="text/javascript" src="admin/javascripts/FakeDataBase.js"></script>
 <script>
+
+    var CORRECT_ADMIN = localStorage.getItem('admin@gmail.com');
+    var CORRECT_PASS_ADMIN = localStorage.getItem('123');
 $("#customer_login").on("submit", function(event) {
     event.preventDefault();
     login();
@@ -104,6 +126,16 @@ function login() {
     }
 }
 $(document).ready(function() {
+    $('#eye').click(function() {
+        $(this).toggleClass('open');
+        $(this).children('i').toggleClass('fa-eye-slash fa-eye');
+        if ($(this).hasClass('open')) {
+            $(this).prev().attr('type', 'text');
+        } else {
+            $(this).prev().attr('type', 'password');
+        }
+
+    });
     $('#eye').click(function() {
         $(this).toggleClass('open');
         $(this).children('i').toggleClass('fa-eye-slash fa-eye');

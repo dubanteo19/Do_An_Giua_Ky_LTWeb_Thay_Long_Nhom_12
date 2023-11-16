@@ -24,34 +24,34 @@
     <iframe width="100%" height="320" src="top-title.html?title=Tài khoản khách hàng"></iframe>
     <section class="signup">
         <div class="container">
-            <div class="row">
+            <div class="row pt-3">
                 <div class="col-lg-3">
                     <div id="page_account">
                         <h5 class="title-acccount">TRANG TÀI KHOẢN</h5>
-                        <p class="title-acccount">Xin chào! <strong class="text-primary-green" id="full-name"></strong></p>
+                        <p class="title-acccount">Xin chào! <span class="text-primary-green" id="userName" style="color: #b02a37"></span></p>
                     </div>
-                    <ul class="toc-list m-0 p-0">
-                        <li data-target="ACCOUNT_INFORMATION" class="active">Thông tin tài khoản</li>
-                        <li data-target="YOUR_ORDER">Đơn hàng của bạn</li>
-                        <li data-target="Change_Password" class="change-pass">Đổi mật khẩu</li>
-                        <li data-target="address_your" class="address-number">Sổ địa chỉ (0)</li>
+                    <ul class=" toc-list m-0 p-0">
+                        <li class="info_account" data-target="ACCOUNT_INFORMATION" style="cursor: pointer">Thông tin tài khoản</li>
+                        <li class="order" data-target="YOUR_ORDER" style="cursor: pointer">Đơn hàng của bạn</li>
+                        <li class="change-pass" data-target="Change_Password" style="cursor: pointer">Đổi mật khẩu</li>
+                        <li class="address-number" data-target="address_your" style="cursor: pointer">Sổ địa chỉ (0)</li>
                     </ul>
                 </div>
                 <div class="col-lg-9">
-                    <div class="content" id="ACCOUNT_INFORMATION">
+                    <div class="block-account" id="ACCOUNT_INFORMATION">
                         <h5 class="title-acccount">THÔNG TIN TÀI KHOẢN</h5>
-                        <p class="fw-bold">Họ tên: <strong id="name"> "" </strong></p>
-                        <p class="fw-bold">Email: <strong id="email"> "" </strong></p>
-                        <p class="fw-bold">Số điện thoại: <strong id="phone"> "" </strong></p>
-                        <p class="fw-bold">Địa chỉ: <strong id="address"> "" </strong></p>
-                        <button class="btn btn-warning btn-hover" data-toggle="modal" data-target="#exampleModal">Cập nhập thông tin?</button>
+                        <p class="">Họ tên: <strong id="user_fullname"></strong></p>
+                        <p class="">Email: <strong id="user_email"></strong></p>
+                        <p class="">Số điện thoại: <strong id="user_phone"></strong></p>
+                        <p class="">Địa chỉ: <strong id="user_address"></strong></p>
+                        <button class="btn btn-warning btn-hover" data-toggle="modal" data-target="#updateInfor">Cập nhập thông tin?</button>
                     </div>
-                    <div class="content" id="YOUR_ORDER">
+                    <div class="block-account" id="YOUR_ORDER">
                         <div class="recent-orders">
                             <div class="table-responsive-block tab-all" style="overflow-x:auto;">
                                 <h5 class="title-acccount">ĐƠN HÀNG CỦA BẠN</h5>
                                 <table class="table table-cart table-order" id="my-orders-table" style="border: #2c3034 solid 1px">
-                                    <thead class="thead-default bg-primary-green">
+                                    <thead class="thead-default bg-primary-green text-white">
                                         <tr>
                                             <th>Đơn hàng</th>
                                             <th>Ngày</th>
@@ -70,9 +70,11 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <div class="paginate-pages pull-right page-account text-right col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            </div>
                         </div>
                     </div>
-                    <div class="content" id="Change_Password">
+                    <div class="block-account" id="Change_Password">
                         <div class="col-xs-12 col-sm-12 col-lg-9 col-right-ac">
                             <h5 class="title-head margin-top-0">ĐỔI MÂT KHẨU</h5>
                             <div class="row">
@@ -95,7 +97,7 @@
                                                     <label for="confirmPass">Xác nhận lại mật khẩu <span class="error">*</span></label>
                                                     <input type="password" name="ConfirmPassword" id="confirmPass" required="" class="form-control form-control-lg">
                                                 </fieldset>
-                                                <button class="bg-dark text-primary-white button btn btn-more" type="submit">
+                                                <button class=" text-primary-white  btn btn-hover" style="color: #fff; background-color: var(--primary-green)" type="submit">
                                                     <i class="hoverButton"></i>Đặt lại mật khẩu</button>
                                             </div>
                                         </form>
@@ -104,7 +106,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="content" id="address_your">
+                    <div class="block-account" id="address_your">
                         <h5 class="title-acccount">ĐỊA CHỈ CỦA BẠN</h5>
                         <p class="btn-row">
                             <button class="btn btn-success btn-hover" id="add-adress" type="button">Thêm địa chỉ</button>
@@ -161,7 +163,7 @@
         </div>
         </div>
     </section>
-    <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
+    <div class="modal" tabindex="-1" role="dialog" id="updateInfor">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -187,10 +189,13 @@
             </div>
         </div>
     </div>
+    </div>
+    </div>
+    </section>
     <footer>
         <iframe src="footer.html" onload="resizeIframe(this,339)"></iframe>
     </footer>
-    <script type="text/javascript" src="javascripts/jquery-3.7.1.js"> </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossOrigin="anonymous"></script>
     <script src="javascripts/vn-provinces.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -244,7 +249,7 @@
     }
     $(".toc-list li").each(function() {
         $(this).click(() => {
-            $(".content").each(function() {
+            $(".block-account").each(function() {
                 $(this).hide();
             });
             removeActive();
@@ -255,12 +260,12 @@
     });
     $(document).ready(function() {
         let user = JSON.parse(localStorage.getItem("user"));
-        let userFullnameElement = $("#name");
-        let userEmailElement = $("#email");
-        let userPhoneElement = $("#phone");
-        let userAdressElement = $("#address");
+        let userFullnameElement = $("#user_fullname");
+        let userEmailElement = $("#user_email");
+        let userPhoneElement = $("#user_phone");
+        let userAdressElement = $("#user_address");
         let address = user.address == "" ? "Chưa có địa chỉ" : user.address;
-        let curtomer = $("#full-name");
+        let curtomer = $("#userName");
 
         userFullnameElement.text(user.fullName);
         userEmailElement.text(user.email);
@@ -284,6 +289,32 @@
             localStorage.setItem("user", JSON.stringify(userInDataBase));
             alert("Cập nhập thông tin thành công");
         })
+    });
+    $(document).ready(function() {
+        $('#change-password-form').submit(function(event) {
+            event.preventDefault();
+
+            var oldPassword = $('#old-password').val();
+            var newPassword = $('#new-password').val();
+            var confirmPassword = $('#confirm-password').val();
+            var errorMessageElement = $('#error-message');
+
+            // Kiểm tra mật khẩu cũ có trùng khớp với mật khẩu đã lưu hay không
+            if (fakeDataBase.checkPassword(oldPassword)) {
+                // Kiểm tra mật khẩu mới và xác nhận mật khẩu mới
+                if (newPassword === confirmPassword) {
+                    // Cập nhật mật khẩu trong fake database (hoặc backend thực sự)
+                    fakeDataBase.updatePassword(newPassword);
+
+                    // Thông báo thành công
+                    errorMessageElement.text('Đổi mật khẩu thành công!');
+                } else {
+                    errorMessageElement.text('Mật khẩu mới không khớp. Vui lòng thử lại.');
+                }
+            } else {
+                errorMessageElement.text('Mật khẩu cũ không đúng. Vui lòng kiểm tra lại.');
+            }
+        });
     });
     </script>
     <script type="text/javascript" src="javascripts/main.js"></script>

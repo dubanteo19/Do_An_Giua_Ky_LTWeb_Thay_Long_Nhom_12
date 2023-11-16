@@ -147,6 +147,9 @@
 
 .status {
     border-radius: 5px;
+    display: inline-block;
+    width: 75px;
+    text-align: center;
     padding: 5px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     color: white;
@@ -162,8 +165,8 @@
     background-color: var(--bs-yellow);
 }
 
-    .status-cancel {
- background-color: var(--bs-red);
+.status-cancel {
+    background-color: var(--bs-red);
 }
 
 input[type='checkbox'] {

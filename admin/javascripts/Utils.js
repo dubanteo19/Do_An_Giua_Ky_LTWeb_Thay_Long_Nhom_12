@@ -8,6 +8,9 @@ function getStatusClass(productStatus) {
         case 2:
             result = "status status-ban";
             break;
+        case 4:
+            result = "status status-cancel";
+            break;
         case 6:
             result = "status status-active";
             break;
@@ -20,7 +23,9 @@ function getStatusClass(productStatus) {
         case 9:
             result = "status status-cancel";
             break;
-
+        case 11:
+            result = "status status-active";
+            break;
         default:
             // statements_def
             break;

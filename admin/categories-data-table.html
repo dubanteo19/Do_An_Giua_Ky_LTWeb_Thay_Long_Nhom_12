@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" type="text/css" media="all" href='../styles/bootstrap.css'>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css">
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/admin.css">
+    <script src="javascripts/chart.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid p-8 bg-grey">
+        <div class="container title d-flex justify-content-between bg-white rounded">
+            <h5>Quản lý danh mục</h5>
+            <span class="date">Thứ 2, ngày 30/10/2023 - 11 giờ 25 phút</span>
+        </div>
+        <div class="container-fluid">
+            <div class="row w-100">
+                <div class="col-12">
+                    <div class="list-orders mt-3 bg-white">
+                        <div class="sub-title">
+                            <h4>Danh sách các danh mục</h4>
+                        </div>
+                        <div class="btns mt-3 btn-sm">
+                            <button id="createCategory" class="btn btn-success " data-togle="modal" data-target="#newCategoryModal"><i class="fa-solid fa-plus"></i>Tạo danh mục mới</button>
+                        </div>
+                        <table class="table" id="orders">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID danh mục</th>
+                                    <th scope="col">Tên danh mục</th>
+                                    <th scope="col">Tên danh mục cha</th>
+                                    <th scope="col">Trạng thái</th>
+                                    <th scope="col">Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal HTML Markup -->
+            <div id="newCategoryModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title text-xs-center">Tạo danh mục mới</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form role="form" method="POST" action="">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="categoryName" placeholder="">
+                                    <label for="floatingInput">Tên danh mục</label>
+                                </div>
+                                <div class="form-floating">
+                                    <select class="form-select mb-3" id="parentCategory">
+                                        <option selected>Không có</option>
+                                    </select>
+                                    <label>Danh mục cha</label>
+                                </div>
+                                <div class="form-floating">
+                                    <select class="form-select mb-3" id="categoryStatus">
+                                        <option selected>Hiện thị</option>
+                                        <option>Ẩn</option>
+                                    </select>
+                                    <label>Trạng thái</label>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <button id="addNewCategory" class="btn btn-success btn-md" type="button">Thêm danh mục</button>
+                                </div>
+                            </form>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+                <!-- Flexbox container for aligning the toasts -->
+                <div class="d-flex justify-content-center align-items-center w-100">
+                    <div class="toast" data-bs-animation="true" data-bs-delay=3000 role="alert">
+                        <div class="toast-header">
+                            <strong class="me-auto">Thông báo</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            Thêm danh mục mới thành công!
+                        </div>
+                    </div>
+                </div>
+</body>
+<script type="text/javascript" src="javascripts/FakeDataBase.js"></script>
+<script type="text/javascript" src="../javascripts/jquery-3.7.1.js"></script>
+<script type="text/javascript" src="javascripts/Utils.js"></script>
+<script src="../javascripts/bootstrap.min.js"></script>
+<script src="../javascripts/bootstrap.bundle.js"></script>
+<script type="text/javascript">
+function showNotification() {
+    let notify = $(".toast");
+    let myToast = bootstrap.Toast.getOrCreateInstance(notify);
+    console.log(myToast);
+    myToast.show();
+}
+
+function fetchData() {
+    let categories = fakeDataBase.categories;
+    let tbody = $("tbody");
+    tbody.empty();
+    for (const c of categories) {
+        let row = $("<tr>");
+        let idE = $("<td>").text(c.id);
+        let nameE = $("<td>").text(c.name);
+        let parentCategory = fakeDataBase.findCategory(c.parentCategories) == null ? "" : fakeDataBase.findCategory(c.parentCategories).name
+        let parentE = $("<td>").text(parentCategory);
+        let statusIdE = $("<td>").append($("<span>").text(fakeDataBase.findStatus(c.statusId).description).addClass(getStatusClass(c.statusId)));
+        let deleteBtn = $("<button>").attr({
+            "class": "btn btn-secondary btn-sm deleteBtn me-1",
+            "id": c.id
+        }).html("<i class='fa-solid fa-trash'></i>");
+        let editBtn = $("<button>").attr({
+            "class": "btn btn-warning btn-sm",
+            "id": c.id
+        }).html("<i class='fa-solid fa-pen-to-square'></i>");
+        let btns = $("<div>").append(deleteBtn).append(editBtn);
+        row.append(idE).append(nameE).append(parentE).append(statusIdE).append(btns);
+        tbody.append(row);
+    }
+}
+
+
+function showModal() {
+    let categories = fakeDataBase.categories;
+    $("#newCategoryModal").modal("show");
+    for (const c of categories) {
+        $("#parentCategory").append($("<option>").text(c.name));
+    }
+    $("#addNewCategory").click(() => {
+            let categoryName = $("#categoryName").val();
+            let parentCategory = $("#parentCategory :selected").text();
+            let categoryStatus = $("#categoryStatus :selected").text();
+            fakeDataBase.addCategory(new Category(categoryName.charAt(0) + Math.floor(Math.random() * 10), parentCategory, categoryName, fakeDataBase.getStatusIdByDescription(categoryStatus).id));
+
+                showNotification(); fetchData();
+            })
+    }
+    $(document).ready(function() {
+        fetchData();
+
+        $("#createCategory").click(() => {
+            showModal();
+        })
+    });
+</script>
+
+</html>

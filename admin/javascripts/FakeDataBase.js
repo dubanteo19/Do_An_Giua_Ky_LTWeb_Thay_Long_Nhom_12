@@ -1,19 +1,3 @@
-class Type {
-    constructor(id, description, categoryId) {
-        this.id = id;
-        this.description = description;
-        this.categoryId = categoryId;
-    }
-}
-class Price {
-    constructor(id, productId, costPrice, unitPrice, typeId) {
-        this.id = id;
-        this.productId = productId;
-        this.costPrice = costPrice;
-        this.UnitPrice = unitPrice;
-        this.typeId = typeId;
-    }
-}
 class Image {
     constructor(id, productId, name, path) {
         this.id = id;
@@ -74,11 +58,11 @@ class Status {
     }
 }
 class Category {
-    constructor(id, parentCategories, name, active) {
+    constructor(id, parentCategories, name, statusId) {
         this.id = id;
         this.parentCategories = parentCategories;
         this.name = name;
-        this.active = active;
+        this.statusId = statusId;
     }
 }
 class DataBaseManager {
@@ -151,9 +135,9 @@ class DataBaseManager {
         this.saveData();
         return true;
     }
-    findType(id){
-        for(const t of this.types){
-            if(t.id ==id){
+    findType(id) {
+        for (const t of this.types) {
+            if (t.id == id) {
                 return t;
             }
         }
@@ -233,6 +217,13 @@ class DataBaseManager {
 
 
     // Statuses manager
+    getStatusIdByDescription(des){
+        for (const s of this.statuses){
+            if(des === s.description)
+                return s;
+        }
+        return null;
+    }
     findStatus(id) {
         for (const s of this.statuses) {
             if (s.id === id) {
@@ -310,6 +301,8 @@ function initDataBase() {
     let status7 = new Status("7", "Đang giao hàng");
     let status8 = new Status("8", "Hoàn thành");
     let status9 = new Status("9", "Đã hủy");
+    let status10 = new Status("10", "Chờ lấy hàng");
+    let status11 = new Status("11", "Hiện thị");
     fakeDataBase.addStatus(status1);
     fakeDataBase.addStatus(status2);
     fakeDataBase.addStatus(status3);
@@ -319,16 +312,21 @@ function initDataBase() {
     fakeDataBase.addStatus(status7);
     fakeDataBase.addStatus(status8);
     fakeDataBase.addStatus(status9);
+    fakeDataBase.addStatus(status10);
+    fakeDataBase.addStatus(status11);
     fakeDataBase.addUser(new User("admin@gmail.com", "admin", "admin", "0925821477"));
     fakeDataBase.addUser(new User("minh@gmail.com", "123", "Thanh Minh", "0925821477"));
     fakeDataBase.addUser(new User("huynhminh@gmail.com", "123", "Thanh Minh", "0925821477"));
     fakeDataBase.addUser(new User("chucngan@gmail.com", "123", "Chuc Ngan", "0925545457"));
-    fakeDataBase.addCategory(new Category("C1", "", "Gạo các loại ", 1));
-    fakeDataBase.addCategory(new Category("GD", "C1", "Gạo dẻo ", 1));
-    fakeDataBase.addCategory(new Category("C2", "", "Hạt", 1));
+    fakeDataBase.addCategory(new Category("C1", "", "Gạo các loại ", "11"));
+    fakeDataBase.addCategory(new Category("GD", "C1", "Gạo dẻo ", "11"));
+    fakeDataBase.addCategory(new Category("C2", "", "Hạt", "11"));
+    fakeDataBase.addCategory(new Category("C3", "", "Củ", "11"));
+    fakeDataBase.addCategory(new Category("C4", "", "Đậu", "11"));
     fakeDataBase.addProduct(new Product("GAO2", "GẠO LÀI MIÊN CAMPUCHIA 2", 100, "GD", "", "6"));
     fakeDataBase.addProduct(new Product("GAO1", "GẠO LÀI MIÊN CAMPUCHIA 1", 100, "GD", "", "6"));
     fakeDataBase.addProduct(new Product("GAO3", "GẠO TỨ QUÝ", 200, "GD", "", "6"));
+    fakeDataBase.addProduct(new Product("GAO4", "GẠO TÀO LAO", 300, "GD", "", "6"));
     fakeDataBase.addOrder(new Order("o1", "8", "2", 300000, "", "COD", 20000, "Dai hoc Nong Lam TPHCM"));
     fakeDataBase.addOrder(new Order("o2", "7", "2", 250000, "", "COD", 20000, "Dai hoc Nong Lam TPHCM"));
     fakeDataBase.addOrder(new Order("o3", "9", "3", 450000, "", "COD", 20000, "Linh Trung, Thuc Duc, TP HCM"));
@@ -336,10 +334,5 @@ function initDataBase() {
     fakeDataBase.addImage(new Image("i1", "GAO1", "gao1", "Images/product-images/gaoLaoMien1.png"));
     fakeDataBase.addImage(new Image("i2", "GAO1", "gao2", "Images/product-images/gaoLaoMien2.png"));
     fakeDataBase.addImage(new Image("i3", "GAO1", "gao3", "Images/product-images/gaoLaoMien3.png"));
-    fakeDataBase.addType(new Type("t1", "Bao 100 ký", "C1"));
-    fakeDataBase.addType(new Type("t2", "Bao 50 ký", "C1"));
-    fakeDataBase.addType(new Type("t3", "Bao 10 ký", "C1"));
-    fakeDataBase.addPrice(new Price("p1", "GAO1", 2000000, 2300000, "t1"));
-    fakeDataBase.addPrice(new Price("p2", "GAO1", 1200000, 1500000, "t2"));
     return fakeDataBase;
 }

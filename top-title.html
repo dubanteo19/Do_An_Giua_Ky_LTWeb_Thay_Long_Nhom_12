@@ -32,11 +32,11 @@
                             <a style="color: #fff"> <i class="fa-solid fa-circle-user"></i></a>
                         </button>
                         <ul class="dropdown-menu" id="userLinks">
-                            <li><a class="dropdown-item" href="login.html">Đăng nhập</a></li>
-                            <li><a class="dropdown-item" href="signup.html">Đăng ký</a></li>
+                            <li><a class="dropdown-item" target="_top" href="login.html">Đăng nhập</a></li>
+                            <li><a class="dropdown-item" target="_top" href="signup.html">Đăng ký</a></li>
                         </ul>
                         <button type="button" class="btn btn-hover ms-md-2 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Hệ thống cửa hàng" style="margin-right: 10px">
-                            <a href="he-thong.html" style="color: #fff"><i class="fa-solid fa-location-dot"></i></a>
+                            <a href="he-thong.html" target="_top" style="color: #fff"><i class="fa-solid fa-location-dot"></i></a>
                         </button>
                         <button type="button" class="position-relative btn btn-hover ms-md-2 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="left" title="Sản phẩm yêu thích" style="margin-right: 10px">
                             <i class="fa-regular fa-heart"></i>
@@ -44,7 +44,7 @@
                             <span class="visually-hidden">unread messages</span>
                         </button>
                         <button type="button" id="btn-card" class="position-relative btn btn-hover ms-md-2 bg-primary-green" data-bs-toggle="tooltip" data-bs-placement="left" title="Giỏ hàng">
-                            <a href="gio-hang.html" style="color: #fff"><i class="fas fa-cart-shopping"></i></a>
+                            <a href="gio-hang.html" target="_top" style="color: #fff"><i class="fas fa-cart-shopping"></i></a>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">1</span>
                             <span class="visually-hidden">unread messages</span>
                         </button>
@@ -54,12 +54,12 @@
                                     <div class=" cart_body items">
                                         <div class="row">
                                             <div class="cart_products d-flex">
-                                                <a href="" class="cart_image p-3" title="Kim chi">
+                                                <a href="" target="_top" class="cart_image p-3" title="Kim chi">
                                                     <img width="80" height="80" src="images/product-images/kim-chi1.png" alt="Kim chi">
                                                 </a>
                                                 <div class="cart_info pt-3">
                                                     <div class="cart_name " style="display: flex!important;flex-direction: column">
-                                                        <a href="" class="product-name text-dark" title="Kim chi">Kim chi</a>
+                                                        <a href="" target="_top"  class="product-name text-dark" title="Kim chi">Kim chi</a>
                                                         <span class="variant-title">300g</span>
                                                         <a class="cart__btn-remove remove-item-cart" style="color: red">Xóa</a>
                                                     </div>
@@ -90,7 +90,9 @@
                                             </div>
                                         </div>
                                         <div class="cart__btn-proceed-checkout-dt m-3">
-                                            <button type="button" class="button btn btn-default bg-primary-green text-primary-white w-100" id="btn-proceed-checkout" title="Thanh toán">Thanh toán</button>
+                                            <button type="button" class="button btn btn-default bg-primary-green text-primary-white w-100" id="btn-proceed-checkout" title="Thanh toán">
+                                                <a href="thanh-toan.html" target="_top">Thanh toán</a>
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -158,7 +160,7 @@
                             <a class="nav-link text-light" target="_top" href="lien-he.html">Liên hệ</a>
                         </li>
                         <li class="nav-item" style="background-color: var(--primary-red); border-radius: 5px">
-                            <a class="nav-link text-light" target="_top" href="#">Sản phẩm hot</a>
+                            <a class="nav-link text-light" target="_top" href="san-pham-hot.html">Sản phẩm hot</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" target="_top" href="chinh-sach.html">Chính sách cửa hàng</a>
@@ -178,7 +180,7 @@
     <style type="text/css">
     .title-group {
         background-image: url("images/titlebackground/title-bg.png");
-        height: 160px;
+        height: 200px;
         box-shadow: inset 0px -40px 60px 40px rgba(0, 0, 0, 0.8);
     }
 
@@ -193,7 +195,6 @@
     <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
     <script type="text/javascript" src="javascripts/main.js"></script>
     <script type="text/javascript" src="javascripts/bootstrap.bundle.js"></script>
-    <script type="text/javascript" src="javascripts/bootstrap.bundle.js"></script>
     <script type="text/javascript">
     const url = window.location.search;
     const urlParas = new URLSearchParams(url);
@@ -203,6 +204,81 @@
     titleTag[1].innerHTML = titleText;
     </script>
     <script>
+    document.getElementById('btn-card').addEventListener('mouseover', function() {
+        document.querySelector('.top-cart-content').classList.add('active');
+    });
+
+    document.querySelector('.top-cart-content').addEventListener('mouseover', function() {
+        document.querySelector('.top-cart-content').classList.add('active');
+    });
+    document.querySelector('.top-cart-content').addEventListener('mouseout', function() {
+        document.querySelector('.top-cart-content').classList.remove('active');
+    });
+    document.getElementById('btn-card').addEventListener('click', function() {
+        window.location.href = 'gio-hang.html';
+    });
+
+    document.getElementById('navbarScrollingDropdown').addEventListener('click', function() {
+        window.location.href = 'san-pham.html';
+    });
+
+
+
+    $(document).ready(function() {
+        $(".heartIcon").click(function(event) {
+            event.preventDefault();
+            $(this).toggleClass("active");
+        });
+        fetchUserLink();
+    });
+
+    function redirectToPage(page) {
+        var heartIcon = document.querySelector('.heartIcon');
+        window.location.href = page;
+    }
+
+    function fetchUserLink() {
+        let user = JSON.parse(window.localStorage.getItem("user"));
+        let userLinks = $("#userLinks > li > a");
+        if (user != null) {
+            $(userLinks[0]).text("Tài khoản").attr("href", "tai-khoan.html");
+            let logoutBtn = $(userLinks[1]);
+            logoutBtn.text("Đăng xuất").removeAttr("href").addClass("cursor-pointer");
+            logoutBtn.attr("id", "logout");
+        }
+
+        function logout() {
+            setTimeout(function() {
+                window.localStorage.removeItem("user");
+                window.open("index.html","_top");
+            }, 1000)
+        }
+        let logoutBtn = $("#logout");
+        logoutBtn.on("click", logout);
+    }
+    $(document).ready(function() {
+        // Mảng chứa các placeholder khác nhau
+        var placeholders = ["Tìm kiếm theo tên sản phẩm", "Tìm kiếm theo danh mục", "Tìm kiếm theo thương hiệu"];
+        var currentIndex = 0;
+        var currentPlaceholder = "";
+        var placeholderIndex = 0;
+
+        // Hàm cập nhật placeholder với từng chữ
+        function updatePlaceholder() {
+            if (placeholderIndex <= placeholders[currentIndex].length) {
+                currentPlaceholder = placeholders[currentIndex].substring(0, placeholderIndex);
+                $("#searchInput").attr("placeholder", currentPlaceholder);
+                placeholderIndex++;
+            } else {
+                // Khi hoàn thành, đặt lại index và chuyển sang placeholder tiếp theo
+                placeholderIndex = 0;
+                currentIndex = (currentIndex + 1) % placeholders.length;
+            }
+        }
+
+        // Thực hiện cập nhật mỗi giây
+        setInterval(updatePlaceholder, 60);
+    });
     </script>
 </body>
 

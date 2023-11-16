@@ -20,6 +20,7 @@ section {
     font-size: 12px;
 }
 
+
 .bg-light-green {
     background-color: var(--primary-light-green-2);
 }
@@ -59,7 +60,7 @@ section {
 
 .catalog-item:hover {
     box-shadow: 0 0 0 3px var(--primary-green);
-    /*	border: 3px solid var(--primary-green);*/
+    /*  border: 3px solid var(--primary-green);*/
 }
 
 .catalog-item:not(:last-child) {
@@ -74,8 +75,8 @@ section {
     padding: 20px 10px;
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 5px;
-    /*	background-color: red;*/
-    /*	position: relative;*/
+    /*  background-color: red;*/
+    /*  position: relative;*/
 }
 
 .product-catalog {
@@ -313,9 +314,11 @@ section {
     text-decoration: none;
     color: var(--primary-green);
 }
-.border-hover-green:hover{
-       box-shadow: 0 0 0 3px var(--primary-green);
+
+.border-hover-green:hover {
+    box-shadow: 0 0 0 3px var(--primary-green);
 }
+
 .border-s-r-5 {
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 5px;
@@ -386,10 +389,12 @@ section {
 .bg-footer {
     background-color: #efffcf;
 }
-.vertical-items-container .item{
-	height: 100px;
-	cursor: pointer;
+
+.vertical-items-container .item {
+    height: 100px;
+    cursor: pointer;
 }
+
 .item-name {
     width: 140px;
     text-overflow: ellipsis;

@@ -104,7 +104,7 @@
 <script type="text/javascript" src="admin/javascripts/FakeDataBase.js"></script>
 <script>
 $(document).ready(function() {
-    $("#customer_register").on("submit",function(event){
+    $("#customer_register").on("submit", function(event) {
         signUp(event);
     });
     $('#eye').click(function() {
@@ -142,7 +142,7 @@ function signUp(event) {
         var email = $("#email").val().toLowerCase();;
         var phoneNumber = $("#PhoneNumber").val();
         var password = $("#password").val();
-        var fullName = lastName + firstName;
+        var fullName = lastName + " " + firstName;
         // Lưu dữ liệu vào fake Database
         if (fakeDataBase.addUser(new User(email, password, fullName, phoneNumber))) {
             var overlay = document.getElementById('overlay');

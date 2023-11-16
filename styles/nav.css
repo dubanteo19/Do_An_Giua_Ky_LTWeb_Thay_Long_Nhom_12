@@ -106,6 +106,11 @@ header {
     z-index: -1;
     border-radius: 8px 8px 0 0;
 }
+.carousel-caption {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
 
 .carousel-control-next:hover,
 .carousel-control-prev:hover {
@@ -121,10 +126,11 @@ header {
 .carousel-caption p {
     font-size: 20px;
     color: var(--primary-white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .btn-hover {
-    color: #fff;
+    color: #fff!important;
     background-color: var(--primary-green);
     border-color: var(--primary-green);
 }
@@ -159,3 +165,81 @@ header {
 .top-cart-content.active {
     display: block;
 }
+
+.header-control #userLinks{
+    top: 5px!important;
+    left: -110px!important;
+    transition: display 2s ease;
+}
+#navbarScroll .dropdown-menu{
+    top: 58px;
+    right:0px;
+}
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    visibility: hidden;
+    width: 44px;
+    height: 44px;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    border: 2px solid var(--primary-green);
+    transition: opacity 0.4s ease-in-out;
+}
+
+.back-to-top i {
+    font-size: 28px;
+    color: #cda45e;
+    line-height: 0;
+}
+
+.back-to-top:hover {
+    background:var(--hover-green);
+    color: #1a1814;
+}
+
+.back-to-top:hover i {
+    color: #444444;
+}
+
+.card{
+    position: relative;
+}
+.icons{
+    opacity: 0;
+    display: flex;
+    position: absolute;
+    transition: opacity 0.3s ease;
+    right: 0;
+    flex-direction: column;
+}
+.icons a{
+    border: 1px solid var(--primary-green);
+    padding: 10px;
+    margin-bottom: 4px;
+    color: #fff;
+    background: var(--primary-green);
+    text-decoration: none;
+}
+.icons a:nth-child(1) {
+    border-radius: 5px 5px 0 0;
+}
+
+.icons a:nth-child(3) {
+    border-radius: 0 0 5px 5px ;
+}
+.card:hover .icons {
+    opacity: 1;
+}
+.icons a.fas.fa-heart.active {
+    color: red;
+}
+#imageGallery li{
+    list-style-type: none;
+}
+/***************/

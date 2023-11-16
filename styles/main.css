@@ -38,7 +38,6 @@ section {
 }
 
 .product-catalog {
-    border-top: 1px solid var(--primary-green);
     height: 200px;
 }
 
@@ -55,7 +54,9 @@ section {
     text-align: center;
     position: absolute;
     top: 110px;
-    left: 20%;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 .catalog-item:hover {
@@ -179,7 +180,7 @@ section {
 }
 
 .btn-green {
-    color: #fff;
+    color: #fff!important;
     background-color: var(--primary-green);
     display: inline-flex;
     align-items: center;

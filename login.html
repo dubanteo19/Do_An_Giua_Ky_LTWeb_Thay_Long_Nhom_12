@@ -21,6 +21,7 @@
         }
     </style>
 </head>
+
 <body>
     <iframe onload="resizeIframe(this,320)" src="top-title.html?title=Đăng nhập"></iframe>
     <section class="section">
@@ -55,7 +56,7 @@
                                     </div>
                                     <div class="h_recover" style="">
                                         <div id="recover-password" class="form-signup page-login">
-                                            <form method="post"id="recover_customer_password" accept-charset="UTF-8">
+                                            <form method="post" id="recover_customer_password" accept-charset="UTF-8">
                                                 <div class="error" style="color: red"></div>
                                                 <div class="form-signup clearfix">
                                                     <fieldset class="form-group">
@@ -87,9 +88,8 @@
 <script type="text/javascript" src="javascripts/main.js"></script>
 <script type="text/javascript" src="admin/javascripts/FakeDataBase.js"></script>
 <script>
-
-    var CORRECT_ADMIN = localStorage.getItem('admin@gmail.com');
-    var CORRECT_PASS_ADMIN = localStorage.getItem('123');
+var CORRECT_ADMIN = localStorage.getItem('admin@gmail.com');
+var CORRECT_PASS_ADMIN = localStorage.getItem('123');
 $("#customer_login").on("submit", function(event) {
     event.preventDefault();
     login();
@@ -110,7 +110,9 @@ function login() {
     console.log(user);
     if (user != null) {
         if (user.password === password) {
-            localStorage.setItem("user", JSON.stringify(user));
+            if (user.email !== "admin@gmail.com") {
+                localStorage.setItem("user", JSON.stringify(user));
+            }
             var overlay = document.getElementById('overlay');
             overlay.style.display = 'block';
             // Tạo hiệu ứng loading trong 2 giây (có thể thay đổi thời gian tùy ý)

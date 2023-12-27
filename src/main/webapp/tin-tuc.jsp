@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +14,12 @@
     <link rel="stylesheet" href="styles/nav.css">
 </head>
 <body>
-<iframe width="100%" height="320" src="top-title.html?title=Tin tức"></iframe>
+<jsp:include page="header.jsp" />
 
+	<jsp:include page="top-title.jsp">
+		<jsp:param name="title" value="Tin tức" />
+	</jsp:include>
+	
 <section>
     <div class="container" id="news">
         <div class="row mt-3">
@@ -186,7 +192,7 @@
     </div>
 </section>
  <footer>
-        <iframe src="footer.html" onload="resizeIframe(this,339)"></iframe>
+       <jsp:include page="footer.jsp" />
     </footer>
 </body>
 <script type="text/javascript" src="javascripts/main.js"></script>

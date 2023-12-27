@@ -32,4 +32,15 @@ public class CartItem {
 	public double calculatePrice() {
 		return this.product.getUnitPrice() * this.quanlity;
 	}
+	 @Override
+	    public String toString() {
+	        return "Addresses{" +
+	                "id=" + id +
+	                ", province='" + province + '\'' +
+	                ", districts='" + districts + '\'' +
+	                ", wards='" + wards + '\'' +
+	                ", description='" + description + '\'' +
+	                '}';
+	    }
+	}
 }

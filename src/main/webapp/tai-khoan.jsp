@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +23,12 @@
 <script type="text/javascript" src="javascripts/main.js"></script>
 
 <body>
-    <iframe width="100%" height="320" src="top-title.html?title=Tài khoản khách hàng"></iframe>
+    <jsp:include page="header.jsp" />
+    
+    	<jsp:include page="top-title.jsp">
+		<jsp:param name="title" value="Tài khoản" />
+	</jsp:include>
+	
     <section class="signup">
         <div class="container">
             <div class="row pt-3">
@@ -193,7 +200,7 @@
     </div>
     </section>
     <footer>
-        <iframe src="footer.html" onload="resizeIframe(this,339)"></iframe>
+       <jsp:include page="footer.jsp" />
     </footer>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossOrigin="anonymous"></script>
     <script src="javascripts/vn-provinces.js"></script>

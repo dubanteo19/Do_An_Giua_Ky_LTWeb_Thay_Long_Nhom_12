@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +22,12 @@
 	</style>
 </head>
 <body>
-<iframe onload="resizeIframe(this,320)" src="top-title.html?title=Giới thiệu"></iframe>
+	<jsp:include page="header.jsp" />
+	
+		<jsp:include page="top-title.jsp">
+		<jsp:param name="title" value="Giới thiệu" />
+	</jsp:include>
+	
 	<section id="introduce">
 		<div class="container">
 			<div class="row">
@@ -68,7 +75,7 @@
 		</div>
 	</section>
 	<footer>
-		<iframe src="footer.html" onload="resizeIframe(this,339)"></iframe>
+			<jsp:include page="footer.jsp" />
 	</footer>
 </body>
 <script type="text/javascript" src="javascripts/main.js"></script>

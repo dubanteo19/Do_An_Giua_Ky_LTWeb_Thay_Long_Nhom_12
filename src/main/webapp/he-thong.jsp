@@ -1,5 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -40,7 +42,12 @@
     </style>
 </head>
 <body>
-<iframe width="100%" height="320" src="top-title.html?title=Hệ thống cửa hàng"></iframe>
+	<jsp:include page="header.jsp" />
+	
+		<jsp:include page="top-title.jsp">
+		<jsp:param name="title" value="Hệ thống" />
+	</jsp:include>
+	
 <section id="contact" class="contact">
     <div class="container">
         <div class="row justify-content-between" style="border: 2px solid #679210; border-radius: 5px">
@@ -91,9 +98,8 @@
 
 </section><!-- End Contact Section -->
 <footer>
-    <iframe src="footer.html" onload="resizeIframe(this,339)"></iframe>
+    	<jsp:include page="footer.jsp" />
 </footer>
 </body>
 <script type="text/javascript" src="javascripts/main.js"></script>
-
 </html>

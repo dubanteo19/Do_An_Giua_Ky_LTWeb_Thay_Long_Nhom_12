@@ -1,5 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -17,7 +19,12 @@
 
 </head>
 <body>
-<iframe width="100%" height="320" src="top-title.html?title=Liên hệ"></iframe>
+	<jsp:include page="header.jsp" />
+	
+		<jsp:include page="top-title.jsp">
+		<jsp:param name="title" value="Giỏ hàng" />
+	</jsp:include>
+	
 <section id="card">
     <div class="container">
         <div class="row">
@@ -207,7 +214,7 @@
 </section>
 
 <footer>
-    <iframe src="footer.html" onload="resizeIframe(this,339)"></iframe>
+    	<jsp:include page="footer.jsp" />
 </footer>
 <script>
     const checkbox = document.querySelector('#checbkox-bill');

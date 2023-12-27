@@ -1,19 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+<meta charset="utf-8">
+<title>Header</title>
+</head>
+ <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="styles/base.css">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="styles/nav.css">
-</head>
-
 <body>
-    <header class="header" style="min-height: 124px">
+  <header class="header" style="min-height: 124px">
         <nav class="nav navbar-light bg-light" style="height: 60px">
             <div id="topbar" class="d-flex align-items-center fixed-top bg-light pt-1">
                 <div class="container d-flex justify-content-center justify-content-md-between">
@@ -170,13 +169,7 @@
             </div>
         </nav>
     </header>
-    <div class="container-fluid title-group p-md-3">
-        <h1 class="title-text text-center font-weight-bold text-white">Giới thiệu</h1>
-        <ul class="list-group list-group-horizontal justify-content-center">
-            <li class="list-inline-item"><a class="text-decoration-none text-white" href="">Trang chủ ></a></li>
-            <li class="list-inline-item"><a class="text-decoration-none text-green title-text" href=""></a></li>
-        </ul>
-    </div>
+</body>
     <style type="text/css">
     .title-group {
         background-image: url("images/titlebackground/title-bg.png");
@@ -188,11 +181,8 @@
         color: #679210;
     }
 
-    body {
-        overflow-y: hidden;
-    }
     </style>
-    <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
+     <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
     <script type="text/javascript" src="javascripts/main.js"></script>
     <script type="text/javascript" src="javascripts/bootstrap.bundle.js"></script>
     <script type="text/javascript">
@@ -280,6 +270,4 @@
         setInterval(updatePlaceholder, 60);
     });
     </script>
-</body>
-
 </html>

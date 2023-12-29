@@ -1,5 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
@@ -11,7 +13,12 @@
     <link rel="stylesheet" href="styles/nav.css">
 </head>
 <body>
-<iframe width="100%" height="320" src="top-title.html?title=9 'siêu thực phẩm' cần có trong chế độ ăn uống của người cao tuổi"></iframe>
+	<jsp:include page="header.jsp" />
+	
+		<jsp:include page="top-title.jsp">
+		<jsp:param name="title" value="Chi tiết tin tức" />
+	</jsp:include>
+	
 <section class="blog-page container pt-3" id="news">
         <article class="article-main">
             <div class="row m-0" style="flex-wrap: wrap;">

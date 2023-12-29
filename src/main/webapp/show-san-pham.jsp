@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -14,7 +16,12 @@
 </head>
 
 <body>
-    <iframe id="top-title" onload="resizeIframe(this,320)" src="top-title.html?title=Kim chi cải thảo cắt lát Bibigo Ông Kim's"></iframe>
+   <jsp:include page="header.jsp" />
+   
+   	<jsp:include page="top-title.jsp">
+		<jsp:param name="title" value="" />
+	</jsp:include>
+	
     <div class="container mt-3">
         <div class="row gx-4">
             <div class="col-9">
@@ -375,7 +382,7 @@
         </div>
     </div>
     <footer>
-        <iframe src="footer.html" onload="resizeIframe(this,339)"></iframe>
+      <jsp:include page="footer.jsp" />
     </footer>
 </body>
 <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>

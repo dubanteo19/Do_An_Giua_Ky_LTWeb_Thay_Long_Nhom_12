@@ -1,6 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,8 +23,7 @@
         <b>Bước 5:</b> Xem lại thông tin đặt hàng, điền chú thích và gửi đơn hàng<br>
         Sau khi nhận được đơn hàng bạn gửi chúng tôi sẽ liên hệ bằng cách gọi điện lại để xác nhận lại đơn hàng và địa chỉ của bạn.
         Trân trọng cảm ơn.</span>
-
 <body>
-</body>
 
+</body>
 </html>

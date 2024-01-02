@@ -4,6 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import Database.ProductDAO;
+import Database.UserDAO;
+import Model.User;
+import Services.UserServices;
+
 public class JDBCConnector {
 
 	private static Connection re = null;
@@ -15,10 +20,11 @@ public class JDBCConnector {
 	private JDBCConnector() {
 		String host = "localhost";
 		String port = "3306";
-		String dbName = "ltviet";
+		String dbName = "luong_thuc_viet";
 		String username = "root";
 		String password = "";
-		String url = "jdbc:mysql://" + host + ":" + port + "/" + dbName;
+		String url = "jdbc:mysql://" + host + ":" + port + "/" + dbName+"?useUnicode=true&characterEncoding=utf8";
+		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
@@ -35,6 +41,7 @@ public class JDBCConnector {
 	public static JDBCConnector getInstance() {
 		if (instance == null) {
 			instance = new JDBCConnector();
+			
 		} else
 			try {
 				if (getConnection().isClosed()) {
@@ -57,7 +64,12 @@ public class JDBCConnector {
 			}
 		}
 	}
+	
 	public static void main(String[] args) {
-		JDBCConnector.getInstance().getConnection();
+//		JDBCConnector.getInstance().getConnection();
+		UserDAO dao = new UserDAO();
+		User user = dao.findUserByEmail("chucngan@gmail.com").get(0);
+		System.out.println("Con cá");
+		System.out.println(user);
 	}
 }

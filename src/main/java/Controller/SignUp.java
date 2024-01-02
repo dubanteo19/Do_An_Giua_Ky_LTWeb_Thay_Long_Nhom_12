@@ -34,41 +34,31 @@ public class SignUp extends HttpServlet {
 	@Inject
 	IVerificationService verificationService;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public SignUp() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String email = request.getParameter("email").toLowerCase();
 		String fullName = request.getParameter("fullName");
+		String phone = request.getParameter("PhoneNumber");
 		String password = request.getParameter("password");
 		String confirmPassword = request.getParameter("confirmPassword");
 		String error = "";
 		String url = "/Verification.jsp";
 		if (!password.equals(confirmPassword)) {
-			error = "Xác nhận mật khẩu không khớp";
+			error = "Xác nhận lại mật khẩu đăng nhập";
 		}
 		if (!Validator.validateEmail(email)) {
-			error = "Email không hợp lệ";
+			error = "Email không đúng định dạng";
 		}
 		if (userService.findUserByEmail(email) != null) {
 			error = "Email đã tồn tại trong hệ thống";
@@ -86,5 +76,4 @@ public class SignUp extends HttpServlet {
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
-
 }

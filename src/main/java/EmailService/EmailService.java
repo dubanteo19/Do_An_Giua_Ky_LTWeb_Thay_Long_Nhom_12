@@ -46,7 +46,7 @@ public class EmailService implements IEmailService {
 
 	public static void main(String[] args) {
 		EmailService emailService = new EmailService();
-		emailService.send("sansan25032003@gmail.com", "Hello", "<a href='https://www.google.com/?hl=vi'>Click me</a>");
+		emailService.send("ngannguyen16122003@gmail.com", "Hello", "<a href='https://www.google.com/?hl=vi'>Click me</a>");
 	}
 
 }

@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <iframe onload="resizeIframe(this,320)" src="top-title.html?title=Đăng ký"></iframe>
+   	<jsp:include page="header.jsp" />
     <section class="section">
         <div class="container ">
             <div class="wrap_background_aside ">
@@ -35,9 +35,10 @@
                                         </div>
                                         <div id="error-message" style="color: red;"></div>
                                         <div id="login" class="section">
-                                            <form id="customer_register" accept-charset="UTF-8">
+                                            <form id="customer_register" accept-charset="UTF-8" action="SignUp" method="post">
                                                 <div class="form-signup clearfix">
                                                     <div class="row">
+                                                   
                                                         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                                             <fieldset class="form-group">
                                                                 <input type="text" class="form-input" value="" name="lastName" id="lastName" placeholder="Họ" required="">
@@ -71,7 +72,7 @@
                                                         </div>
                                                         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                                             <fieldset class="form-group">
-                                                                <input type="password" class="form-input" value="" name="password" id="password-again" placeholder="Nhập lại mật khẩu" required="">
+                                                                <input type="password" class="form-input" value="" name="password confirmPassword" id="password-again" placeholder="Nhập lại mật khẩu" required="">
                                                                 <div id="eyes-again">
                                                                     <i class="far fa-eye"></i>
                                                                 </div>
@@ -101,56 +102,39 @@
         </div>
     </section>
     <footer>
-        <iframe src="footer.html" onload="resizeIframe(this,339)"></iframe>
+       	<jsp:include page="footer.jsp" />
     </footer>
 </body>
 <script type="text/javascript" src="javascripts/main.js"></script>
 <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
 <script type="text/javascript" src="admin/javascripts/FakeDataBase.js"></script>
 <script>
-function signUp(event) {
-    event.preventDefault();
-    var lastName = $("#lastName").val();
-    var firstName = $("#firstName").val();
-    var email = $("#email").val().toLowerCase();;
-    var phoneNumber = $("#PhoneNumber").val();
-    var password = $("#password").val();
-    var fullName = lastName + " " + firstName;
-
-    //Validate password
-    var confirmPassword = $("#password-again").val();
-    var errorMessageElement = $('#error-message');
-    var errorPassElement = $('#error-pass');
-    // Kiểm tra chiều dài của mật khẩu
-    if (password.length < 6) {
-        errorPassElement.text("Mật khẩu phải chứa ít nhất 6 ký tự.");
-        return;
-    } else {
-        errorPassElement.text("");
-    }
-    if (password !== confirmPassword) {
-        errorMessageElement.text("Mật khẩu không trùng khớp. Vui lòng thử lại.");
-        return;
-    }
-
-    // Lưu dữ liệu vào fake Database
-    if (fakeDataBase.addUser(new User(email, password, fullName, phoneNumber))) {
-        var overlay = document.getElementById('overlay');
-        overlay.style.display = 'block';
-        // Tạo hiệu ứng loading trong 2 giây (có thể thay đổi thời gian tùy ý)
-        setTimeout(function() {
-            // Nếu thông tin đúng, chuyển hướng đến trang khác
-            window.location.href = 'login.html';
-        }, 2000);
-    } else {
-        errorMessageElement.text("Email đã tồn tại.");
-    }
-}
 $(document).ready(function() {
-    $("#customer_register").on("submit", function(event) {
-        signUp(event);
-    });
+	$('#eye').click(function() {
+		$(this).toggleClass('open');
+		$(this).children('i').toggleClass('fa-eye-slash fa-eye');
+		if ($(this).hasClass('open')) {
+			$(this).prev().attr('type', 'text');
+		} else {
+			$(this).prev().attr('type', 'password');
+		}
+
+	});
 });
+
+$(document).ready(function() {
+	$('#eyes-again').click(function() {
+		$(this).toggleClass('open');
+		$(this).children('i').toggleClass('fa-eye-slash fa-eye');
+		if ($(this).hasClass('open')) {
+			$(this).prev().attr('type', 'text');
+		} else {
+			$(this).prev().attr('type', 'password');
+		}
+
+	});
+});
+
 </script>
 
 </html>

@@ -42,5 +42,5 @@ public class CartItem {
 	                ", description='" + description + '\'' +
 	                '}';
 	    }
-	}
+	
 }

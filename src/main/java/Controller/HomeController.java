@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Database.UserDAO;
+import Model.User;
+
 /**
  * Servlet implementation class HomeController
  */
@@ -27,7 +30,10 @@ public class HomeController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		UserDAO dao = new UserDAO();
+		User user = dao.findUserByEmail("chucngan@gmail.com").get(0);
+		request.setAttribute("user", user);
+		request.getRequestDispatcher("/index.jsp").forward(request, response);
 	}
 
 	/**

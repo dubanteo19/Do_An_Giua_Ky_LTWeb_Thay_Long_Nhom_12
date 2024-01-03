@@ -1,3 +1,4 @@
+<%@page import="Model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -20,7 +21,7 @@
 </head>
 <style>
 </style>
-
+<%User u = (User) request.getAttribute("user"); %>
 <body>
 	<jsp:include page="header.jsp" />
 	<!--Slider-->

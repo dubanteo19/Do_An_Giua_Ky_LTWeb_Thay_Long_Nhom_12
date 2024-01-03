@@ -16,8 +16,7 @@ import Utils.BHash;
 @ManagedBean
 public class UserServices implements IUserService {
 
-	@Inject
-	private IUserDAO userDAO;
+	private IUserDAO userDAO = new UserDAO();
 
 	@Override
 	public List<User> findAll() {

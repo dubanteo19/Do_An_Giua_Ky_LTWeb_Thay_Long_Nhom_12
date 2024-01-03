@@ -12,7 +12,7 @@ public class UserDAO extends AbtractDAO<User> implements IUserDAO {
 
 	@Override
 	public List<User> findUserByEmail(String email) {
-		String sql = "SELECT * FROM users where email = ?";
+		String sql = "SELECT * FROM users join status on status.id = users.statusId where email = ?";
 		return querry(sql, new UserMapper(), email);
 	}
 
@@ -24,13 +24,13 @@ public class UserDAO extends AbtractDAO<User> implements IUserDAO {
 
 	@Override
 	public int save(User user) {
-		String sql = "INSERT INTO users(email,passwordHash,fullName,status) VALUES (?,?,?,?)";
+		String sql = "INSERT INTO users(email,passwordHash,fullName,statusId) VALUES (?,?,?,?)";
 		return save(sql, user.getEmail(), user.getPasswordHash(), user.getFullName(), user.getStatus());
 	}
 
 	@Override
 	public List<User> findAll() {
-		String sql = "SELECT * FROM users inner join status on status.id = users.statusId";
+		String sql = "SELECT * FROM users join status on status.id = users.statusId";
 		return querry(sql, new UserMapper());
 	}
 

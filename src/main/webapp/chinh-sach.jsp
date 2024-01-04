@@ -47,7 +47,7 @@ b {
 		</div>
 	</section>
 	<footer>
-		<jsp:include page="footer.jsp" />
+		<jsp:include page="Componets/footer.jsp" />
 	</footer>
 </body>
 <script type="text/javascript" src="javascripts/main.js"></script>

@@ -10,8 +10,7 @@ import Model.Product;
 
 public class ProductService implements IProductService {
 	
-	@Inject
-	IProductDAO productDAO;
+	IProductDAO productDAO = new ProductDAO();
 
 	@Override
 	public List<Product> findAll() {
@@ -29,15 +28,16 @@ public class ProductService implements IProductService {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-	@Override
-	public List<Product> findProductByCategoryName(String name) {
-		return productDAO.findProductByCategoryName(name);
-	}
+	
 
 	@Override
 	public Product findProductById(int id) {
 		return productDAO.findProductById(id).get(0);
+	}
+
+	@Override
+	public List<Product> findProductByCategoryId(int id) {
+		return productDAO.findProductByCategoryId(id);
 	}
 
 }

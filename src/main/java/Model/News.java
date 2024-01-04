@@ -39,7 +39,7 @@ public class News {
     }
 
     public int getBlogId() {
-        return blog_id;
+        return blogId;
     }
 
     public void setBlogId(int blogId) {

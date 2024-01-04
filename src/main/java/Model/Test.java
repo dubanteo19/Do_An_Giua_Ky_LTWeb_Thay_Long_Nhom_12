@@ -18,9 +18,8 @@ import Utils.JDBCConnector;
 
 public class Test {
 	public static void main(String[] args) {
-		IUserDAO userDAO = new UserDAO();
-		List<User> user = userDAO.findAll();
-		
-		System.out.println(user);
+		IProductDAO productDAO = new ProductDAO();
+		List<Product> products = productDAO.findAll();
+		System.out.println(products);
 	}
 }

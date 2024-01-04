@@ -8,7 +8,7 @@ public interface IProductDAO extends GenericDAO<Product> {
 	List<Product> findAll();
 
 	List<Product> findProductById(int id);
-	List<Product> findProductByCategoryName(String name);
+	List<Product> findProductByCategoryId(int id);
 	int save(Product p);
 
 	boolean update(Product p);

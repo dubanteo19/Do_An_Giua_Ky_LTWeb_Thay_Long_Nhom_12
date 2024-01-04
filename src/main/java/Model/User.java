@@ -5,12 +5,13 @@ import java.sql.Date;
 public class User {
 	private int id;
 	private String username;
-	private String email;
-	private String fullName;
-	private Status status;
 	private String passwordHash;
+	private String salt;
+	private String fullName;
+	private String email;
 	private String phone;
 	private int roleId;
+	private Status status;
 	private Date createdAt;
 	private Date lastUpdated;
 	
@@ -29,24 +30,42 @@ public class User {
      * @param createdAt       Ngày tạo tài khoản
      * @param lastUpdated     Ngày cập nhật tài khoản gần nhất
      */
-    public User(int id, String username, String email, String fullName, Status status, String passwordHash, String phone, int roleId, Date createdAt, Date lastUpdated) {
-        this.id = id;
-        this.username = username;
-        this.email = email;
-        this.fullName = fullName;
-        this.status = status;
-        this.passwordHash = passwordHash;
-        this.phone = phone;
-        this.roleId = roleId;
-        this.createdAt = createdAt;
-        this.lastUpdated = lastUpdated;
-    }
+  
 
-	public User(String email, String fullName, Status status, String passwordHash) {
-		this.email = email;
-		this.fullName = fullName;
-		this.status = status;
+
+
+	public User(int id, String username, String passwordHash, String salt, String fullName, String email, String phone,
+			int roleId, Status status, Date createdAt, Date lastUpdated) {
+		super();
+		this.id = id;
+		this.username = username;
 		this.passwordHash = passwordHash;
+		this.salt = salt;
+		this.fullName = fullName;
+		this.email = email;
+		this.phone = phone;
+		this.roleId = roleId;
+		this.status = status;
+		this.createdAt = createdAt;
+		this.lastUpdated = lastUpdated;
+	}
+
+	public User(String passwordHash, String fullName, String email, Status status) {
+		super();
+		this.passwordHash = passwordHash;
+		this.fullName = fullName;
+		this.email = email;
+		this.status = status;
+	}
+
+	
+	public User(String passwordHash, String fullName, String email, String phone, Status status) {
+		super();
+		this.passwordHash = passwordHash;
+		this.fullName = fullName;
+		this.email = email;
+		this.phone = phone;
+		this.status = status;
 	}
 
 	public User() {
@@ -93,8 +112,49 @@ public class User {
 	public void setPasswordHash(String passwordHash) {
 		this.passwordHash = passwordHash;
 	}
+	
 
-	 @Override
+	 public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public int getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Date getLastUpdated() {
+		return lastUpdated;
+	}
+
+	public void setLastUpdated(Date lastUpdated) {
+		this.lastUpdated = lastUpdated;
+	}
+
+	@Override
 	    public String toString() {
 	        return "User{" +
 	                "id=" + id +

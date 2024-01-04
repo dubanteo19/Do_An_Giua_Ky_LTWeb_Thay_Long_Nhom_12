@@ -5,16 +5,15 @@ import java.util.List;
 import javax.inject.Inject;
 
 import Database.IVerificationDAO;
+import Database.VerificationDAO;
+import EmailService.EmailService;
 import EmailService.IEmailService;
 import Model.Verification;
 
 public class VerificationService implements IVerificationService {
-	@Inject
-	private IVerificationDAO verificationDAO;
-	@Inject
-	private IUserService userService;
-	@Inject
-	private IEmailService emailService;
+	private IVerificationDAO verificationDAO = new VerificationDAO();
+	private IUserService userService = new UserServices();
+	private IEmailService emailService =  new EmailService();
 
 	@Override
 	public List<Verification> findAll() {

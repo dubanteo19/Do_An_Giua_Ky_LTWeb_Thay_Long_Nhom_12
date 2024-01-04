@@ -6,16 +6,16 @@ public class Verification {
 	private int id;
 	private int userId;
 	private String token;
-	private Date expDate;
+	private long expDate;
 
-	public Verification(int id, int userId, String token, Date expDate) {
+	public Verification(int id, int userId, String token, long expDate) {
 		this.id = id;
 		this.userId = userId;
 		this.token = token;
 		this.expDate = expDate;
 	}
 
-	public Verification(int userId, String token, Date expDate) {
+	public Verification(int userId, String token, long expDate) {
 		this.userId = userId;
 		this.token = token;
 		this.expDate = expDate;
@@ -48,12 +48,12 @@ public class Verification {
 		this.token = token;
 	}
 
-	public Date getExpDate() {
+	public long getExpDate() {
 		return expDate;
 	}
 
-	public void setExpDate(Date expDate) {
-		this.expDate = expDate;
+	public void setExpDate(long i) {
+		this.expDate = i;
 	}
 
 	@Override

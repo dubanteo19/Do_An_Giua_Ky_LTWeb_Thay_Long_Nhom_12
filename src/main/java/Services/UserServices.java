@@ -48,8 +48,8 @@ public class UserServices implements IUserService {
 	}
 
 	@Override
-	public void signUp(User user) {
-		userDAO.save(user);
+	public int signUp(User user) {
+		return userDAO.save(user);
 	}
 
 	public static void main(String[] args) {

@@ -24,8 +24,8 @@ public class UserDAO extends AbtractDAO<User> implements IUserDAO {
 
 	@Override
 	public int save(User user) {
-		String sql = "INSERT INTO users(email,passwordHash,fullName,statusId) VALUES (?,?,?,?)";
-		return save(sql, user.getEmail(), user.getPasswordHash(), user.getFullName(), user.getStatus());
+		String sql = "INSERT INTO users(passwordHash,fullName,email,phone,statusId) VALUES (?,?,?,?,?)";
+		return save(sql, user.getPasswordHash(), user.getFullName(), user.getEmail(), user.getPhone(), user.getStatus().getId());
 	}
 
 	@Override

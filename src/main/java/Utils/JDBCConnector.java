@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import Database.ProductDAO;
 import Database.UserDAO;
+import Model.Status;
 import Model.User;
 import Services.UserServices;
 
@@ -68,8 +69,7 @@ public class JDBCConnector {
 	public static void main(String[] args) {
 //		JDBCConnector.getInstance().getConnection();
 		UserDAO dao = new UserDAO();
-		User user = dao.findUserByEmail("chucngan@gmail.com").get(0);
-		System.out.println("Con c�");
-		System.out.println(user);
+		User user =new User( "123","abc@gmail.com", "ngan", "0123456789", new Status(2, "Chưa kích hoạt"));
+		System.out.println(dao.save(user));
 	}
 }

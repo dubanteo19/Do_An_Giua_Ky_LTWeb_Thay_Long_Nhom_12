@@ -34,12 +34,7 @@ public class VerificationService implements IVerificationService {
 	}
 
 	@Override
-	public boolean sendVerificationEmail(String to, Verification verification) {
-		String href = "'http://localhost:8080/HocSQL/Verifier?userId=" + verification.getUserId() + "&token="
-				+ verification.getToken() + "'";
-		String url = "<a href=" + href + ">Kich Hoat</a>";
-		System.out.println(url);
-		String subject = "Kích hoạt tài khoản LTV";
+	public boolean sendVerificationEzĂ­ch hoáº¡t tĂ i khoáº£n LTV";
 		return emailService.send(to, subject, url);
 
 	}

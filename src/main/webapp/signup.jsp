@@ -17,9 +17,11 @@
     <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
     <title></title>
 </head>
-
+<%
+String error = request.getAttribute("error") == null ? "" : (String) request.getAttribute("error");
+%>
 <body>
-   	<jsp:include page="header.jsp" />
+   	<jsp:include page="Components/header.jsp" />
     <section class="section">
         <div class="container ">
             <div class="wrap_background_aside ">
@@ -37,8 +39,9 @@
                                         <div id="login" class="section">
                                             <form id="customer_register" accept-charset="UTF-8" action="SignUp" method="post">
                                                 <div class="form-signup clearfix">
+                                                <p style="color: red;">
+												<%=error%></p>
                                                     <div class="row">
-                                                   
                                                         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                                             <fieldset class="form-group">
                                                                 <input type="text" class="form-input" value="" name="lastName" id="lastName" placeholder="Họ" required="">
@@ -72,7 +75,7 @@
                                                         </div>
                                                         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                                             <fieldset class="form-group">
-                                                                <input type="password" class="form-input" value="" name="password confirmPassword" id="password-again" placeholder="Nhập lại mật khẩu" required="">
+                                                                <input type="password" class="form-input" value="" name="confirmPassword" id="password-again" placeholder="Nhập lại mật khẩu" required="">
                                                                 <div id="eyes-again">
                                                                     <i class="far fa-eye"></i>
                                                                 </div>
@@ -102,7 +105,7 @@
         </div>
     </section>
     <footer>
-       	<jsp:include page="footer.jsp" />
+       	<jsp:include page="Components/footer.jsp" />
     </footer>
 </body>
 <script type="text/javascript" src="javascripts/main.js"></script>

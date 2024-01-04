@@ -38,7 +38,7 @@ public class Verifier extends HttpServlet {
 		String token = request.getParameter("token");
 		String url = "/Verification.jsp";
 		if (verificationService.verify(userId, token)) {
-			request.setAttribute("re", "Chúc mừng bạn đã kích hoạt thành công vui lòng đăng nhập");
+			request.setAttribute("re", "Chúc mừng bạn đã xác thực thành công. Vui lòng đăng nhập!");
 			url = "/Login.jsp";
 		}
 		request.getRequestDispatcher(url).forward(request, response);

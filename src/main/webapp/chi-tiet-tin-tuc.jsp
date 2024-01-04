@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="styles/nav.css">
 </head>
 <body>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="Components/header.jsp" />
 	
 		<jsp:include page="top-title.jsp">
 		<jsp:param name="title" value="Chi tiết tin tức" />

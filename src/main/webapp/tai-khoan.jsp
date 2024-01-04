@@ -23,7 +23,7 @@
 <script type="text/javascript" src="javascripts/main.js"></script>
 
 <body>
-    <jsp:include page="header.jsp" />
+    <jsp:include page="Components/header.jsp" />
     
     	<jsp:include page="top-title.jsp">
 		<jsp:param name="title" value="Tài khoản" />
@@ -200,7 +200,7 @@
     </div>
     </section>
     <footer>
-       <jsp:include page="footer.jsp" />
+       <jsp:include page="Components/footer.jsp" />
     </footer>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossOrigin="anonymous"></script>
     <script src="javascripts/vn-provinces.js"></script>

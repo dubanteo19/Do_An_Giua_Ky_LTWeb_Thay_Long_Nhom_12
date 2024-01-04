@@ -8,16 +8,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.mindrot.jbcrypt.BCrypt;
-
-import EmailService.IEmailService;
 import Model.Status;
 import Model.User;
 import Model.Verification;
 import Services.IUserService;
 import Services.IVerificationService;
 import Services.UserServices;
+import Services.VerificationService;
 import Utils.BHash;
 import Utils.TokenGenerator;
 import Utils.Validator;
@@ -29,10 +26,10 @@ import Utils.sqlDateCreator;
 @WebServlet("/SignUp")
 public class SignUp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	@Inject
-	IUserService userService;
-	@Inject
-	IVerificationService verificationService;
+
+	IUserService userService = new UserServices();
+
+	IVerificationService verificationService = new VerificationService();
 
 	public SignUp() {
 		super();
@@ -44,14 +41,15 @@ public class SignUp extends HttpServlet {
 		doPost(request, response);
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String email = request.getParameter("email").toLowerCase();
-		String fullName = request.getParameter("fullName");
+		String fullName = request.getParameter("lastName").trim()+" "+request.getParameter("firstName").trim();
 		String phone = request.getParameter("PhoneNumber");
 		String password = request.getParameter("password");
 		String confirmPassword = request.getParameter("confirmPassword");
+		User users = null;
+		users = userService.findUserByEmail(email);
 		String error = "";
 		String url = "/Verification.jsp";
 		if (!password.equals(confirmPassword)) {
@@ -60,19 +58,29 @@ public class SignUp extends HttpServlet {
 		if (!Validator.validateEmail(email)) {
 			error = "Email không đúng định dạng";
 		}
-		if (userService.findUserByEmail(email) != null) {
+		if (users != null) {
 			error = "Email đã tồn tại trong hệ thống";
 		}
 		if (error.length() > 0) {
 			request.setAttribute("error", error);
-			url = "/SignUp.jsp";
+			url = "/signup.jsp";
 		} else {
-			User user = new User(email, fullName, new Status(2, "Chưa kích hoạt"), BHash.hashWithSalt(password));
-			userService.signUp(user);
-			Verification verification = new Verification(userService.findUserByEmail(email).getId(),
-					TokenGenerator.generateNewToken(), sqlDateCreator.getTime());
+			User user = new User();
+			user.setEmail(email);
+			user.setFullName(fullName);
+			user.setPasswordHash(BHash.hashWithSalt(confirmPassword));
+			user.setPhone(phone);
+			user.setStatus(new Status(2, "chưa kích hoạt email"));
+			
+			System.out.println(user);
+			int userId = userService.signUp(user);
+			Verification verification = new Verification();
+			verification.setUserId(userId);
+			verification.setToken(TokenGenerator.generateNewToken());
+			verification.setExpDate(System.currentTimeMillis());
+			System.out.println(verification);
 			verificationService.save(verification);
-			verificationService.sendVerificationEmail(email,verification);
+			verificationService.sendVerificationEmail(email, verification);
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}

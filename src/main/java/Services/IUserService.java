@@ -8,6 +8,6 @@ import Model.User;
 public interface IUserService extends IGenericService<User>{
 	boolean delete(User user);
 	User findUserByEmail(String email);
-	void signUp(User user);
+	int signUp(User user);
 	boolean verify(int userId);
 }

@@ -16,7 +16,7 @@
     <script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
 </head>
 <body>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="Components/header.jsp" />
 	
 		<jsp:include page="top-title.jsp">
 		<jsp:param name="title" value="Liên hệ" />
@@ -102,7 +102,7 @@
 
 </section><!-- End Contact Section -->
 <footer>
-    	<jsp:include page="footer.jsp" />
+    	<jsp:include page="Components/footer.jsp" />
 </footer>
 </body>
 <script type="text/javascript" src="javascripts/main.js"></script>

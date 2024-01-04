@@ -19,7 +19,7 @@
 
 </head>
 <body>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="Components/header.jsp" />
 	
 		<jsp:include page="top-title.jsp">
 		<jsp:param name="title" value="Giỏ hàng" />
@@ -214,7 +214,7 @@
 </section>
 
 <footer>
-    	<jsp:include page="footer.jsp" />
+    	<jsp:include page="Components/footer.jsp" />
 </footer>
 <script>
     const checkbox = document.querySelector('#checbkox-bill');

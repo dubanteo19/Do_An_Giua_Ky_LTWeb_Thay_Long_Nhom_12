@@ -1,5 +1,6 @@
 package EmailService;
 
+import java.util.Date;
 import java.util.Properties;
 
 import javax.mail.*;
@@ -28,10 +29,13 @@ public class EmailService implements IEmailService {
 		Session session = getSesstion(props);
 		MimeMessage message = new MimeMessage(session);
 		try {
-			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to, false));
 			message.setSubject(subject);
 			message.addHeader("Content-type", "text/HTML; charset=UTF-8");
 			message.setContent(mess, "text/html");
+			message.setSentDate(new Date());
+//			message.setReplyTo(InternetAddress.parse(" ", false));
+			
 			Transport.send(message);
 			return true;
 		} catch (AddressException e) {

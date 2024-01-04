@@ -11,7 +11,11 @@ encoding//src/main/java/Model/News.java=UTF-8
 encoding//src/main/java/Model/Order_details.java=UTF-8
 encoding//src/main/java/Model/Orders.java=UTF-8
 encoding//src/main/java/Model/User.java=UTF-8
+<<<<<<< HEAD
 encoding//src/main/java/Utils/JDBCConnector.java=UTF-8
+=======
+encoding//src/main/webapp/Components/cuQua.jsp=UTF-8
+encoding//src/main/webapp/Components/header.jsp=UTF-8
+>>>>>>> 6472ec3f0e4f29a5a5b48d87421c164839b4d707
 encoding//src/main/webapp/gio-hang.jsp=UTF-8
-encoding//src/main/webapp/header.jsp=UTF-8
 encoding//src/main/webapp/hoa-don.jsp=UTF-8

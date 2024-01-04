@@ -3,7 +3,6 @@ package Model;
 public class CartItem {
 	private Product product;
 	private int quanlity;
-
 	public CartItem(Product product, int quanlity) {
 		this.product = product;
 		this.quanlity = quanlity;
@@ -32,15 +31,10 @@ public class CartItem {
 	public double calculatePrice() {
 		return this.product.getUnitPrice() * this.quanlity;
 	}
-	 @Override
-	    public String toString() {
-	        return "Addresses{" +
-	                "id=" + id +
-	                ", province='" + province + '\'' +
-	                ", districts='" + districts + '\'' +
-	                ", wards='" + wards + '\'' +
-	                ", description='" + description + '\'' +
-	                '}';
-	    }
-	
+
+	@Override
+	public String toString() {
+		return "CartItem [product=" + product + ", quanlity=" + quanlity + "]";
+	}
+
 }

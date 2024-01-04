@@ -9,7 +9,9 @@ public class ProductDAO extends AbtractDAO<Product> implements IProductDAO {
 
 	@Override
 	public List<Product> findAll() {
-		String sql = "SELECT * FROM products";
+		String sql = "SELECT * FROM products  "
+				+ "INNER JOIN categories  ON products.categoryId = categories.id "
+				+ "INNER JOIN status ON products.statusId = status.id";
 		return querry(sql, new ProductMapper());
 	}
 
@@ -33,13 +35,16 @@ public class ProductDAO extends AbtractDAO<Product> implements IProductDAO {
 	}
 
 	@Override
-	public List<Product> findProductByCategoryName(String name) {
-		String sql = "SELECT * FROM products   ";
-		return null;
+	public List<Product> findProductByCategoryId(int id) {
+		String sql = "SELECT * FROM products  "
+				+ "INNER JOIN categories  ON products.categoryId = categories.id "
+				+ "INNER JOIN status ON products.statusId = status.id "
+				+ "WHERE categoryId = ?";
+		return querry(sql, new ProductMapper(), id);
 	}
 
 	public static void main(String[] args) {
 		ProductDAO productDAO = new ProductDAO();
-		productDAO.findAll().forEach(System.out::println);
+		productDAO.findProductByCategoryId(7).forEach(System.out::println);
 	}
 }

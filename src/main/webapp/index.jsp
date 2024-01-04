@@ -23,7 +23,7 @@
 </style>
 <%User u = (User) request.getAttribute("user"); %>
 <body>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="Components/header.jsp" />
 	<!--Slider-->
 	<div id="carouselExampleDark" class="carousel carousel-dark slide"
 		data-bs-ride="carousel">
@@ -339,111 +339,7 @@
 			</div>
 		</div>
 		<!-- review sp -->
-		<section>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-3">
-						<a class="image-effect" href=""> <img class="br-5"
-							src="images/product-images/cac-loai-khoai%20(1).jpg" alt="">
-						</a>
-					</div>
-					<div class="col-md-9">
-						<div class="group_title">
-							<div class="title">
-								<a class="title-name" href=""> Củ quả </a>
-							</div>
-							<div class="button-control">
-								<div class="btn-green btn-small disabled">
-									<i class="fa-solid fa-chevron-left fa-chevron"></i>
-								</div>
-								<div class="btn-green btn-small">
-									<i class="fa-solid fa-chevron-right fa-chevron"></i>
-								</div>
-							</div>
-						</div>
-						<div class="card-deck d-flex mr-child-20">
-							<div class="card radius-green">
-								<img class="card-img-top"
-									src="images/product-images/bap-nu-hoang-trai-tu-250g-tro-len.jpg"
-									alt="">
-								<div class="icons">
-									<a href="#" class="fas fa-heart heartIcon"></a> <a href="#"
-										class="fas"><i class="fa-solid fa-cart-shopping"></i></a> <a
-										href="#" class="fas"><i
-										class="fa-solid fa-magnifying-glass"></i></a>
-								</div>
-								<div class="card-body">
-									<h3 class="card-title">
-										<a href=""> Bắp nữ hoàng trái 250g trở lên </a>
-									</h3>
-									<div class="card-text">
-										<div class="price-box">16.000đ</div>
-									</div>
-								</div>
-							</div>
-							<div class="card radius-green">
-								<img class="card-img-top"
-									src="images/product-images/khoai-lang-mat-tui-1kg-3-10-cu%20(1).jpg"
-									alt="">
-								<div class="icons">
-									<a href="#" class="fas fa-heart heartIcon"></a> <a href="#"
-										class="fas"><i class="fa-solid fa-cart-shopping"></i></a> <a
-										href="#" class="fas"><i
-										class="fa-solid fa-magnifying-glass chi-tiet"></i></a>
-								</div>
-								<div class="card-body">
-									<h3 class="card-title">
-										<a href=""> Khoai lang mật 1kg (2 - 5 củ) </a>
-									</h3>
-									<div class="card-text">
-										<div class="price-box">19.500đ</div>
-									</div>
-								</div>
-							</div>
-							<div class="card radius-green">
-								<img class="card-img-top"
-									src="images/product-images/khoai-lang-tim-1kg%20(1).jpg" alt="">
-								<div class="icons">
-									<a href="#" class="fas fa-heart heartIcon"></a> <a href="#"
-										class="fas"><i class="fa-solid fa-cart-shopping"></i></a> <a
-										href="#" class="fas"><i
-										class="fa-solid fa-magnifying-glass"></i></a>
-								</div>
-								<div class="card-body">
-									<h3 class="card-title">
-										<a href=""> Khoai lang tím 1kg </a>
-									</h3>
-									<div class="card-text">
-										<div class="price-box">38.000đ</div>
-									</div>
-								</div>
-							</div>
-							<div class="card radius-green">
-								<img class="card-img-top"
-									src="images/product-images/khoai-so-got-vo-400g%20(1).jpg"
-									alt="">
-								<div class="icons">
-									<a href="#" class="fas fa-heart"></a> <a href="#" class="fas"><i
-										class="fa-solid fa-cart-shopping"></i></a> <a href="#" class="fas"><i
-										class="fa-solid fa-magnifying-glass"></i></a>
-								</div>
-								<div class="card-body">
-									<h3 class="card-title">
-										<a href=""> Khoai sọ gọt vỏ 400g </a>
-									</h3>
-									<div class="card-text">
-										<div class="price-box">36.000đ</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="see-more">
-							<a href="" class="">Xem tất cả</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		<jsp:include page="Components/cuQua.jsp"></jsp:include>
 		<section>
 			<div class="container">
 				<div class="row">
@@ -1182,7 +1078,7 @@
 	</div>
 	<!--    footer-->
 	<footer id="footer">
-			<jsp:include page="footer.jsp" />
+			<jsp:include page="Components/footer.jsp" />
 	</footer>
 	<a href="#"
 		class="back-to-top d-flex align-items-center justify-content-center"><i

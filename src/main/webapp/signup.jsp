@@ -21,7 +21,7 @@
 String error = request.getAttribute("error") == null ? "" : (String) request.getAttribute("error");
 %>
 <body>
-   	<jsp:include page="header.jsp" />
+   	<jsp:include page="Components/header.jsp" />
     <section class="section">
         <div class="container ">
             <div class="wrap_background_aside ">
@@ -105,7 +105,7 @@ String error = request.getAttribute("error") == null ? "" : (String) request.get
         </div>
     </section>
     <footer>
-       	<jsp:include page="footer.jsp" />
+       	<jsp:include page="Components/footer.jsp" />
     </footer>
 </body>
 <script type="text/javascript" src="javascripts/main.js"></script>

@@ -19,8 +19,11 @@ public class Categories {
         this.name = name;
         this.active = active;
     }
+    
+    public Categories() {
+	}
 
-    // Getter và Setter cho các thuộc tính
+	// Getter và Setter cho các thuộc tính
 
     public int getId() {
         return id;

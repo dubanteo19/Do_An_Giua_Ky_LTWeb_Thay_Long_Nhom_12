@@ -54,7 +54,7 @@ public class UserServices implements IUserService {
 
 	public static void main(String[] args) {
 		IUserService userService = new UserServices();
-		System.out.println(userService.findUserByEmail("ngoc@gmai.com"));
+		System.out.println(userService.verify(22));
 	}
 
 	@Override
@@ -63,5 +63,4 @@ public class UserServices implements IUserService {
 		u.getStatus().setId(1);
 		return update(u);
 	}
-
 }

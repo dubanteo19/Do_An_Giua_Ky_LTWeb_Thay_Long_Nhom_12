@@ -8,8 +8,6 @@ public class TokenGenerator {
 	private static final Base64.Encoder base64Encoder = Base64.getUrlEncoder(); // threadsafe
 
 	public static String generateNewToken() {
-		byte[] randomBytes = new byte[24];
-		secureRandom.nextBytes(randomBytes);
-		return base64Encoder.encodeToString(randomBytes);
+		return String.format("%06d", secureRandom.nextInt(0, 999999));
 	}
 }

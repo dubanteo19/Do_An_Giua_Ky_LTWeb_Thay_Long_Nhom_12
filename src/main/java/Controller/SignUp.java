@@ -65,6 +65,7 @@ public class SignUp extends HttpServlet {
 			request.setAttribute("error", error);
 			url = "/signup.jsp";
 		} else {
+			
 			User user = new User();
 			user.setEmail(email);
 			user.setFullName(fullName);
@@ -81,7 +82,9 @@ public class SignUp extends HttpServlet {
 			System.out.println(verification);
 			verificationService.save(verification);
 			verificationService.sendVerificationEmail(email, verification);
+			request.setAttribute("userId", userId);
 		}
+		
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 }

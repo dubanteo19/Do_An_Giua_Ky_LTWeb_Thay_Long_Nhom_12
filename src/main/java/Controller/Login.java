@@ -60,7 +60,8 @@ public class Login extends HttpServlet {
 					session.setAttribute("user", user);
 				} else {
 					request.setAttribute("email", email);
-					error = "Email chưa kích hoạt";
+					String href = "'http://localhost:8080/Do_An_Giua_Ky_LTWeb_Thay_Long_Nhom_12/Verification.jsp?userId=" + user.getId()+ "'";
+					error = "Email chưa kích hoạt. Vui lòng bấm vào <a href=" + href + ">đây</a> để kích hoạt!";
 				}
 			} else {
 				request.setAttribute("email", email);

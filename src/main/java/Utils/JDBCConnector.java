@@ -67,9 +67,7 @@ public class JDBCConnector {
 	}
 	
 	public static void main(String[] args) {
-//		JDBCConnector.getInstance().getConnection();
-		UserDAO dao = new UserDAO();
-		User user =new User( "123","abc@gmail.com", "ngan", "0123456789", new Status(2, "Chưa kích hoạt"));
-		System.out.println(dao.save(user));
+		JDBCConnector.getInstance().getConnection();
+		
 	}
 }

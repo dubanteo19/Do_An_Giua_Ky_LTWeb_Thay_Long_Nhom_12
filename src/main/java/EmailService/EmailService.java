@@ -30,9 +30,9 @@ public class EmailService implements IEmailService {
 		MimeMessage message = new MimeMessage(session);
 		try {
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to, false));
-			message.setSubject(subject);
+			message.setSubject(subject, "text/html; charset=UTF-8");
 			message.addHeader("Content-type", "text/HTML; charset=UTF-8");
-			message.setContent(mess, "text/html");
+			message.setContent(mess, "text/html; charset=UTF-8");
 			message.setSentDate(new Date());
 //			message.setReplyTo(InternetAddress.parse(" ", false));
 			
@@ -50,7 +50,7 @@ public class EmailService implements IEmailService {
 
 	public static void main(String[] args) {
 		EmailService emailService = new EmailService();
-		emailService.send("ngannguyen16122003@gmail.com", "Hello", "<a href='https://www.google.com/?hl=vi'>Click me</a>");
+		emailService.send("21130451@st.hcmuaf.edu.vn", "Hello", "Đây là tiếng việt");
 	}
 
 }

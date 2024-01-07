@@ -48,10 +48,12 @@ public class SignUp extends HttpServlet {
 		String phone = request.getParameter("PhoneNumber");
 		String password = request.getParameter("password");
 		String confirmPassword = request.getParameter("confirmPassword");
+		
 		User users = null;
 		users = userService.findUserByEmail(email);
 		String error = "";
 		String url = "/Verification.jsp";
+		
 		if (!password.equals(confirmPassword)) {
 			error = "Xác nhận lại mật khẩu đăng nhập";
 		}
@@ -65,6 +67,7 @@ public class SignUp extends HttpServlet {
 			request.setAttribute("error", error);
 			url = "/signup.jsp";
 		} else {
+			
 			User user = new User();
 			user.setEmail(email);
 			user.setFullName(fullName);
@@ -72,15 +75,23 @@ public class SignUp extends HttpServlet {
 			user.setPhone(phone);
 			user.setStatus(new Status(2, "chưa kích hoạt email"));
 			
-			System.out.println(user);
+//			System.out.println(user);
 			int userId = userService.signUp(user);
+			
+		
 			Verification verification = new Verification();
 			verification.setUserId(userId);
 			verification.setToken(TokenGenerator.generateNewToken());
 			verification.setExpDate(System.currentTimeMillis());
-			System.out.println(verification);
+//			System.out.println(verification);
+			Thread emailThread = new Thread(() -> {
 			verificationService.save(verification);
-			verificationService.sendVerificationEmail(email, verification);
+			verificationService.sendVerificationEmail(email, verification);	
+	
+			});
+			emailThread.start();
+			request.setAttribute("userId", userId);
+			request.setAttribute("expDate", verification.getExpDate());
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}

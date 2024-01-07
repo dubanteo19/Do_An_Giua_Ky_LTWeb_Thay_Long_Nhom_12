@@ -120,6 +120,7 @@ String error = request.getAttribute("error") == null ? "" : (String) request.get
 				</div>
 			</div>
 		</div>
+	</section>
 		<footer>
 			<jsp:include page="Components/footer.jsp" />
 		</footer>

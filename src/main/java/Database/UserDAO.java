@@ -18,7 +18,7 @@ public class UserDAO extends AbtractDAO<User> implements IUserDAO {
 
 	@Override
 	public List<User> findUserById(int id) {
-		String sql = "SELECT * FROM users where id = ?";
+		String sql = "SELECT * FROM users join status on status.id = users.statusId where users.id = ?";
 		return querry(sql, new UserMapper(), id);
 	}
 
@@ -36,8 +36,8 @@ public class UserDAO extends AbtractDAO<User> implements IUserDAO {
 
 	@Override
 	public boolean update(User user) {
-		String sql = "UPDATE users SET email = ?, passwordHash = ?,fullName=?,status=? WHERE id = ?";
-		return update(sql, user.getEmail(), user.getPasswordHash(), user.getFullName(), user.getStatus(), user.getId());
+		String sql = "UPDATE users SET email = ?, passwordHash = ?,fullName=?,statusId=? WHERE id = ?";
+		return update(sql, user.getEmail(), user.getPasswordHash(), user.getFullName(), user.getStatus().getId(), user.getId());
 	}
 
 	@Override

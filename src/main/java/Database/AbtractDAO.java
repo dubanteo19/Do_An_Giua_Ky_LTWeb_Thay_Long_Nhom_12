@@ -31,7 +31,7 @@ public class AbtractDAO<T> implements GenericDAO<T> {
 				re.add(rowMapper.map(r));
 			}
 			return re;
-		} catch (SQLException  | IllegalArgumentException e) {
+		} catch (SQLException | IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
@@ -45,11 +45,13 @@ public class AbtractDAO<T> implements GenericDAO<T> {
 		for (Object object : objects) {
 			try {
 				if (object instanceof Integer) {
-					statement.setInt(index, (int) object);
+				    statement.setInt(index, (int) object);
+				} else if (object instanceof Long) { // Sửa ở đây, thêm dấu đóng ngoặc ")"
+				    statement.setLong(index, (long) object);
 				} else if (object instanceof String) {
-					statement.setString(index, (String) object);
+				    statement.setString(index, (String) object);
 				} else if (object instanceof Date) {
-					statement.setDate(index, (Date) object);
+				    statement.setDate(index, (Date) object);
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();

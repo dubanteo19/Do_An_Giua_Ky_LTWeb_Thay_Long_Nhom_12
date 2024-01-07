@@ -340,27 +340,9 @@
 		</div>
 		<!-- review sp -->
 		<jsp:include page="Components/cuQua.jsp"></jsp:include>
-		<section>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-						<a href="" class="image-effect"> <img class="br-5"
-							src="images/product_test/banner_three_1.webp" alt="">
-						</a>
-					</div>
-					<div class="col-md-4">
-						<a href="" class="image-effect"> <img class="br-5"
-							src="images/product_test/banner_three_2.jpg" alt="">
-						</a>
-					</div>
-					<div class="col-md-4">
-						<a href="" class="image-effect"> <img class="br-5"
-							src="images/product_test/banner_three_3.webp" alt="">
-						</a>
-					</div>
-				</div>
-			</div>
-		</section>
+		
+		<jsp:include page="Components/banner1.jsp"></jsp:include>
+		
 		<section>
 			<div class="container">
 				<div class="row">

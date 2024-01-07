@@ -30,7 +30,7 @@ public class EmailService implements IEmailService {
 		MimeMessage message = new MimeMessage(session);
 		try {
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to, false));
-			message.setSubject(subject);
+			message.setSubject(subject, "text/html; charset=UTF-8");
 			message.addHeader("Content-type", "text/HTML; charset=UTF-8");
 			message.setContent(mess, "text/html; charset=UTF-8");
 			message.setSentDate(new Date());

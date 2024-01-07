@@ -68,6 +68,5 @@ public class JDBCConnector {
 	
 	public static void main(String[] args) {
 		JDBCConnector.getInstance().getConnection();
-		
 	}
 }

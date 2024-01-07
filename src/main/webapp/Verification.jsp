@@ -11,17 +11,33 @@ if (userId == null) {
 	}
 }
 %>
-<%-- <% int userId = (int) request.getAttribute("userId"); %> --%>
-<head>
-<h1><%=userId%></h1>
-<title>Nhập mã xác thực</title>
-<style>
-body {
-	font-family: Arial, sans-serif;
-	margin: 50px auto;
-	max-width: 400px;
-	text-align: center;
+ 	
+<%
+String expDate = request.getParameter("expDate");
+if (expDate == null) {
+	Object expDateObj = request.getAttribute("expDate");
+	if (expDateObj != null) {
+		expDate = String.valueOf(expDateObj); // Chuyển Object thành String
+	}
 }
+%>
+
+<% String re  = request.getAttribute("re") == null ? "" : (String) request.getAttribute("re"); %>
+<head>
+
+<title>Nhập mã xác thực</title>
+<link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="styles/base.css">
+<link rel="stylesheet" type="text/css" href="styles/main.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="styles/news.css">
+<link rel="stylesheet" type="text/css" href="styles/footer.css">
+<link rel="stylesheet" type="text/css" href="styles/nav.css">
+<link rel="stylesheet" type="text/css" href="styles/lightslider.css">
+<link rel="stylesheet" href="styles/gio-hang.css">
+<style>
+
 
 h1 {
 	color: #333;
@@ -56,6 +72,12 @@ input[type="submit"] {
 input[type="submit"]:hover {
 	background-color: #2980b9;
 }
+#verification{
+	font-family: Arial, sans-serif;
+	margin: 50px auto;
+	max-width: 400px;
+	text-align: center;
+	}
 
 .resend-button {
 	cursor: pointer;
@@ -100,70 +122,87 @@ input[type="submit"]:hover {
 </style>
 </head>
 <body>
+	<jsp:include page="Components/header.jsp" />
+	<h1><%=userId%></h1>
+	<div id = "verification">
 	<h1>Nhập mã xác thực</h1>
+	  <p id="otpError"  style="color: red;"><%= re %></p>
 	<form id="verificationForm" action="Verifier" method="get">
 		<input type="text" name="otp" placeholder="Mã xác thực (6 chữ số)"
-			maxlength="6"> <input type="hidden" name="userId"
-			value="<%=userId%>"> <input type="submit" value="Xác nhận">
+			maxlength="6" required> 
+		<input type="hidden" name="userId"
+			value="<%=userId%>"> 
+		<input type="hidden" name="expDate"
+			value="<%=expDate%>"> 
+		<input type="submit" value="Xác nhận">
 	</form>
 
 	<div class="timer animatable">
-  <svg>
-    <circle cx="50%" cy="50%" r="90"/>
+		<svg>
+    <circle cx="50%" cy="50%" r="90" />
     <circle cx="50%" cy="50%" r="90" pathLength="1" />
-    <text x="100" y="100" text-anchor="middle"><tspan id="timeLeft"></tspan></text>
+    <text x="100" y="100" text-anchor="middle">
+			<tspan id="timeLeft"></tspan></text>
     <text x="100" y="120" text-anchor="middle">seconds</text>
   </svg>
-</div>
+	</div>
 	<p class="resend-button" style="display: none;" onclick="resetTimer()">Gửi
 		lại mã xác thực</p>
-
-
+	</div>
+	<!--    footer-->
+	<footer id="footer">
+		<jsp:include page="Components/footer.jsp" />
+	</footer>
 </body>
+<script type="text/javascript" src="javascripts/lightslider.js"></script>
+<script type="text/javascript" src="javascripts/jquery-3.7.1.js"></script>
+<script type="text/javascript" src="javascripts/main.js"></script>
+<script type="text/javascript" src="javascripts/bootstrap.bundle.js"></script>
 <script>
-    let timeLeft = 60;
-    let timer = document.getElementById('timeLeft');
 
-    function isTimeLeft() {
-        return timeLeft > -1;
-    }
+	let timeLeft = 60;
+	let timer = document.getElementById('timeLeft');
 
-    function runTimer(timerElement) {
-        const timerCircle = timerElement.querySelector('svg > circle + circle');
-        timerElement.classList.add('animatable');
-        timerCircle.style.strokeDashoffset = 1;
+	function isTimeLeft() {
+		return timeLeft > -1;
+	}
 
-        let countdownTimer = setInterval(function () {
-            if (isTimeLeft()) {
-                const timeRemaining = timeLeft--;
-                const normalizedTime = (60 - timeRemaining) / 60;
-                timerCircle.style.strokeDashoffset = normalizedTime;
-                timer.innerHTML = timeRemaining;
-            } else {
-                clearInterval(countdownTimer);
-                timerElement.classList.remove('animatable');
-                document.querySelector('.resend-button').style.display = 'block';
-            }
-        }, 1000);
-    }
+	function runTimer(timerElement) {
+		const timerCircle = timerElement.querySelector('svg > circle + circle');
+		timerElement.classList.add('animatable');
+		timerCircle.style.strokeDashoffset = 1;
 
-    runTimer(document.querySelector('.timer'));
+		let countdownTimer = setInterval(
+				function() {
+					if (isTimeLeft()) {
+						const timeRemaining = timeLeft--;
+						const normalizedTime = (60 - timeRemaining) / 60;
+						timerCircle.style.strokeDashoffset = normalizedTime;
+						timer.innerHTML = timeRemaining;
+					} else {
+						clearInterval(countdownTimer);
+						timerElement.classList.remove('animatable');
+						document.querySelector('.resend-button').style.display = 'block';
+					}
+				}, 1000);
+	}
 
-    function resetTimer() {
-        timeLeft = 60;
-        document.querySelector('.resend-button').style.display = 'none';
-        const timerElement = document.querySelector('.timer');
-        const timerCircle = timerElement.querySelector('svg > circle + circle');
-        const timerText = timerElement.querySelector('#timeLeft');
+	runTimer(document.querySelector('.timer'));
 
-        timerText.textContent = timeLeft; // Reset text content
-        timerCircle.style.strokeDashoffset = 1; // Reset circle animation
-        runTimer(timerElement);
-    }
+	function resetTimer() {
+		timeLeft = 60;
+		document.querySelector('.resend-button').style.display = 'none';
+		const timerElement = document.querySelector('.timer');
+		const timerCircle = timerElement.querySelector('svg > circle + circle');
+		const timerText = timerElement.querySelector('#timeLeft');
 
-    document.querySelector('.resend-button').addEventListener('click', function () {
-        resetTimer();
-    });
-
+		timerText.textContent = timeLeft; // Reset text content
+		timerCircle.style.strokeDashoffset = 1; // Reset circle animation
+		runTimer(timerElement);
+	}
+	document.querySelector('.resend-button').addEventListener('click',
+			function() {
+				resetTimer();
+			});
 </script>
 </html>
